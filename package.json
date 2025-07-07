@@ -1,0 +1,40 @@
+{
+  "name": "claude-code-tutorial",
+  "version": "1.0.0",
+  "description": "A beginner-friendly tutorial for Claude Code - designed for non-technical users",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000",
+    "build": "echo 'No build step required for static site'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "claude-code",
+    "tutorial",
+    "beginner",
+    "coding",
+    "ai",
+    "assistant",
+    "guide",
+    "british-english"
+  ],
+  "author": "Claude Code Tutorial",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/claude-code-tutorial.git"
+  },
+  "homepage": "https://claude-code-tutorial.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie <= 11"
+  ]
+}

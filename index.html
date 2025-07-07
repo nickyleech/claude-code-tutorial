@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Code Tutorial - A Beginner's Guide</title>
+    <meta name="description" content="Learn Claude Code easily with this beginner-friendly tutorial. Perfect for non-technical users.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <h1 class="nav-title">Claude Code Tutorial</h1>
+                <button class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Side Menu -->
+        <aside class="side-menu" id="side-menu">
+            <div class="menu-header">
+                <h2>Sections</h2>
+                <button class="close-menu" id="close-menu">&times;</button>
+            </div>
+            <ul class="menu-items">
+                <li><a href="#intro" class="menu-link">What is Claude Code?</a></li>
+                <li><a href="#getting-started" class="menu-link">Getting Started</a></li>
+                <li><a href="#first-chat" class="menu-link">Your First Chat</a></li>
+                <li><a href="#common-tasks" class="menu-link">Common Tasks</a></li>
+                <li><a href="#best-practices" class="menu-link">Best Practices</a></li>
+                <li><a href="#safety" class="menu-link">Safety First</a></li>
+                <li><a href="#examples" class="menu-link">Real Examples</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Introduction Section -->
+            <section id="intro" class="section">
+                <div class="section-header">
+                    <h2>What is Claude Code?</h2>
+                    <p class="subtitle">Your personal coding assistant</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Think of Claude Code as Your Brilliant Mate</h3>
+                    <p>Imagine having a knowledgeable friend who:</p>
+                    <ul class="benefit-list">
+                        <li>Understands your entire project at a glance</li>
+                        <li>Can explain complex technical bits in simple terms</li>
+                        <li>Makes changes to your code just by chatting</li>
+                        <li>Never judges your questions, no matter how basic</li>
+                    </ul>
+                    <p>That's exactly what Claude Code is!</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>What Can Claude Code Do?</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>🔍 Understand Your Project</h4>
+                            <p>"What does this website do?"</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>✏️ Make Changes</h4>
+                            <p>"Change the title to 'My Portfolio'"</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔧 Fix Problems</h4>
+                            <p>"This button isn't working, can you help?"</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>➕ Add New Features</h4>
+                            <p>"Add a dark mode toggle"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Key Benefits</h3>
+                    <ul class="checkmark-list">
+                        <li>No programming knowledge required</li>
+                        <li>Instant understanding of your project</li>
+                        <li>Safe changes with your approval</li>
+                        <li>Learn as you go</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Getting Started Section -->
+            <section id="getting-started" class="section">
+                <div class="section-header">
+                    <h2>Getting Started</h2>
+                    <p class="subtitle">Everything you need to begin</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>What You'll Need</h3>
+                    <ul class="simple-list">
+                        <li>A computer (Windows, Mac, or Linux)</li>
+                        <li>An internet connection</li>
+                        <li>A project folder (even an empty one!)</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Installation</h3>
+                    <div class="step-tabs">
+                        <button class="tab-button active" data-tab="mac">Mac</button>
+                        <button class="tab-button" data-tab="windows">Windows</button>
+                        <button class="tab-button" data-tab="linux">Linux</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="mac">
+                        <ol class="step-list">
+                            <li>Open Terminal (press <kbd>Cmd + Space</kbd>, type "Terminal")</li>
+                            <li>Type this command:
+                                <div class="code-block">
+                                    npm install -g @anthropic-ai/claude-code
+                                </div>
+                            </li>
+                            <li>Press Enter and wait for installation</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tab-content" id="windows">
+                        <ol class="step-list">
+                            <li>Open Command Prompt (press <kbd>Windows + R</kbd>, type "cmd")</li>
+                            <li>Type this command:
+                                <div class="code-block">
+                                    npm install -g @anthropic-ai/claude-code
+                                </div>
+                            </li>
+                            <li>Press Enter and wait for installation</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tab-content" id="linux">
+                        <ol class="step-list">
+                            <li>Open Terminal (usually <kbd>Ctrl + Alt + T</kbd>)</li>
+                            <li>Type this command:
+                                <div class="code-block">
+                                    npm install -g @anthropic-ai/claude-code
+                                </div>
+                            </li>
+                            <li>Press Enter and wait for installation</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Starting Claude Code</h3>
+                    <ol class="step-list">
+                        <li>Navigate to your project folder</li>
+                        <li>Type: <code class="inline-code">claude</code></li>
+                        <li>Look for the welcome message!</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- First Chat Section -->
+            <section id="first-chat" class="section">
+                <div class="section-header">
+                    <h2>Your First Chat</h2>
+                    <p class="subtitle">Starting your conversation with Claude</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Beginner-Friendly Questions</h3>
+                    <div class="question-examples">
+                        <div class="question-item">
+                            <strong>Get to know your project:</strong>
+                            <p>"What does this project do?"</p>
+                        </div>
+                        <div class="question-item">
+                            <strong>Explore the structure:</strong>
+                            <p>"Show me the main files"</p>
+                        </div>
+                        <div class="question-item">
+                            <strong>Understand the technology:</strong>
+                            <p>"What technologies does this project use?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Example Conversation</h3>
+                    <div class="chat-example">
+                        <div class="chat-message user">
+                            <strong>You:</strong> What does this project do?
+                        </div>
+                        <div class="chat-message claude">
+                            <strong>Claude:</strong> This appears to be a personal portfolio website built with HTML, CSS, and JavaScript. It has a homepage, an "About Me" section, a portfolio gallery, and a contact form. The main file is index.html and it's designed to showcase someone's work and skills.
+                        </div>
+                        <div class="chat-message user">
+                            <strong>You:</strong> Can you make the title bigger?
+                        </div>
+                        <div class="chat-message claude">
+                            <strong>Claude:</strong> I can help make the title bigger! I found the main heading in index.html.<br><br>
+                            <strong>Before:</strong> font-size: 24px<br>
+                            <strong>After:</strong> font-size: 36px<br><br>
+                            Should I make this change?
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Common Tasks Section -->
+            <section id="common-tasks" class="section">
+                <div class="section-header">
+                    <h2>Common Tasks Made Simple</h2>
+                    <p class="subtitle">What you can accomplish with Claude</p>
+                </div>
+
+                <div class="task-grid">
+                    <div class="task-card">
+                        <h3>Understanding Code</h3>
+                        <ul class="task-examples">
+                            <li>"Explain what this website does"</li>
+                            <li>"What does this function do?"</li>
+                            <li>"Why is this code here?"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="task-card">
+                        <h3>Making Changes</h3>
+                        <ul class="task-examples">
+                            <li>"Change the title to 'My Portfolio'"</li>
+                            <li>"Make the text bigger"</li>
+                            <li>"Change the background colour to blue"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="task-card">
+                        <h3>Adding Features</h3>
+                        <ul class="task-examples">
+                            <li>"Add a new section about my hobbies"</li>
+                            <li>"Create a contact form"</li>
+                            <li>"Add a dark mode toggle"</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="task-card">
+                        <h3>Fixing Problems</h3>
+                        <ul class="task-examples">
+                            <li>"This button isn't working"</li>
+                            <li>"The website looks broken on mobile"</li>
+                            <li>"The text is too small to read"</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Best Practices Section -->
+            <section id="best-practices" class="section">
+                <div class="section-header">
+                    <h2>Best Practices</h2>
+                    <p class="subtitle">How to get the best results</p>
+                </div>
+
+                <div class="practices-grid">
+                    <div class="practice-card good">
+                        <h3>✅ Be Specific</h3>
+                        <div class="example">
+                            <p><strong>Good:</strong> "Change the header text to 'Welcome to Sarah's Portfolio'"</p>
+                            <p><strong>Bad:</strong> "Change the text"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="practice-card good">
+                        <h3>✅ Use Plain Language</h3>
+                        <div class="example">
+                            <p><strong>Good:</strong> "Make the button bigger and more colourful"</p>
+                            <p><strong>Bad:</strong> "Increase the button's CSS properties"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="practice-card good">
+                        <h3>✅ Break Big Tasks Down</h3>
+                        <div class="example">
+                            <p><strong>Good:</strong> "First, add a contact form. Then, make it send emails."</p>
+                            <p><strong>Bad:</strong> "Create a complete contact system"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="practice-card good">
+                        <h3>✅ Ask for Explanations</h3>
+                        <div class="example">
+                            <p><strong>Good:</strong> "Can you explain what this code does?"</p>
+                            <p><strong>Bad:</strong> Just asking for changes without understanding</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety Section -->
+            <section id="safety" class="section">
+                <div class="section-header">
+                    <h2>Safety First</h2>
+                    <p class="subtitle">You're always in control</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Claude Always Shows You What Will Change</h3>
+                    <p>Before making any changes, Claude will show you:</p>
+                    <ul class="safety-list">
+                        <li>Exactly what code will be modified</li>
+                        <li>A clear before/after comparison</li>
+                        <li>An explanation of why the change is needed</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>You Can Always:</h3>
+                    <div class="control-options">
+                        <div class="control-item">
+                            <span class="control-icon">✅</span>
+                            <span>Say "yes" to approve changes</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-icon">❌</span>
+                            <span>Say "no" to reject changes</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-icon">🔄</span>
+                            <span>Ask for modifications</span>
+                        </div>
+                        <div class="control-item">
+                            <span class="control-icon">❓</span>
+                            <span>Ask for more explanation</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Examples Section -->
+            <section id="examples" class="section">
+                <div class="section-header">
+                    <h2>Real Examples</h2>
+                    <p class="subtitle">See Claude in action</p>
+                </div>
+
+                <div class="example-cards">
+                    <div class="example-card">
+                        <h3>Example 1: Personalising a Portfolio</h3>
+                        <div class="example-scenario">
+                            <p><strong>Scenario:</strong> You have a basic portfolio website but want to make it your own.</p>
+                            <div class="example-steps">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <p><strong>You:</strong> "I have a portfolio website but it's very generic. Can you help me personalise it?"</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <p><strong>Claude:</strong> "I can see it's a basic template. We could personalise your name, bio, projects, colour scheme, and contact information. What would you like to start with?"</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    <div class="step-content">
+                                        <p><strong>You:</strong> "Let's start with changing the name to 'Sarah Johnson'"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h3>Example 2: Adding a Contact Form</h3>
+                        <div class="example-scenario">
+                            <p><strong>Scenario:</strong> You want visitors to contact you directly through your website.</p>
+                            <div class="example-steps">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <p><strong>You:</strong> "I want to add a contact form so people can reach out to me directly"</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <p><strong>Claude:</strong> "I'll create a contact form with fields for name, email, and message, plus validation and styling. Should I create this form?"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-card">
+                        <h3>Example 3: Mobile-Friendly Design</h3>
+                        <div class="example-scenario">
+                            <p><strong>Scenario:</strong> Your website looks great on desktop but terrible on phones.</p>
+                            <div class="example-steps">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <p><strong>You:</strong> "My website looks terrible on mobile phones. Can you help fix it?"</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <p><strong>Claude:</strong> "I can fix the mobile issues by adding responsive CSS, making images scale properly, creating a mobile menu, and adjusting font sizes. Should I make these improvements?"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="section">
+                <div class="content-card highlight conclusion">
+                    <h2>You're Ready to Start!</h2>
+                    <p>Congratulations! You now have everything you need to start using Claude Code effectively.</p>
+                    
+                    <div class="next-steps">
+                        <h3>Your Next Steps:</h3>
+                        <ol>
+                            <li>Install Claude Code following the steps above</li>
+                            <li>Try your first conversation with simple questions</li>
+                            <li>Make a small change like updating text or colours</li>
+                            <li>Experiment with new features as you get more comfortable</li>
+                        </ol>
+                    </div>
+                    
+                    <p class="final-note">Remember: Claude Code is designed to make coding accessible to everyone. You don't need to be a programmer to create brilliant things!</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator" id="progress-indicator"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
