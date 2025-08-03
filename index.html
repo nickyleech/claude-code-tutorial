@@ -31,6 +31,17 @@
                 <li><a href="#intro" class="menu-link">What is Claude Code?</a></li>
                 <li><a href="#getting-started" class="menu-link">Getting Started</a></li>
                 <li><a href="#first-chat" class="menu-link">Your First Chat</a></li>
+                <li><a href="#cheat-sheet" class="menu-link">📄 Cheat Sheet</a></li>
+                <li><a href="#claude-md" class="menu-link">📝 CLAUDE.md Files</a></li>
+                <li><a href="#project-organisation" class="menu-link">📁 Project Organisation</a></li>
+                <li><a href="#testing" class="menu-link">🧪 Testing Strategy</a></li>
+                <li><a href="#prompts-library" class="menu-link">💬 Best Prompts</a></li>
+                <li><a href="#vscode-integration" class="menu-link">💻 VS Code Integration</a></li>
+                <li><a href="#vercel-masterclass" class="menu-link">🚀 Vercel Deployment</a></li>
+                <li><a href="#complete-walkthrough" class="menu-link">👩‍💻 Complete Walkthrough</a></li>
+                <li><a href="#storage-integration" class="menu-link">💾 Storage Integration</a></li>
+                <li><a href="#api-integration" class="menu-link">🔌 API Integration</a></li>
+                <li><a href="#data-sources" class="menu-link">📡 Data Sources</a></li>
                 <li><a href="#common-tasks" class="menu-link">Common Tasks</a></li>
                 <li><a href="#best-practices" class="menu-link">Best Practices</a></li>
                 <li><a href="#safety" class="menu-link">Safety First</a></li>
@@ -205,6 +216,558 @@
                             <strong>Before:</strong> font-size: 24px<br>
                             <strong>After:</strong> font-size: 36px<br><br>
                             Should I make this change?
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cheat Sheet Section -->
+            <section id="cheat-sheet" class="section">
+                <div class="section-header">
+                    <h2>📄 Claude Code Cheat Sheet</h2>
+                    <p class="subtitle">Quick reference guide for everyday use</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>📥 Download Your Cheat Sheet</h3>
+                    <p>Get instant access to essential commands, shortcuts, and prompts - perfect for keeping beside your keyboard!</p>
+                    <div class="download-buttons">
+                        <button class="download-btn primary" onclick="downloadCheatSheetPDF()">
+                            📄 Download PDF
+                        </button>
+                        <button class="download-btn secondary" onclick="printCheatSheet()">
+                            🖨️ Print Version
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cheat-sections-grid">
+                    <div class="cheat-card">
+                        <h3>🚀 Essential Commands</h3>
+                        <div class="cheat-items">
+                            <div class="cheat-item">
+                                <code>claude</code>
+                                <span>Start Claude Code in current directory</span>
+                            </div>
+                            <div class="cheat-item">
+                                <code>/help</code>
+                                <span>Show all available commands</span>
+                            </div>
+                            <div class="cheat-item">
+                                <code>/memory</code>
+                                <span>Edit your CLAUDE.md file</span>
+                            </div>
+                            <div class="cheat-item">
+                                <code>/init</code>
+                                <span>Create a new CLAUDE.md file</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3>⌨️ VS Code Shortcuts</h3>
+                        <div class="cheat-items">
+                            <div class="cheat-item">
+                                <code>Cmd+Esc</code> <small>(Mac)</small>
+                                <span>Quick launch Claude Code</span>
+                            </div>
+                            <div class="cheat-item">
+                                <code>Ctrl+Esc</code> <small>(Windows/Linux)</small>
+                                <span>Quick launch Claude Code</span>
+                            </div>
+                            <div class="cheat-item">
+                                <code>Cmd+Option+K</code> <small>(Mac)</small>
+                                <span>Reference current file</span>
+                            </div>
+                            <div class="cheat-item">
+                                <code>Alt+Ctrl+K</code> <small>(Windows/Linux)</small>
+                                <span>Reference current file</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3>💬 Starter Prompts</h3>
+                        <div class="cheat-items">
+                            <div class="cheat-item">
+                                <span class="prompt">"Give me an overview of this project"</span>
+                                <small>Understand codebase structure</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="prompt">"Review this code for improvements"</span>
+                                <small>Get enhancement suggestions</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="prompt">"Create tests for this function"</span>
+                                <small>Generate test cases</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="prompt">"Explain this error message"</span>
+                                <small>Debug problems</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cheat-card">
+                        <h3>🌐 Web Development</h3>
+                        <div class="cheat-items">
+                            <div class="cheat-item">
+                                <span class="prompt">"Make this website mobile-friendly"</span>
+                                <small>Responsive design help</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="prompt">"Optimise for Vercel deployment"</span>
+                                <small>Performance improvements</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="prompt">"Add accessibility features"</span>
+                                <small>WCAG compliance</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="prompt">"Create a loading animation"</span>
+                                <small>UI enhancements</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🎯 Pro Tips</h3>
+                    <ul class="pro-tips-list">
+                        <li><strong>Be specific:</strong> "Change the header background to navy blue" works better than "change the colours"</li>
+                        <li><strong>Context matters:</strong> Mention what you're building - "for my portfolio website" or "for a mobile app"</li>
+                        <li><strong>Ask for explanations:</strong> "Can you explain why this approach is better?" helps you learn</li>
+                        <li><strong>Break it down:</strong> For big changes, say "First, let's update the navigation, then we'll work on the footer"</li>
+                        <li><strong>Use British English:</strong> Claude understands "colour" vs "color" and "optimise" vs "optimize"</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- CLAUDE.md Files Section -->
+            <section id="claude-md" class="section">
+                <div class="section-header">
+                    <h2>📝 Mastering CLAUDE.md Files</h2>
+                    <p class="subtitle">Your project's memory system</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>What is a CLAUDE.md File?</h3>
+                    <p>Think of CLAUDE.md as Claude's notebook for your project. It remembers your preferences, coding style, and project details so you don't have to repeat yourself in every conversation.</p>
+                    
+                    <div class="analogy-box">
+                        <h4>🏠 Like a House Manual</h4>
+                        <p>Just as you might leave instructions for a house-sitter about where things are and how you like things done, CLAUDE.md tells Claude how you prefer to work on your project.</p>
+                    </div>
+                </div>
+
+                <div class="claude-md-types">
+                    <div class="claude-md-type">
+                        <h3>📂 Project Memory (CLAUDE.md)</h3>
+                        <p><strong>Location:</strong> <code>./CLAUDE.md</code> (in your project folder)</p>
+                        <p><strong>Purpose:</strong> Shared instructions for anyone working on the project</p>
+                        <div class="example-box">
+                            <h4>Example Contents:</h4>
+                            <div class="code-block">
+# My Portfolio Website
+
+## Project Overview
+- Personal portfolio built with HTML, CSS, and JavaScript
+- Deployed to Vercel
+- Target audience: potential employers in the UK
+
+## Coding Standards
+- Use British English spelling (colour, centre, optimise)
+- 2-space indentation for HTML/CSS
+- Mobile-first responsive design
+- Semantic HTML5 elements
+
+## Deployment
+- Deploy to Vercel using `vercel --prod`
+- Domain: myportfolio.vercel.app
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="claude-md-type">
+                        <h3>👤 User Memory (~/.claude/CLAUDE.md)</h3>
+                        <p><strong>Location:</strong> <code>~/.claude/CLAUDE.md</code> (your home directory)</p>
+                        <p><strong>Purpose:</strong> Personal preferences for all your projects</p>
+                        <div class="example-box">
+                            <h4>Example Contents:</h4>
+                            <div class="code-block">
+# My Personal Preferences
+
+## Code Style
+- Always use British English
+- Prefer const/let over var in JavaScript
+- Add comments explaining complex logic
+- Use meaningful variable names
+
+## Communication
+- Explain changes before making them
+- Show before/after comparisons
+- Ask if I want to continue with large changes
+
+## Tools
+- Primary editor: VS Code
+- Deployment platform: Vercel
+- Version control: Git with descriptive commit messages
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🎯 Quick Setup Guide</h3>
+                    <div class="setup-steps">
+                        <div class="setup-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Create Your First CLAUDE.md</h4>
+                                <p>In your terminal, type: <code>/init</code></p>
+                                <p>This creates a basic CLAUDE.md file for your project.</p>
+                            </div>
+                        </div>
+                        <div class="setup-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Customise It</h4>
+                                <p>Edit the file to include your project details, coding preferences, and any special instructions.</p>
+                            </div>
+                        </div>
+                        <div class="setup-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Keep It Updated</h4>
+                                <p>Use <code>/memory</code> to quickly edit your CLAUDE.md file as your project evolves.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📋 Ready-Made Templates</h3>
+                    <div class="template-grid">
+                        <div class="template-card" onclick="downloadTemplate('portfolio')">
+                            <h4>🎨 Portfolio Website</h4>
+                            <p>Perfect for personal portfolios and CV sites</p>
+                            <span class="download-link">Download Template</span>
+                        </div>
+                        <div class="template-card" onclick="downloadTemplate('business')">
+                            <h4>🏢 Business Website</h4>
+                            <p>Small business or startup website</p>
+                            <span class="download-link">Download Template</span>
+                        </div>
+                        <div class="template-card" onclick="downloadTemplate('webapp')">
+                            <h4>🚀 Web Application</h4>
+                            <p>Interactive web apps with JavaScript</p>
+                            <span class="download-link">Download Template</span>
+                        </div>
+                        <div class="template-card" onclick="downloadTemplate('blog')">
+                            <h4>📝 Blog or Content Site</h4>
+                            <p>Content-focused websites and blogs</p>
+                            <span class="download-link">Download Template</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Project Organisation Section -->
+            <section id="project-organisation" class="section">
+                <div class="section-header">
+                    <h2>📁 Project Organisation Guide</h2>
+                    <p class="subtitle">Structure your projects for success</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Why Organisation Matters</h3>
+                    <p>A well-organised project helps Claude understand your codebase faster and makes collaboration with others much easier. Think of it as tidying your workspace - everything has its place!</p>
+                </div>
+
+                <div class="organisation-sections">
+                    <div class="org-section">
+                        <h3>📂 Essential Folders</h3>
+                        <div class="folder-structure">
+                            <div class="folder-item">
+                                <code>📁 docs/</code>
+                                <span>Project documentation and guides</span>
+                                <div class="folder-contents">
+                                    <code>📄 README.md</code> - Project overview<br>
+                                    <code>📄 CHANGELOG.md</code> - Version history<br>
+                                    <code>📄 API.md</code> - API documentation
+                                </div>
+                            </div>
+                            <div class="folder-item">
+                                <code>📁 examples/</code>
+                                <span>Sample code and usage examples</span>
+                                <div class="folder-contents">
+                                    <code>📄 basic-usage.html</code> - Simple examples<br>
+                                    <code>📄 advanced-features.js</code> - Complex patterns
+                                </div>
+                            </div>
+                            <div class="folder-item">
+                                <code>📁 templates/</code>
+                                <span>Reusable code templates</span>
+                                <div class="folder-contents">
+                                    <code>📄 page-template.html</code> - Standard page layout<br>
+                                    <code>📄 component-template.js</code> - Component structure
+                                </div>
+                            </div>
+                            <div class="folder-item">
+                                <code>📁 assets/</code>
+                                <span>Images, fonts, and media files</span>
+                                <div class="folder-contents">
+                                    <code>📁 images/</code> - Photos and graphics<br>
+                                    <code>📁 fonts/</code> - Custom typography<br>
+                                    <code>📁 icons/</code> - Icon sets
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="org-section">
+                        <h3>📋 Context Files for Claude</h3>
+                        <p>These files help Claude understand your project better:</p>
+                        
+                        <div class="context-files">
+                            <div class="context-file">
+                                <h4>📄 CLAUDE.md</h4>
+                                <p>Your project's memory file (we covered this earlier!)</p>
+                            </div>
+                            <div class="context-file">
+                                <h4>📄 ARCHITECTURE.md</h4>
+                                <p>Explains how your code is structured and why</p>
+                                <div class="example-snippet">
+                                    <strong>Example:</strong>
+                                    <div class="code-block small">
+# Architecture Overview
+
+## File Structure
+- `index.html` - Main entry point
+- `styles.css` - All styling (mobile-first)
+- `script.js` - Interactive functionality
+
+## Design Decisions
+- Single-page application for simplicity
+- Vanilla JavaScript (no frameworks)
+- CSS Grid for responsive layouts
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="context-file">
+                                <h4>📄 PATTERNS.md</h4>
+                                <p>Common coding patterns used in your project</p>
+                                <div class="example-snippet">
+                                    <strong>Example:</strong>
+                                    <div class="code-block small">
+# Coding Patterns
+
+## Event Handling
+Always use arrow functions for event listeners to maintain context.
+
+## CSS Classes
+Use BEM methodology: `.block__element--modifier`
+
+## JavaScript Modules
+Each major feature in its own function with clear naming.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="org-section">
+                        <h3>🔗 Linking It All Together</h3>
+                        <p>Use imports in your CLAUDE.md to reference other files:</p>
+                        <div class="code-block">
+# My Project
+
+@docs/ARCHITECTURE.md
+@docs/PATTERNS.md
+
+## Quick Start
+Follow the examples in `examples/basic-usage.html`
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🚀 Quick Start Template</h3>
+                    <p>Copy this folder structure to get started:</p>
+                    <div class="folder-template">
+                        <div class="code-block">
+my-project/
+├── 📄 CLAUDE.md
+├── 📄 README.md
+├── 📄 index.html
+├── 📄 styles.css
+├── 📄 script.js
+├── 📄 vercel.json
+├── 📁 docs/
+│   ├── 📄 ARCHITECTURE.md
+│   └── 📄 PATTERNS.md
+├── 📁 examples/
+│   └── 📄 basic-usage.html
+├── 📁 templates/
+│   └── 📄 page-template.html
+└── 📁 assets/
+    ├── 📁 images/
+    ├── 📁 fonts/
+    └── 📁 icons/
+                        </div>
+                    </div>
+                    <button class="download-btn primary" onclick="downloadProjectTemplate()">
+                        📥 Download Project Template
+                    </button>
+                </div>
+            </section>
+
+            <!-- Testing Strategy Section -->
+            <section id="testing" class="section">
+                <div class="section-header">
+                    <h2>🧪 Testing Strategy with Claude</h2>
+                    <p class="subtitle">Ensure your code works perfectly</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>What is Testing? (For Beginners)</h3>
+                    <p>Testing is like proofreading an essay - you check that everything works as expected before sharing it with others. It's your safety net to catch problems early!</p>
+                    
+                    <div class="analogy-box">
+                        <h4>🍰 Like Testing a Recipe</h4>
+                        <p>Before serving a cake to guests, you'd taste it first, check it's cooked through, and make sure it looks right. Code testing works the same way - you check each part works correctly.</p>
+                    </div>
+                </div>
+
+                <div class="testing-types">
+                    <div class="test-type">
+                        <h3>🔍 Manual Testing</h3>
+                        <p>Testing by clicking around and trying things yourself</p>
+                        <div class="test-examples">
+                            <h4>Ask Claude to help you:</h4>
+                            <ul>
+                                <li>"Create a checklist to test my website on mobile"</li>
+                                <li>"What should I check before deploying to Vercel?"</li>
+                                <li>"Help me test this contact form"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="test-type">
+                        <h3>🤖 Automated Testing</h3>
+                        <p>Code that tests your code automatically</p>
+                        <div class="test-examples">
+                            <h4>Claude can create tests for:</h4>
+                            <ul>
+                                <li>JavaScript functions</li>
+                                <li>Form validation</li>
+                                <li>API connections</li>
+                                <li>User interactions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🎯 Testing Prompts That Work</h3>
+                    <div class="prompt-categories">
+                        <div class="prompt-category">
+                            <h4>📋 Test Planning</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Create a testing checklist for my portfolio website"</span>
+                                    <small>Gets a comprehensive list of things to check</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"What could go wrong with this contact form?"</span>
+                                    <small>Identifies potential issues</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-category">
+                            <h4>🔨 Test Creation</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Write tests for this JavaScript function"</span>
+                                    <small>Creates automated test code</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Test this code with different inputs"</span>
+                                    <small>Checks edge cases and error handling</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-category">
+                            <h4>🐛 Bug Finding</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Review this code for potential bugs"</span>
+                                    <small>Spots common programming mistakes</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Why isn't this working on mobile?"</span>
+                                    <small>Debugs responsive design issues</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📱 Device & Browser Testing</h3>
+                    <p>Make sure your website works everywhere:</p>
+                    <div class="testing-grid">
+                        <div class="testing-item">
+                            <h4>📱 Mobile Devices</h4>
+                            <ul>
+                                <li>iPhone (Safari)</li>
+                                <li>Android (Chrome)</li>
+                                <li>Tablet portrait & landscape</li>
+                            </ul>
+                        </div>
+                        <div class="testing-item">
+                            <h4>💻 Desktop Browsers</h4>
+                            <ul>
+                                <li>Chrome (most common)</li>
+                                <li>Safari (Mac users)</li>
+                                <li>Firefox & Edge</li>
+                            </ul>
+                        </div>
+                        <div class="testing-item">
+                            <h4>♿ Accessibility</h4>
+                            <ul>
+                                <li>Keyboard navigation</li>
+                                <li>Screen reader compatibility</li>
+                                <li>Colour contrast</li>
+                            </ul>
+                        </div>
+                        <div class="testing-item">
+                            <h4>⚡ Performance</h4>
+                            <ul>
+                                <li>Loading speed</li>
+                                <li>Image optimisation</li>
+                                <li>Mobile data usage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🚀 Vercel Testing Tips</h3>
+                    <div class="vercel-tips">
+                        <div class="tip-item">
+                            <h4>🔍 Preview Deployments</h4>
+                            <p>Every git push creates a preview URL - test your changes before going live!</p>
+                        </div>
+                        <div class="tip-item">
+                            <h4>📊 Web Vitals</h4>
+                            <p>Vercel shows performance metrics - aim for good scores in all areas.</p>
+                        </div>
+                        <div class="tip-item">
+                            <h4>🌐 Edge Testing</h4>
+                            <p>Your site loads from servers worldwide - test from different locations.</p>
                         </div>
                     </div>
                 </div>
@@ -411,6 +974,2894 @@
                                         <p><strong>Claude:</strong> "I can fix the mobile issues by adding responsive CSS, making images scale properly, creating a mobile menu, and adjusting font sizes. Should I make these improvements?"</p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Best Practice Prompts Library -->
+            <section id="prompts-library" class="section">
+                <div class="section-header">
+                    <h2>💬 Best Practice Prompts Library</h2>
+                    <p class="subtitle">Proven prompts for every situation</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>The Art of Asking Claude</h3>
+                    <p>The right prompt can make the difference between getting exactly what you need and spending ages clarifying. Here are battle-tested prompts that work brilliantly!</p>
+                </div>
+
+                <div class="prompts-categories">
+                    <div class="prompt-category-section">
+                        <h3>🔍 Project Review & Analysis</h3>
+                        <div class="prompt-collection">
+                            <div class="prompt-card">
+                                <h4>Initial Project Understanding</h4>
+                                <div class="prompt-text">"Give me a comprehensive overview of this project - what does it do, how is it structured, and what technologies does it use?"</div>
+                                <div class="prompt-tip">Perfect for when you inherit a project or return to old code</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Security Review</h4>
+                                <div class="prompt-text">"Review this codebase for security vulnerabilities, particularly focusing on user input validation, authentication, and data handling"</div>
+                                <div class="prompt-tip">Essential before deploying to production</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Performance Analysis</h4>
+                                <div class="prompt-text">"Analyse this website for performance improvements, focusing on loading speed, mobile experience, and Vercel optimisation"</div>
+                                <div class="prompt-tip">Great for ensuring fast load times</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-category-section">
+                        <h3>🚀 Enhancement & Features</h3>
+                        <div class="prompt-collection">
+                            <div class="prompt-card">
+                                <h4>Feature Addition</h4>
+                                <div class="prompt-text">"I want to add [specific feature] to this website. Please suggest the best approach, show me the code changes needed, and explain any considerations"</div>
+                                <div class="prompt-tip">Replace [specific feature] with what you want - "a contact form", "dark mode toggle", etc.</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Mobile Optimisation</h4>
+                                <div class="prompt-text">"Make this website fully responsive and mobile-friendly, ensuring it looks great on phones, tablets, and desktops"</div>
+                                <div class="prompt-tip">Essential for modern web development</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Accessibility Improvements</h4>
+                                <div class="prompt-text">"Improve the accessibility of this website to meet WCAG guidelines, focusing on keyboard navigation, screen readers, and colour contrast"</div>
+                                <div class="prompt-tip">Makes your site usable by everyone</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-category-section">
+                        <h3>🔧 Maintenance & Debugging</h3>
+                        <div class="prompt-collection">
+                            <div class="prompt-card">
+                                <h4>Bug Investigation</h4>
+                                <div class="prompt-text">"This [specific element] isn't working properly on [device/browser]. Can you help me identify and fix the issue?"</div>
+                                <div class="prompt-tip">Be specific about what's broken and where</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Code Refactoring</h4>
+                                <div class="prompt-text">"This code works but feels messy. Can you refactor it to be cleaner, more maintainable, and follow best practices?"</div>
+                                <div class="prompt-tip">Great for improving existing code quality</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Error Explanation</h4>
+                                <div class="prompt-text">"I'm getting this error: [paste error message]. What does it mean and how do I fix it?"</div>
+                                <div class="prompt-tip">Always include the full error message</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="prompt-category-section">
+                        <h3>🌐 Vercel-Specific Prompts</h3>
+                        <div class="prompt-collection">
+                            <div class="prompt-card">
+                                <h4>Deployment Optimisation</h4>
+                                <div class="prompt-text">"Optimise this project for Vercel deployment, including performance, SEO, and edge function considerations"</div>
+                                <div class="prompt-tip">Perfect before going live on Vercel</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Custom Domain Setup</h4>
+                                <div class="prompt-text">"Help me set up a custom domain for this Vercel project and configure DNS properly"</div>
+                                <div class="prompt-tip">Professional websites need custom domains</div>
+                            </div>
+                            <div class="prompt-card">
+                                <h4>Environment Configuration</h4>
+                                <div class="prompt-text">"Set up environment variables and configuration for this project to work properly on Vercel"</div>
+                                <div class="prompt-tip">Essential for apps with API keys or configs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🎯 Prompt Writing Tips</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <h4>✅ Be Specific</h4>
+                            <p>Instead of "fix my website", say "the navigation menu doesn't work on mobile Safari"</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>✅ Provide Context</h4>
+                            <p>Mention your target audience, technology stack, and deployment platform</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>✅ Ask for Explanations</h4>
+                            <p>Add "please explain your approach" to learn while you implement</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>✅ Set Constraints</h4>
+                            <p>Mention limitations like "keep it simple" or "no external libraries"</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VS Code Integration Section -->
+            <section id="vscode-integration" class="section">
+                <div class="section-header">
+                    <h2>💻 VS Code Integration Excellence</h2>
+                    <p class="subtitle">Seamless coding with your favourite editor</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Why VS Code + Claude Code = Magic</h3>
+                    <p>VS Code is the world's most popular code editor, and with Claude Code integration, it becomes your intelligent coding companion. No more switching between applications!</p>
+                </div>
+
+                <div class="vscode-sections">
+                    <div class="vscode-section">
+                        <h3>🚀 Quick Setup</h3>
+                        <div class="setup-steps">
+                            <div class="setup-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Open VS Code Terminal</h4>
+                                    <p>Press <kbd>Ctrl+`</kbd> (or <kbd>Cmd+`</kbd> on Mac) to open the integrated terminal</p>
+                                </div>
+                            </div>
+                            <div class="setup-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Start Claude Code</h4>
+                                    <p>Type <code>claude</code> in the terminal - the extension will install automatically!</p>
+                                </div>
+                            </div>
+                            <div class="setup-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Start Coding Together</h4>
+                                    <p>Claude can now see your project structure and help with your code</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vscode-section">
+                        <h3>⌨️ Keyboard Shortcuts (British Layout)</h3>
+                        <div class="shortcuts-grid">
+                            <div class="shortcut-item">
+                                <div class="shortcut-keys">
+                                    <kbd>Cmd</kbd> + <kbd>Esc</kbd> <small>(Mac)</small><br>
+                                    <kbd>Ctrl</kbd> + <kbd>Esc</kbd> <small>(Windows/Linux)</small>
+                                </div>
+                                <div class="shortcut-desc">Quick launch Claude Code</div>
+                            </div>
+                            <div class="shortcut-item">
+                                <div class="shortcut-keys">
+                                    <kbd>Cmd</kbd> + <kbd>Option</kbd> + <kbd>K</kbd> <small>(Mac)</small><br>
+                                    <kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>K</kbd> <small>(Windows/Linux)</small>
+                                </div>
+                                <div class="shortcut-desc">Reference current file in Claude</div>
+                            </div>
+                            <div class="shortcut-keys">
+                                <div class="shortcut-keys">
+                                    <kbd>Ctrl</kbd> + <kbd>`</kbd>
+                                </div>
+                                <div class="shortcut-desc">Toggle integrated terminal</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="vscode-section">
+                        <h3>🎯 Smart Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <h4>📄 Automatic Context Sharing</h4>
+                                <p>Claude automatically knows about your current file and any selected text</p>
+                                <div class="feature-example">
+                                    <strong>Try this:</strong> Select some code, then ask "What does this function do?"
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <h4>🔍 Error Integration</h4>
+                                <p>Claude can see VS Code's error messages and warnings</p>
+                                <div class="feature-example">
+                                    <strong>Try this:</strong> When you see red squiggly lines, ask "Fix these TypeScript errors"
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <h4>📊 Diff Viewing</h4>
+                                <p>See Claude's proposed changes directly in VS Code's diff viewer</p>
+                                <div class="feature-example">
+                                    <strong>Pro tip:</strong> Review changes carefully before accepting them
+                                </div>
+                            </div>
+                            <div class="feature-card">
+                                <h4>🔗 File References</h4>
+                                <p>Quickly reference any file in your project</p>
+                                <div class="feature-example">
+                                    <strong>Try this:</strong> Use the keyboard shortcut to reference files in your questions
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏆 Pro Workflows</h3>
+                    <div class="workflow-examples">
+                        <div class="workflow-item">
+                            <h4>🐛 Debugging Workflow</h4>
+                            <ol>
+                                <li>Spot an error in VS Code (red squiggly lines)</li>
+                                <li>Select the problematic code</li>
+                                <li>Press <kbd>Cmd+Option+K</kbd> to reference it</li>
+                                <li>Ask: "This code has an error, can you help fix it?"</li>
+                                <li>Review the proposed changes in VS Code's diff view</li>
+                            </ol>
+                        </div>
+                        <div class="workflow-item">
+                            <h4>✨ Feature Development</h4>
+                            <ol>
+                                <li>Open the file where you want to add a feature</li>
+                                <li>Start Claude Code in the integrated terminal</li>
+                                <li>Describe what you want: "Add a search function to this page"</li>
+                                <li>Claude sees your current file and suggests appropriate changes</li>
+                                <li>Accept or modify the suggestions as needed</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🔧 Troubleshooting</h3>
+                    <div class="troubleshooting-grid">
+                        <div class="trouble-item">
+                            <h4>❌ Claude doesn't start</h4>
+                            <ul>
+                                <li>Make sure you're using VS Code's integrated terminal</li>
+                                <li>Check that <code>claude</code> command is installed globally</li>
+                                <li>Try restarting VS Code</li>
+                            </ul>
+                        </div>
+                        <div class="trouble-item">
+                            <h4>❌ Shortcuts don't work</h4>
+                            <ul>
+                                <li>Ensure the Claude Code extension is installed</li>
+                                <li>Check for keyboard shortcut conflicts in VS Code settings</li>
+                                <li>Try running <code>claude</code> manually first</li>
+                            </ul>
+                        </div>
+                        <div class="trouble-item">
+                            <h4>❌ Context not shared</h4>
+                            <ul>
+                                <li>Make sure you started Claude from the project root</li>
+                                <li>Check that the file is saved (unsaved changes might not be shared)</li>
+                                <li>Try referencing the file explicitly with the keyboard shortcut</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vercel Deployment Masterclass -->
+            <section id="vercel-masterclass" class="section">
+                <div class="section-header">
+                    <h2>🚀 Vercel Deployment Masterclass</h2>
+                    <p class="subtitle">From code to live website in minutes</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Why Vercel is Perfect for Your Projects</h3>
+                    <p>Vercel makes deploying websites as easy as pushing to GitHub. It's fast, reliable, and handles everything from SSL certificates to global CDN - so you can focus on creating brilliant content!</p>
+                </div>
+
+                <div class="deployment-journey">
+                    <div class="journey-section">
+                        <h3>📋 Pre-Deployment Checklist</h3>
+                        <div class="checklist-card">
+                            <h4>Ask Claude to help you prepare:</h4>
+                            <div class="checklist-items">
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="prep1" disabled>
+                                    <label for="prep1">"Review my project for Vercel deployment readiness"</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="prep2" disabled>
+                                    <label for="prep2">"Optimise my images and assets for web deployment"</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="prep3" disabled>
+                                    <label for="prep3">"Check my website works on mobile devices"</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="prep4" disabled>
+                                    <label for="prep4">"Add proper meta tags for SEO and social sharing"</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="prep5" disabled>
+                                    <label for="prep5">"Test all links and forms work correctly"</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-section">
+                        <h3>🚀 Deployment Methods</h3>
+                        <div class="deployment-methods">
+                            <div class="method-card primary">
+                                <h4>🔗 Git Integration (Recommended)</h4>
+                                <p>Connect your GitHub, GitLab, or Bitbucket repository</p>
+                                <div class="method-steps">
+                                    <ol>
+                                        <li>Push your code to a Git repository</li>
+                                        <li>Visit <a href="https://vercel.com" target="_blank">vercel.com</a> and sign up</li>
+                                        <li>Click "New Project" and import your repository</li>
+                                        <li>Vercel automatically detects your settings</li>
+                                        <li>Click "Deploy" - done!</li>
+                                    </ol>
+                                </div>
+                                <div class="method-benefits">
+                                    <strong>Benefits:</strong> Automatic deployments, preview URLs for every push, easy rollbacks
+                                </div>
+                            </div>
+
+                            <div class="method-card">
+                                <h4>💻 CLI Deployment</h4>
+                                <p>Deploy directly from your terminal</p>
+                                <div class="method-steps">
+                                    <div class="code-block">
+# Install Vercel CLI
+npm install -g vercel
+
+# Deploy your project
+vercel
+
+# Deploy to production
+vercel --prod
+                                    </div>
+                                </div>
+                                <div class="method-benefits">
+                                    <strong>Benefits:</strong> Quick for one-off deployments, works without Git
+                                </div>
+                            </div>
+
+                            <div class="method-card">
+                                <h4>📁 Drag & Drop</h4>
+                                <p>Perfect for static sites and quick prototypes</p>
+                                <div class="method-steps">
+                                    <ol>
+                                        <li>Zip your project folder</li>
+                                        <li>Go to <a href="https://vercel.com" target="_blank">vercel.com</a></li>
+                                        <li>Drag your zip file to the deployment area</li>
+                                        <li>Your site goes live instantly!</li>
+                                    </ol>
+                                </div>
+                                <div class="method-benefits">
+                                    <strong>Benefits:</strong> No Git required, instant deployment
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-section">
+                        <h3>⚡ Performance Optimisation</h3>
+                        <div class="optimisation-tips">
+                            <div class="tip-category">
+                                <h4>🖼️ Images</h4>
+                                <div class="tip-content">
+                                    <p>Ask Claude: <em>"Optimise my images for web performance and create responsive image solutions"</em></p>
+                                    <ul>
+                                        <li>Use WebP format when possible</li>
+                                        <li>Implement lazy loading</li>
+                                        <li>Add proper alt tags</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tip-category">
+                                <h4>📱 Mobile Performance</h4>
+                                <div class="tip-content">
+                                    <p>Ask Claude: <em>"Make my site faster on mobile devices with slow connections"</em></p>
+                                    <ul>
+                                        <li>Minimise JavaScript and CSS</li>
+                                        <li>Use system fonts when possible</li>
+                                        <li>Implement service workers for caching</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tip-category">
+                                <h4>🌐 Global Performance</h4>
+                                <div class="tip-content">
+                                    <p>Vercel's Edge Network automatically handles:</p>
+                                    <ul>
+                                        <li>Global CDN distribution</li>
+                                        <li>Automatic compression</li>
+                                        <li>HTTP/2 and HTTP/3 support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-section">
+                        <h3>🌐 Custom Domains & SSL</h3>
+                        <div class="domain-setup">
+                            <div class="domain-step">
+                                <h4>1. Purchase a Domain</h4>
+                                <p>Popular registrars: Namecheap, Google Domains, Cloudflare</p>
+                                <div class="domain-suggestions">
+                                    <strong>Good domain practices:</strong>
+                                    <ul>
+                                        <li>Keep it short and memorable</li>
+                                        <li>Use .com, .co.uk, or relevant TLD</li>
+                                        <li>Avoid hyphens and numbers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="domain-step">
+                                <h4>2. Add to Vercel</h4>
+                                <p>In your Vercel dashboard: Settings → Domains → Add Domain</p>
+                            </div>
+                            <div class="domain-step">
+                                <h4>3. Configure DNS</h4>
+                                <p>Vercel provides the DNS records to add at your registrar</p>
+                                <div class="dns-tip">
+                                    <strong>Pro tip:</strong> Use Cloudflare for free DNS management and additional performance benefits
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📊 Monitoring & Analytics</h3>
+                    <div class="monitoring-grid">
+                        <div class="monitor-item">
+                            <h4>📈 Vercel Analytics</h4>
+                            <p>Built-in analytics show visitor data, page views, and performance metrics</p>
+                            <div class="monitor-tip">Enable in your project dashboard for detailed insights</div>
+                        </div>
+                        <div class="monitor-item">
+                            <h4>⚡ Web Vitals</h4>
+                            <p>Real user performance data from Chrome users worldwide</p>
+                            <div class="monitor-tip">Aim for green scores in Core Web Vitals for better SEO rankings</div>
+                        </div>
+                        <div class="monitor-item">
+                            <h4>🔍 Error Tracking</h4>
+                            <p>Vercel automatically tracks JavaScript errors and failed requests</p>
+                            <div class="monitor-tip">Check the Functions tab for any deployment or runtime errors</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Complete Walkthrough Section -->
+            <section id="complete-walkthrough" class="section">
+                <div class="section-header">
+                    <h2>👩‍💻 Complete Walkthrough: Sarah's Portfolio</h2>
+                    <p class="subtitle">From idea to live website - step by step</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Meet Sarah</h3>
+                    <p>Sarah is a graphic designer from Manchester who wants to create a portfolio website to showcase her work to potential employers. She's never coded before but wants a professional, mobile-friendly site deployed on Vercel.</p>
+                </div>
+
+                <div class="walkthrough-journey">
+                    <div class="journey-phase">
+                        <h3>🎯 Phase 1: Planning & Setup</h3>
+                        <div class="phase-steps">
+                            <div class="step-item">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Initial Planning</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "I want to create a portfolio website to show my graphic design work. I'm not a programmer - can you help me plan this?"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "Absolutely! For a graphic design portfolio, I'd recommend a clean, image-focused website. We'll need:
+                                            <ul>
+                                                <li>Homepage with your introduction</li>
+                                                <li>Portfolio gallery showcasing your best work</li>
+                                                <li>About page with your story and skills</li>
+                                                <li>Contact form for potential clients</li>
+                                                <li>Mobile-responsive design (essential for modern websites)</li>
+                                            </ul>
+                                            Would you like to start with a simple HTML structure?"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Setting Up the Project</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "Yes, let's start! How do I set up the project folder?"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "I'll create a proper project structure for you:
+                                            
+                                            ```
+                                            sarah-portfolio/
+                                            ├── index.html (homepage)
+                                            ├── about.html (about page)
+                                            ├── portfolio.html (work gallery)
+                                            ├── contact.html (contact form)
+                                            ├── styles.css (all styling)
+                                            ├── script.js (interactive features)
+                                            ├── images/ (your design work)
+                                            └── CLAUDE.md (project memory)
+                                            ```
+                                            
+                                            Should I create the initial files?"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Creating CLAUDE.md</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "What should go in the CLAUDE.md file?"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "Great question! This helps me remember your preferences:
+                                            
+                                            ```markdown
+                                            # Sarah's Portfolio Website
+                                            
+                                            ## Project Overview
+                                            - Graphic designer portfolio
+                                            - Target audience: UK employers and freelance clients
+                                            - Clean, professional design showcasing creativity
+                                            
+                                            ## Design Preferences
+                                            - Modern, minimalist aesthetic
+                                            - Emphasis on visual work over text
+                                            - British English throughout
+                                            - Mobile-first responsive design
+                                            
+                                            ## Technical Details
+                                            - Static HTML/CSS/JS website
+                                            - Deploy to Vercel
+                                            - Optimised for fast loading
+                                            ```"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-phase">
+                        <h3>🎨 Phase 2: Design & Development</h3>
+                        <div class="phase-steps">
+                            <div class="step-item">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>Creating the Homepage</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "I'd like a homepage with my name, a brief intro, and links to my work. Can you create this?"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "Perfect! I'll create a homepage that introduces you professionally. Here's what I'm thinking:
+                                            
+                                            - Large, elegant header with your name
+                                            - Professional photo (you can add this later)
+                                            - Brief introduction highlighting your expertise
+                                            - Call-to-action buttons to view your portfolio
+                                            - Clean navigation to other pages
+                                            
+                                            Should I code this up with a modern, mobile-friendly design?"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">5</div>
+                                <div class="step-content">
+                                    <h4>Building the Portfolio Gallery</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "The portfolio page is most important - I need to showcase about 12 design projects with images and descriptions"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "Absolutely! For a designer's portfolio, the visual presentation is crucial. I'll create:
+                                            
+                                            - Responsive grid layout that looks great on all devices
+                                            - Hover effects to show project details
+                                            - Lightbox functionality to view full-size images
+                                            - Proper image optimisation for fast loading
+                                            - Filter options by project type (branding, print, digital, etc.)
+                                            
+                                            Would you like me to include placeholder content so you can see how it looks?"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">6</div>
+                                <div class="step-content">
+                                    <h4>Mobile Optimisation</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "I'm looking at this on my phone and something doesn't look right with the navigation"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "Let me fix that mobile navigation! I can see the issue - the menu items are too close together for touch screens. I'll:
+                                            
+                                            - Create a proper hamburger menu for mobile
+                                            - Increase touch target sizes for better usability
+                                            - Adjust the portfolio grid to stack nicely on phones
+                                            - Test the layout on various screen sizes
+                                            
+                                            Mobile users are over 60% of website traffic, so this is crucial!"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-phase">
+                        <h3>🚀 Phase 3: Deployment & Polish</h3>
+                        <div class="phase-steps">
+                            <div class="step-item">
+                                <div class="step-number">7</div>
+                                <div class="step-content">
+                                    <h4>Preparing for Deployment</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "The site looks great locally! How do I get it live on the internet?"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "Excellent! Before we deploy to Vercel, let me do a final review:
+                                            
+                                            ✓ All images optimised for web
+                                            ✓ Mobile responsiveness tested
+                                            ✓ Contact form validation working
+                                            ✓ SEO meta tags added
+                                            ✓ Loading performance optimised
+                                            
+                                            I'll also create a vercel.json file to ensure everything deploys correctly. Ready to go live?"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">8</div>
+                                <div class="step-content">
+                                    <h4>Going Live on Vercel</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "Yes, let's deploy! What's the easiest way?"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "For your first deployment, I recommend the drag-and-drop method:
+                                            
+                                            1. I'll create a zip file of your project
+                                            2. Go to vercel.com and sign up (free!)
+                                            3. Drag the zip file onto the deployment area
+                                            4. Your site will be live in under a minute!
+                                            
+                                            You'll get a URL like: sarah-portfolio-xyz.vercel.app
+                                            
+                                            Later, we can set up a custom domain like sarahdesigns.co.uk"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <div class="step-number">9</div>
+                                <div class="step-content">
+                                    <h4>Final Touches & SEO</h4>
+                                    <div class="conversation-example">
+                                        <div class="chat-message user">
+                                            <strong>Sarah:</strong> "It's live! How do I make sure people can find it on Google?"
+                                        </div>
+                                        <div class="chat-message claude">
+                                            <strong>Claude:</strong> "Brilliant! Now let's optimise for search engines:
+                                            
+                                            - I'll add proper meta descriptions for each page
+                                            - Create descriptive alt text for all your portfolio images
+                                            - Add structured data for better search results
+                                            - Submit your site to Google Search Console
+                                            - Ensure fast loading speeds (already optimised!)
+                                            
+                                            Your professional portfolio is now ready to impress potential clients and employers!"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏆 Sarah's Results</h3>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <h4>📱 Mobile-Perfect</h4>
+                            <p>Portfolio looks stunning on all devices, from phones to desktop monitors</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>⚡ Lightning Fast</h4>
+                            <p>Loads in under 2 seconds globally thanks to Vercel's edge network</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>🔍 SEO Optimised</h4>
+                            <p>Appears in Google searches for "Manchester graphic designer"</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>💼 Professional Impact</h4>
+                            <p>Landed 3 freelance clients and 2 job interviews within first month</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📋 Your Turn: Checklist</h3>
+                    <p>Ready to create your own project? Use this checklist:</p>
+                    <div class="your-checklist">
+                        <div class="checklist-items">
+                            <div class="checklist-item">
+                                <input type="checkbox" id="your1">
+                                <label for="your1">Define your project goals and target audience</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="your2">
+                                <label for="your2">Create a CLAUDE.md file with your preferences</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="your3">
+                                <label for="your3">Start with Claude Code: ask for a project structure</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="your4">
+                                <label for="your4">Build and test your content step by step</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="your5">
+                                <label for="your5">Optimise for mobile and performance</label>
+                            </div>
+                            <div class="checklist-item">
+                                <input type="checkbox" id="your6">
+                                <label for="your6">Deploy to Vercel and celebrate! 🎉</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Storage Integration Masterclass -->
+            <section id="storage-integration" class="section">
+                <div class="section-header">
+                    <h2>💾 Storage Integration Masterclass</h2>
+                    <p class="subtitle">From local storage to enterprise databases</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Storage Strategy Overview</h3>
+                    <p>Modern web applications need robust data storage solutions. Whether you're building a simple portfolio or a complex SaaS application, choosing the right storage approach is crucial for performance, scalability, and cost-effectiveness.</p>
+                </div>
+
+                <!-- Local Storage & Browser APIs -->
+                <div class="storage-category">
+                    <h3>🔧 Local Storage & Browser APIs</h3>
+                    <div class="storage-methods-grid">
+                        <div class="storage-method-card">
+                            <h4>localStorage & sessionStorage</h4>
+                            <p><strong>Best for:</strong> User preferences, shopping carts, form data</p>
+                            <div class="storage-example">
+                                <div class="code-block">
+// Store user preferences
+localStorage.setItem('theme', 'dark');
+localStorage.setItem('language', 'en-GB');
+
+// Retrieve data
+const theme = localStorage.getItem('theme');
+const userPrefs = JSON.parse(localStorage.getItem('preferences'));
+
+// Session-only data
+sessionStorage.setItem('currentPage', 'portfolio');
+                                </div>
+                            </div>
+                            <div class="storage-limits">
+                                <strong>Limits:</strong> ~5-10MB per origin, synchronous API
+                            </div>
+                        </div>
+
+                        <div class="storage-method-card">
+                            <h4>IndexedDB</h4>
+                            <p><strong>Best for:</strong> Complex offline applications, large datasets</p>
+                            <div class="storage-example">
+                                <div class="code-block">
+// Open IndexedDB database
+const request = indexedDB.open('MyApp', 1);
+
+request.onsuccess = function(event) {
+    const db = event.target.result;
+    
+    // Add data
+    const transaction = db.transaction(['projects'], 'readwrite');
+    const store = transaction.objectStore('projects');
+    store.add({
+        id: 1,
+        name: 'Portfolio Website',
+        status: 'completed'
+    });
+};
+                                </div>
+                            </div>
+                            <div class="storage-limits">
+                                <strong>Limits:</strong> ~50% of disk space, asynchronous API
+                            </div>
+                        </div>
+
+                        <div class="storage-method-card">
+                            <h4>Cache API</h4>
+                            <p><strong>Best for:</strong> Offline functionality, PWA caching</p>
+                            <div class="storage-example">
+                                <div class="code-block">
+// Cache resources for offline use
+caches.open('v1').then(cache => {
+    return cache.addAll([
+        '/',
+        '/styles.css',
+        '/script.js',
+        '/images/logo.png'
+    ]);
+});
+
+// Retrieve from cache
+caches.match('/api/data').then(response => {
+    if (response) {
+        return response;
+    }
+    // Fallback to network
+    return fetch('/api/data');
+});
+                                </div>
+                            </div>
+                            <div class="storage-limits">
+                                <strong>Limits:</strong> Available storage quota, works with Service Workers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Integration -->
+                <div class="storage-category">
+                    <h3>🗄️ Database Integration Spectrum</h3>
+                    
+                    <div class="database-types">
+                        <div class="database-type-section">
+                            <h4>Relational Databases (SQL)</h4>
+                            <div class="database-grid">
+                                <div class="database-card">
+                                    <h5>📊 PostgreSQL</h5>
+                                    <p><strong>Best for:</strong> Complex queries, ACID compliance, scalable applications</p>
+                                    <div class="database-example">
+                                        <strong>Claude Code Integration:</strong>
+                                        <div class="code-block">
+"Set up a PostgreSQL database for my portfolio with user authentication and project storage"
+
+// Claude will help you:
+// 1. Choose between Vercel Postgres, Supabase, or AWS RDS
+// 2. Set up connection strings and environment variables
+// 3. Create database schema and migrations
+// 4. Implement connection pooling for performance
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> £0-20/month (Vercel), £20-45/month (AWS RDS)
+                                    </div>
+                                </div>
+
+                                <div class="database-card">
+                                    <h5>🔧 SQLite</h5>
+                                    <p><strong>Best for:</strong> Development, small applications, embedded use</p>
+                                    <div class="database-example">
+                                        <strong>Claude Code Integration:</strong>
+                                        <div class="code-block">
+"Create a local SQLite database for development with automatic schema generation"
+
+// Claude can help with:
+// - Setting up SQLite for local development
+// - Creating migrations for production deployment
+// - Optimising queries for performance
+// - Backup and restore strategies
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Free (local), hosting costs for cloud deployment
+                                    </div>
+                                </div>
+
+                                <div class="database-card">
+                                    <h5>🌐 MySQL/MariaDB</h5>
+                                    <p><strong>Best for:</strong> Traditional web applications, WordPress, established workflows</p>
+                                    <div class="database-example">
+                                        <strong>Claude Code Integration:</strong>
+                                        <div class="code-block">
+"Migrate my WordPress site to use a modern MySQL setup with proper indexing"
+
+// Claude provides guidance on:
+// - PlanetScale integration for modern MySQL
+// - Connection pooling and optimisation
+// - Migration from traditional hosting
+// - Performance monitoring and tuning
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> £24/month (PlanetScale), £15-40/month (AWS RDS)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="database-type-section">
+                            <h4>NoSQL Databases</h4>
+                            <div class="database-grid">
+                                <div class="database-card">
+                                    <h5>📄 MongoDB</h5>
+                                    <p><strong>Best for:</strong> Flexible schemas, rapid prototyping, content management</p>
+                                    <div class="database-example">
+                                        <strong>Claude Code Integration:</strong>
+                                        <div class="code-block">
+"Design a MongoDB schema for my e-commerce application with product variations"
+
+// Claude assists with:
+// - Schema design for flexible product data
+// - Indexing strategies for search performance
+// - Aggregation pipelines for analytics
+// - Atlas integration and deployment
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> £7/month (Shared), £47/month (Dedicated)
+                                    </div>
+                                </div>
+
+                                <div class="database-card">
+                                    <h5>🔥 Firebase Firestore</h5>
+                                    <p><strong>Best for:</strong> Real-time applications, mobile sync, rapid development</p>
+                                    <div class="database-example">
+                                        <strong>Claude Code Integration:</strong>
+                                        <div class="code-block">
+"Set up Firestore for a real-time chat application with user presence"
+
+// Claude helps implement:
+// - Real-time listeners for live updates  
+// - Security rules for data protection
+// - Offline persistence for mobile users
+// - Integration with Firebase Auth
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Free tier (1GB), £0.15/GB/month + operations
+                                    </div>
+                                </div>
+
+                                <div class="database-card">
+                                    <h5>⚡ Redis</h5>
+                                    <p><strong>Best for:</strong> Caching, sessions, real-time features, pub/sub</p>
+                                    <div class="database-example">
+                                        <strong>Claude Code Integration:</strong>
+                                        <div class="code-block">
+"Implement Redis caching for my API to improve response times"
+
+// Claude provides patterns for:
+// - API response caching strategies
+// - Session management with Redis
+// - Real-time notifications with pub/sub
+// - Integration with Upstash for serverless
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Free tier (10K requests), £0.16/100K requests
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Storage Solutions -->
+                <div class="storage-category">
+                    <h3>☁️ Cloud Storage Solutions</h3>
+                    
+                    <div class="cloud-storage-grid">
+                        <div class="cloud-storage-card">
+                            <h4>🔷 Vercel Blob</h4>
+                            <p><strong>Best for:</strong> Images, documents, static assets with global CDN</p>
+                            <div class="storage-integration">
+                                <strong>Ask Claude:</strong>
+                                <div class="prompt-example">
+                                    "Set up Vercel Blob for image uploads in my portfolio with automatic optimisation"
+                                </div>
+                                <div class="code-block">
+import { put } from '@vercel/blob';
+
+export default async function handler(req, res) {
+    const { searchParams } = new URL(req.url);
+    const filename = searchParams.get('filename');
+    
+    const blob = await put(filename, req.body, {
+        access: 'public',
+        contentType: req.headers['content-type'],
+    });
+    
+    return Response.json(blob);
+}
+                                </div>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> Free tier (1GB), Pro £0.12/GB/month
+                            </div>
+                        </div>
+
+                        <div class="cloud-storage-card">
+                            <h4>📦 AWS S3</h4>
+                            <p><strong>Best for:</strong> Large files, backup, data archiving, enterprise applications</p>
+                            <div class="storage-integration">
+                                <strong>Ask Claude:</strong>
+                                <div class="prompt-example">
+                                    "Configure S3 with CloudFront for global file delivery and proper security"
+                                </div>
+                                <div class="code-block">
+import AWS from 'aws-sdk';
+
+const s3 = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY,
+    secretAccessKey: process.env.AWS_SECRET_KEY,
+    region: 'eu-west-2' // London region
+});
+
+const uploadFile = async (file, key) => {
+    return s3.upload({
+        Bucket: 'my-app-storage',
+        Key: key,
+        Body: file,
+        ContentType: file.type
+    }).promise();
+};
+                                </div>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> £0.019/GB/month + £0.0003/1K requests
+                            </div>
+                        </div>
+
+                        <div class="cloud-storage-card">
+                            <h4>🖼️ Cloudinary</h4>
+                            <p><strong>Best for:</strong> Image/video processing, responsive media, transformations</p>
+                            <div class="storage-integration">
+                                <strong>Ask Claude:</strong>
+                                <div class="prompt-example">
+                                    "Implement Cloudinary for automatic image optimisation with responsive breakpoints"
+                                </div>
+                                <div class="code-block">
+import { v2 as cloudinary } from 'cloudinary';
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+// Auto-optimised image URL
+const optimisedUrl = cloudinary.url('sample.jpg', {
+    fetch_format: 'auto',
+    quality: 'auto',
+    width: 800,
+    crop: 'fill'
+});
+                                </div>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> Free tier (25K transformations), Plus £77/month
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storage Best Practices -->
+                <div class="content-card">
+                    <h3>📋 Storage Selection Guide</h3>
+                    <div class="selection-matrix">
+                        <div class="matrix-item">
+                            <h4>🏠 Personal/Portfolio Sites</h4>
+                            <p><strong>Recommended:</strong> localStorage + Vercel Blob</p>
+                            <ul>
+                                <li>User preferences in localStorage</li>
+                                <li>Images and assets in Vercel Blob</li>
+                                <li>Contact form data via API</li>
+                            </ul>
+                            <div class="cost-estimate">
+                                <strong>Monthly Cost:</strong> £0-5
+                            </div>
+                        </div>
+                        
+                        <div class="matrix-item">
+                            <h4>🚀 Startup/SaaS</h4>
+                            <p><strong>Recommended:</strong> Supabase or Firebase</p>
+                            <ul>
+                                <li>Real-time database with auth</li>
+                                <li>File storage for user uploads</li>
+                                <li>Built-in admin dashboard</li>
+                            </ul>
+                            <div class="cost-estimate">
+                                <strong>Monthly Cost:</strong> £20-50
+                            </div>
+                        </div>
+                        
+                        <div class="matrix-item">
+                            <h4>🏢 Enterprise Applications</h4>
+                            <p><strong>Recommended:</strong> AWS/Azure + PostgreSQL</p>
+                            <ul>
+                                <li>Multi-region deployment</li>
+                                <li>Advanced security features</li>
+                                <li>Compliance certifications</li>
+                            </ul>
+                            <div class="cost-estimate">
+                                <strong>Monthly Cost:</strong> £150-500+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claude Code Prompts for Storage -->
+                <div class="content-card">
+                    <h3>💬 Storage Integration Prompts</h3>
+                    <div class="prompt-categories">
+                        <div class="prompt-category">
+                            <h4>Database Setup</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Set up a PostgreSQL database for my project with user authentication and data relationships"</span>
+                                    <small>Gets complete database architecture guidance</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Design a MongoDB schema for my content management system with flexible document structure"</span>
+                                    <small>Provides NoSQL schema design patterns</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Implement Redis caching for my API endpoints to improve performance"</span>
+                                    <small>Shows caching strategies and implementation</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-category">
+                            <h4>File Storage</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Configure file upload with automatic image optimisation and CDN delivery"</span>
+                                    <small>Complete file handling pipeline</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Set up secure file storage with user permissions and access control"</span>
+                                    <small>Security-focused storage implementation</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Implement offline-first storage with sync when online"</span>
+                                    <small>Progressive Web App storage patterns</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- API Integration & Data Access -->
+            <section id="api-integration" class="section">
+                <div class="section-header">
+                    <h2>🔌 API Integration & Data Access</h2>
+                    <p class="subtitle">Connect your applications to the world</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Modern API Integration</h3>
+                    <p>APIs are the backbone of modern web applications. Whether you're fetching user data, processing payments, or sending notifications, Claude Code can help you integrate with any API securely and efficiently.</p>
+                </div>
+
+                <!-- API Endpoint Access Patterns -->
+                <div class="api-category">
+                    <h3>🌐 API Endpoint Access Patterns</h3>
+                    
+                    <div class="api-patterns-grid">
+                        <div class="api-pattern-card">
+                            <h4>REST APIs</h4>
+                            <p><strong>Best for:</strong> Standard web services, CRUD operations, most common pattern</p>
+                            <div class="api-example">
+                                <strong>Ask Claude:</strong>
+                                <div class="claude-prompt">
+                                    "Set up REST API integration for my user management system with proper error handling"
+                                </div>
+                                <div class="code-block">
+// Modern fetch with error handling
+const fetchUserData = async (userId) => {
+    try {
+        const response = await fetch(`/api/users/${userId}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const userData = await response.json();
+        return userData;
+    } catch (error) {
+        console.error('Failed to fetch user:', error);
+        throw error;
+    }
+};
+
+// POST request with data
+const createUser = async (userData) => {
+    const response = await fetch('/api/users', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(userData)
+    });
+    
+    return response.json();
+};
+                                </div>
+                            </div>
+                            <div class="api-cost-note">
+                                <strong>UK Cost:</strong> Usually pay-per-request, £0.001-0.01 per API call
+                            </div>
+                        </div>
+
+                        <div class="api-pattern-card">
+                            <h4>GraphQL Integration</h4>
+                            <p><strong>Best for:</strong> Complex data requirements, mobile apps, flexible queries</p>
+                            <div class="api-example">
+                                <strong>Ask Claude:</strong>
+                                <div class="claude-prompt">
+                                    "Implement GraphQL queries for my e-commerce site with product filtering and pagination"
+                                </div>
+                                <div class="code-block">
+// GraphQL query with variables
+const GET_PRODUCTS = `
+    query GetProducts($category: String!, $limit: Int!, $offset: Int!) {
+        products(category: $category, limit: $limit, offset: $offset) {
+            id
+            name
+            price
+            images {
+                url
+                alt
+            }
+            reviews {
+                rating
+                count
+            }
+        }
+    }
+`;
+
+const fetchProducts = async (category, page = 1, limit = 20) => {
+    const response = await fetch('/graphql', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+            query: GET_PRODUCTS,
+            variables: {
+                category,
+                limit,
+                offset: (page - 1) * limit
+            }
+        })
+    });
+
+    const { data, errors } = await response.json();
+    if (errors) throw new Error(errors[0].message);
+    return data.products;
+};
+                                </div>
+                            </div>
+                            <div class="api-cost-note">
+                                <strong>UK Cost:</strong> Based on query complexity, £0.005-0.02 per query
+                            </div>
+                        </div>
+
+                        <div class="api-pattern-card">
+                            <h4>WebSocket APIs</h4>
+                            <p><strong>Best for:</strong> Real-time features, chat, live updates, collaborative tools</p>
+                            <div class="api-example">
+                                <strong>Ask Claude:</strong>
+                                <div class="claude-prompt">
+                                    "Create WebSocket connection for real-time chat with automatic reconnection"
+                                </div>
+                                <div class="code-block">
+class WebSocketManager {
+    constructor(url, token) {
+        this.url = url;
+        this.token = token;
+        this.ws = null;
+        this.reconnectAttempts = 0;
+        this.maxReconnectAttempts = 5;
+    }
+
+    connect() {
+        this.ws = new WebSocket(`${this.url}?token=${this.token}`);
+        
+        this.ws.onopen = () => {
+            console.log('WebSocket connected');
+            this.reconnectAttempts = 0;
+        };
+
+        this.ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            this.handleMessage(data);
+        };
+
+        this.ws.onclose = () => {
+            console.log('WebSocket disconnected');
+            this.attemptReconnect();
+        };
+
+        this.ws.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+    }
+
+    sendMessage(type, payload) {
+        if (this.ws.readyState === WebSocket.OPEN) {
+            this.ws.send(JSON.stringify({ type, payload }));
+        }
+    }
+
+    attemptReconnect() {
+        if (this.reconnectAttempts < this.maxReconnectAttempts) {
+            this.reconnectAttempts++;
+            setTimeout(() => this.connect(), 1000 * this.reconnectAttempts);
+        }
+    }
+}
+                                </div>
+                            </div>
+                            <div class="api-cost-note">
+                                <strong>UK Cost:</strong> £0.20-2.00 per million messages, connection fees may apply
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authentication Methods -->
+                <div class="api-category">
+                    <h3>🔐 Authentication Methods</h3>
+                    
+                    <div class="auth-methods-grid">
+                        <div class="auth-method-card">
+                            <h4>🗝️ API Keys</h4>
+                            <p><strong>Best for:</strong> Simple authentication, service-to-service communication</p>
+                            <div class="auth-implementation">
+                                <strong>Claude Code Integration:</strong>
+                                <div class="code-block">
+// Secure API key storage and usage
+const API_KEY = process.env.STRIPE_SECRET_KEY;
+
+const makeSecureAPICall = async (endpoint, data) => {
+    const response = await fetch(`https://api.stripe.com/v1/${endpoint}`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${API_KEY}`,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams(data)
+    });
+    
+    return response.json();
+};
+
+// Environment variable validation
+if (!API_KEY) {
+    throw new Error('API key not found in environment variables');
+}
+                                </div>
+                                <div class="security-tip">
+                                    <strong>Security:</strong> Never expose API keys in client-side code. Use server-side endpoints or serverless functions.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-method-card">
+                            <h4>🔒 OAuth 2.0</h4>
+                            <p><strong>Best for:</strong> User authentication, third-party integrations, social login</p>
+                            <div class="auth-implementation">
+                                <strong>Claude Code Integration:</strong>
+                                <div class="code-block">
+// OAuth 2.0 flow implementation
+const initiateOAuth = () => {
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    const redirectUri = 'https://myapp.vercel.app/auth/callback';
+    const scope = 'profile email';
+    
+    const authUrl = `https://accounts.google.com/oauth/authorize?` +
+        `client_id=${clientId}&` +
+        `redirect_uri=${encodeURIComponent(redirectUri)}&` +
+        `scope=${encodeURIComponent(scope)}&` +
+        `response_type=code`;
+    
+    window.location.href = authUrl;
+};
+
+// Handle OAuth callback
+const handleOAuthCallback = async (code) => {
+    const response = await fetch('/api/auth/oauth/callback', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code })
+    });
+    
+    const { accessToken, refreshToken } = await response.json();
+    
+    // Store tokens securely
+    localStorage.setItem('accessToken', accessToken);
+    // Store refresh token in httpOnly cookie (server-side)
+};
+                                </div>
+                                <div class="security-tip">
+                                    <strong>Security:</strong> Always validate tokens server-side and implement token refresh logic.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="auth-method-card">
+                            <h4>🎟️ JWT Tokens</h4>
+                            <p><strong>Best for:</strong> Stateless authentication, microservices, mobile apps</p>
+                            <div class="auth-implementation">
+                                <strong>Claude Code Integration:</strong>
+                                <div class="code-block">
+// JWT token management
+class TokenManager {
+    constructor() {
+        this.token = localStorage.getItem('jwt');
+        this.refreshToken = this.getRefreshToken();
+    }
+
+    async makeAuthenticatedRequest(url, options = {}) {
+        // Check if token needs refresh
+        if (this.isTokenExpired()) {
+            await this.refreshAccessToken();
+        }
+
+        return fetch(url, {
+            ...options,
+            headers: {
+                ...options.headers,
+                'Authorization': `Bearer ${this.token}`
+            }
+        });
+    }
+
+    isTokenExpired() {
+        if (!this.token) return true;
+        
+        const payload = JSON.parse(atob(this.token.split('.')[1]));
+        const currentTime = Date.now() / 1000;
+        
+        return payload.exp < currentTime;
+    }
+
+    async refreshAccessToken() {
+        const response = await fetch('/api/auth/refresh', {
+            method: 'POST',
+            credentials: 'include' // Include httpOnly cookie
+        });
+
+        if (response.ok) {
+            const { accessToken } = await response.json();
+            this.token = accessToken;
+            localStorage.setItem('jwt', accessToken);
+        } else {
+            // Redirect to login
+            window.location.href = '/login';
+        }
+    }
+}
+                                </div>
+                                <div class="security-tip">
+                                    <strong>Security:</strong> Use short-lived access tokens (15 minutes) with secure refresh tokens.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Fetching Strategies -->
+                <div class="api-category">
+                    <h3>📊 Data Fetching Strategies</h3>
+                    
+                    <div class="fetching-strategies-grid">
+                        <div class="strategy-card">
+                            <h4>🔄 SWR (Stale-While-Revalidate)</h4>
+                            <p><strong>Best for:</strong> React applications, automatic caching, background updates</p>
+                            <div class="strategy-example">
+                                <strong>Ask Claude:</strong>
+                                <div class="claude-prompt">
+                                    "Set up SWR for my React app with automatic background refresh and error handling"
+                                </div>
+                                <div class="code-block">
+import useSWR from 'swr';
+
+// Custom fetcher with error handling
+const fetcher = async (url) => {
+    const response = await fetch(url, {
+        headers: {
+            'Authorization': `Bearer ${getToken()}`
+        }
+    });
+    
+    if (!response.ok) {
+        throw new Error('Failed to fetch data');
+    }
+    
+    return response.json();
+};
+
+// React component with SWR
+function UserProfile({ userId }) {
+    const { data, error, isLoading, mutate } = useSWR(
+        `/api/users/${userId}`,
+        fetcher,
+        {
+            refreshInterval: 30000, // Refresh every 30 seconds
+            revalidateOnFocus: true,
+            errorRetryCount: 3
+        }
+    );
+
+    if (error) return <div>Failed to load user</div>;
+    if (isLoading) return <div>Loading...</div>;
+
+    const updateUser = async (updates) => {
+        // Optimistic update
+        mutate({ ...data, ...updates }, false);
+        
+        try {
+            await fetch(`/api/users/${userId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updates)
+            });
+            
+            // Revalidate after successful update
+            mutate();
+        } catch (error) {
+            // Revert on error
+            mutate();
+        }
+    };
+
+    return <UserDetails user={data} onUpdate={updateUser} />;
+}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="strategy-card">
+                            <h4>⚡ React Query</h4>
+                            <p><strong>Best for:</strong> Complex state management, caching, infinite queries</p>
+                            <div class="strategy-example">
+                                <strong>Ask Claude:</strong>
+                                <div class="claude-prompt">
+                                    "Implement React Query for my app with infinite scrolling and optimistic updates"
+                                </div>
+                                <div class="code-block">
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+
+// Query hook with caching
+function useUserData(userId) {
+    return useQuery({
+        queryKey: ['user', userId],
+        queryFn: async () => {
+            const response = await fetch(`/api/users/${userId}`);
+            if (!response.ok) throw new Error('User not found');
+            return response.json();
+        },
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        cacheTime: 10 * 60 * 1000, // 10 minutes
+        retry: 3
+    });
+}
+
+// Mutation with optimistic updates
+function useUpdateUser() {
+    const queryClient = useQueryClient();
+    
+    return useMutation({
+        mutationFn: async ({ userId, updates }) => {
+            const response = await fetch(`/api/users/${userId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updates)
+            });
+            return response.json();
+        },
+        onMutate: async ({ userId, updates }) => {
+            // Cancel outgoing refetches
+            await queryClient.cancelQueries(['user', userId]);
+            
+            // Snapshot current value
+            const previousUser = queryClient.getQueryData(['user', userId]);
+            
+            // Optimistically update
+            queryClient.setQueryData(['user', userId], old => ({
+                ...old,
+                ...updates
+            }));
+            
+            return { previousUser };
+        },
+        onError: (err, variables, context) => {
+            // Rollback on error
+            queryClient.setQueryData(
+                ['user', variables.userId],
+                context.previousUser
+            );
+        },
+        onSettled: (data, error, variables) => {
+            // Always refetch after error or success
+            queryClient.invalidateQueries(['user', variables.userId]);
+        }
+    });
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Testing & Debugging -->
+                <div class="api-category">
+                    <h3>🧪 API Testing & Debugging</h3>
+                    
+                    <div class="testing-tools-grid">
+                        <div class="testing-tool-card">
+                            <h4>🚀 Postman Integration</h4>
+                            <p>Professional API testing and documentation</p>
+                            <div class="tool-features">
+                                <ul>
+                                    <li>Collection management and sharing</li>
+                                    <li>Environment variables for different stages</li>
+                                    <li>Automated testing scripts</li>
+                                    <li>API documentation generation</li>
+                                </ul>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> Free tier (3 users), Basic £7/month per user
+                            </div>
+                        </div>
+
+                        <div class="testing-tool-card">
+                            <h4>🔧 Browser DevTools</h4>
+                            <p>Built-in debugging capabilities</p>
+                            <div class="tool-features">
+                                <ul>
+                                    <li>Network tab for request inspection</li>
+                                    <li>Response analysis and formatting</li>
+                                    <li>Performance profiling</li>
+                                    <li>Security analysis</li>
+                                </ul>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> Free with all modern browsers
+                            </div>
+                        </div>
+
+                        <div class="testing-tool-card">
+                            <h4>📡 curl Commands</h4>
+                            <p>Command-line API testing and automation</p>
+                            <div class="testing-example">
+                                <div class="code-block">
+# GET request with headers
+curl -H "Authorization: Bearer $TOKEN" \
+     -H "Content-Type: application/json" \
+     https://api.example.com/users/123
+
+# POST request with data
+curl -X POST \
+     -H "Content-Type: application/json" \
+     -d '{"name":"John","email":"john@example.com"}' \
+     https://api.example.com/users
+
+# Upload file
+curl -X POST \
+     -F "file=@image.jpg" \
+     -H "Authorization: Bearer $TOKEN" \
+     https://api.example.com/upload
+                                </div>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> Free command-line tool
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- API Integration Prompts -->
+                <div class="content-card">
+                    <h3>💬 API Integration Prompts</h3>
+                    <div class="api-prompts-grid">
+                        <div class="prompt-category">
+                            <h4>🔗 API Setup</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Set up Stripe payment integration with proper error handling and webhook validation"</span>
+                                    <small>Complete payment processing setup</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Integrate Google Maps API for location search with autocomplete and geocoding"</span>
+                                    <small>Full mapping functionality</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Connect to SendGrid API for transactional emails with template management"</span>
+                                    <small>Email service integration</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-category">
+                            <h4>🔐 Authentication</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Implement OAuth 2.0 login with Google and Facebook for my React app"</span>
+                                    <small>Social authentication setup</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Set up JWT authentication with refresh tokens and secure storage"</span>
+                                    <small>Stateless authentication system</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Create API key management system with rate limiting and usage tracking"</span>
+                                    <small>API security and monitoring</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-category">
+                            <h4>📊 Data Management</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Set up SWR for my React app with optimistic updates and error recovery"</span>
+                                    <small>Modern data fetching patterns</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Implement GraphQL client with Apollo for complex data requirements"</span>
+                                    <small>Advanced query management</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Create WebSocket connection for real-time updates with fallback to polling"</span>
+                                    <small>Real-time data synchronization</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Handling Best Practices -->
+                <div class="content-card">
+                    <h3>⚠️ Error Handling Best Practices</h3>
+                    <div class="error-handling-guide">
+                        <div class="error-category">
+                            <h4>🚨 Network Errors</h4>
+                            <div class="code-block">
+const robustFetch = async (url, options = {}, retries = 3) => {
+    for (let i = 0; i < retries; i++) {
+        try {
+            const response = await fetch(url, {
+                ...options,
+                timeout: 10000, // 10 second timeout
+            });
+            
+            if (!response.ok) {
+                if (response.status >= 500 && i < retries - 1) {
+                    // Retry server errors
+                    await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+                    continue;
+                }
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            return response;
+        } catch (error) {
+            if (i === retries - 1) throw error;
+            
+            // Exponential backoff
+            await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+        }
+    }
+};
+                            </div>
+                        </div>
+
+                        <div class="error-category">
+                            <h4>🔒 Authentication Errors</h4>
+                            <div class="code-block">
+const handleAuthError = (error, response) => {
+    switch (response.status) {
+        case 401:
+            // Token expired or invalid
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+            break;
+        case 403:
+            // Insufficient permissions
+            showNotification('You do not have permission to perform this action', 'error');
+            break;
+        case 429:
+            // Rate limited
+            const retryAfter = response.headers.get('Retry-After');
+            showNotification(`Rate limited. Try again in ${retryAfter} seconds`, 'warning');
+            break;
+        default:
+            showNotification('Authentication error occurred', 'error');
+    }
+};
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Sources Integration Hub -->
+            <section id="data-sources" class="section">
+                <div class="section-header">
+                    <h2>📡 Data Sources Integration Hub</h2>
+                    <p class="subtitle">Connect to any data source with confidence</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Modern Data Integration</h3>
+                    <p>Today's applications need to connect to multiple data sources - from content management systems to payment processors, social media APIs to real-time data streams. Claude Code can help you integrate with any service quickly and securely.</p>
+                </div>
+
+                <!-- Content Management Systems -->
+                <div class="data-category">
+                    <h3>📝 Content Management Systems</h3>
+                    
+                    <div class="cms-types-grid">
+                        <div class="cms-section">
+                            <h4>🚀 Headless CMS Solutions</h4>
+                            <div class="cms-options-grid">
+                                <div class="cms-card">
+                                    <h5>📚 Contentful</h5>
+                                    <p><strong>Best for:</strong> Enterprise content, multi-language sites, complex content relationships</p>
+                                    <div class="cms-integration">
+                                        <strong>Ask Claude:</strong>
+                                        <div class="claude-prompt">
+                                            "Set up Contentful CMS for my blog with automatic content delivery and image optimization"
+                                        </div>
+                                        <div class="code-block">
+import { createClient } from 'contentful';
+
+const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+    host: 'cdn.contentful.com' // Use preview.contentful.com for draft content
+});
+
+// Fetch blog posts with rich content
+const getBlogPosts = async (limit = 10) => {
+    const response = await client.getEntries({
+        content_type: 'blogPost',
+        order: '-sys.createdAt',
+        limit,
+        include: 3 // Include linked assets and references
+    });
+
+    return response.items.map(item => ({
+        id: item.sys.id,
+        title: item.fields.title,
+        slug: item.fields.slug,
+        content: item.fields.content,
+        featuredImage: item.fields.featuredImage?.fields.file.url,
+        author: item.fields.author?.fields,
+        publishedAt: item.sys.createdAt,
+        tags: item.fields.tags || []
+    }));
+};
+
+// Real-time content updates with webhooks
+export default async function handler(req, res) {
+    if (req.method === 'POST') {
+        // Verify webhook signature
+        const signature = req.headers['x-contentful-signature'];
+        
+        // Revalidate affected pages
+        const { sys } = req.body;
+        if (sys.contentType?.sys.id === 'blogPost') {
+            await res.revalidate(`/blog/${req.body.fields.slug}`);
+            await res.revalidate('/blog');
+        }
+        
+        res.status(200).json({ revalidated: true });
+    }
+}
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Free tier (2 users), Team £371/month (5 users)
+                                    </div>
+                                </div>
+
+                                <div class="cms-card">
+                                    <h5>⚡ Strapi</h5>
+                                    <p><strong>Best for:</strong> Custom APIs, open-source flexibility, developer control</p>
+                                    <div class="cms-integration">
+                                        <strong>Ask Claude:</strong>
+                                        <div class="claude-prompt">
+                                            "Deploy Strapi CMS with custom content types and user permissions for my e-commerce site"
+                                        </div>
+                                        <div class="code-block">
+// Strapi API integration with authentication
+class StrapiClient {
+    constructor(baseURL, apiToken) {
+        this.baseURL = baseURL;
+        this.apiToken = apiToken;
+    }
+
+    async request(endpoint, options = {}) {
+        const url = `${this.baseURL}/api${endpoint}`;
+        const response = await fetch(url, {
+            ...options,
+            headers: {
+                'Authorization': `Bearer ${this.apiToken}`,
+                'Content-Type': 'application/json',
+                ...options.headers
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Strapi API error: ${response.status}`);
+        }
+
+        return response.json();
+    }
+
+    // Get products with filters and pagination
+    async getProducts(filters = {}, pagination = {}) {
+        const searchParams = new URLSearchParams();
+        
+        // Add filters
+        Object.entries(filters).forEach(([key, value]) => {
+            searchParams.append(`filters[${key}][$contains]`, value);
+        });
+        
+        // Add pagination
+        if (pagination.page) searchParams.append('pagination[page]', pagination.page);
+        if (pagination.pageSize) searchParams.append('pagination[pageSize]', pagination.pageSize);
+        
+        // Populate related fields
+        searchParams.append('populate', '*');
+        
+        return this.request(`/products?${searchParams.toString()}`);
+    }
+
+    // Create new product
+    async createProduct(productData) {
+        return this.request('/products', {
+            method: 'POST',
+            body: JSON.stringify({ data: productData })
+        });
+    }
+}
+
+const strapi = new StrapiClient(
+    process.env.STRAPI_URL,
+    process.env.STRAPI_API_TOKEN
+);
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Self-hosted free, Cloud £24/month per user
+                                    </div>
+                                </div>
+
+                                <div class="cms-card">
+                                    <h5>🎨 Sanity</h5>
+                                    <p><strong>Best for:</strong> Real-time collaboration, structured content, developer experience</p>
+                                    <div class="cms-integration">
+                                        <strong>Ask Claude:</strong>
+                                        <div class="claude-prompt">
+                                            "Integrate Sanity CMS with real-time updates and image transformations for my portfolio"
+                                        </div>
+                                        <div class="code-block">
+import { createClient } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
+
+const client = createClient({
+    projectId: process.env.SANITY_PROJECT_ID,
+    dataset: 'production',
+    apiVersion: '2023-05-03',
+    useCdn: true, // Enable CDN for faster reads
+    token: process.env.SANITY_API_TOKEN // Only for writes
+});
+
+const builder = imageUrlBuilder(client);
+
+// Helper function for image URLs
+const urlFor = (source) => builder.image(source);
+
+// GROQ queries for portfolio data
+const portfolioQuery = `
+*[_type == "project"] | order(_createdAt desc) {
+    _id,
+    title,
+    slug,
+    description,
+    "imageUrl": image.asset->url,
+    "imageAlt": image.alt,
+    technologies[],
+    liveUrl,
+    githubUrl,
+    featured,
+    _createdAt
+}
+`;
+
+// Fetch portfolio projects
+export const getPortfolioProjects = async () => {
+    try {
+        const projects = await client.fetch(portfolioQuery);
+        
+        return projects.map(project => ({
+            ...project,
+            // Generate responsive image URLs
+            imageUrl: project.imageUrl ? 
+                urlFor(project.imageUrl)
+                    .width(800)
+                    .height(600)
+                    .format('webp')
+                    .quality(80)
+                    .url() : null
+        }));
+    } catch (error) {
+        console.error('Error fetching portfolio:', error);
+        return [];
+    }
+};
+
+// Real-time updates with subscription
+import { useEffect, useState } from 'react';
+
+export const usePortfolioRealtime = () => {
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        // Initial fetch
+        getPortfolioProjects().then(setProjects);
+
+        // Subscribe to changes
+        const subscription = client
+            .listen('*[_type == "project"]')
+            .subscribe((update) => {
+                // Handle create, update, delete
+                if (update.transition === 'appear') {
+                    setProjects(prev => [update.result, ...prev]);
+                } else if (update.transition === 'update') {
+                    setProjects(prev => 
+                        prev.map(p => p._id === update.result._id ? update.result : p)
+                    );
+                } else if (update.transition === 'disappear') {
+                    setProjects(prev => prev.filter(p => p._id !== update.documentId));
+                }
+            });
+
+        return () => subscription.unsubscribe();
+    }, []);
+
+    return projects;
+};
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Free tier (3 users), Growth £159/month
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cms-section">
+                            <h4>🏗️ Traditional CMS Integration</h4>
+                            <div class="traditional-cms-grid">
+                                <div class="cms-card">
+                                    <h5>📰 WordPress REST API</h5>
+                                    <p>Leverage existing WordPress content with modern frontends</p>
+                                    <div class="cms-integration">
+                                        <div class="code-block">
+// WordPress REST API integration
+class WordPressClient {
+    constructor(baseURL, credentials = {}) {
+        this.baseURL = baseURL.replace(/\/$/, ''); // Remove trailing slash
+        this.credentials = credentials;
+    }
+
+    async request(endpoint, options = {}) {
+        const url = `${this.baseURL}/wp-json/wp/v2${endpoint}`;
+        const headers = {
+            'Content-Type': 'application/json',
+            ...options.headers
+        };
+
+        // Add authentication if provided
+        if (this.credentials.username && this.credentials.password) {
+            headers.Authorization = `Basic ${btoa(
+                `${this.credentials.username}:${this.credentials.password}`
+            )}`;
+        }
+
+        const response = await fetch(url, {
+            ...options,
+            headers
+        });
+
+        if (!response.ok) {
+            throw new Error(`WordPress API error: ${response.status}`);
+        }
+
+        return response.json();
+    }
+
+    // Get posts with embedded media and author data
+    async getPosts(params = {}) {
+        const searchParams = new URLSearchParams({
+            _embed: 'true', // Embed featured media and author
+            per_page: '10',
+            ...params
+        });
+
+        const posts = await this.request(`/posts?${searchParams.toString()}`);
+        
+        return posts.map(post => ({
+            id: post.id,
+            title: post.title.rendered,
+            content: post.content.rendered,
+            excerpt: post.excerpt.rendered,
+            slug: post.slug,
+            publishedAt: post.date,
+            featuredImage: post._embedded?.['wp:featuredmedia']?.[0]?.source_url,
+            author: post._embedded?.author?.[0]?.name,
+            categories: post._embedded?.['wp:term']?.[0] || []
+        }));
+    }
+
+    // Search posts
+    async searchPosts(query) {
+        return this.getPosts({ search: query });
+    }
+}
+
+const wpClient = new WordPressClient('https://mysite.com');
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Hosting dependent, typically £5-50/month
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third-Party Services -->
+                <div class="data-category">
+                    <h3>🔗 Third-Party Services</h3>
+                    
+                    <div class="services-grid">
+                        <div class="service-category">
+                            <h4>💳 Payment Processing</h4>
+                            <div class="service-cards">
+                                <div class="service-card">
+                                    <h5>💰 Stripe Integration</h5>
+                                    <div class="service-integration">
+                                        <strong>Ask Claude:</strong>
+                                        <div class="claude-prompt">
+                                            "Set up Stripe payments with subscription billing and webhook handling"
+                                        </div>
+                                        <div class="code-block">
+import Stripe from 'stripe';
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+
+// Create payment intent
+export const createPaymentIntent = async (amount, currency = 'gbp') => {
+    try {
+        const paymentIntent = await stripe.paymentIntents.create({
+            amount: amount * 100, // Convert to pence
+            currency,
+            metadata: {
+                integration_check: 'accept_a_payment'
+            }
+        });
+
+        return {
+            clientSecret: paymentIntent.client_secret
+        };
+    } catch (error) {
+        throw new Error(`Payment setup failed: ${error.message}`);
+    }
+};
+
+// Webhook handler for payment events
+export default async function handler(req, res) {
+    const sig = req.headers['stripe-signature'];
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+    let event;
+
+    try {
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+    } catch (err) {
+        console.error('Webhook signature verification failed:', err.message);
+        return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+
+    // Handle the event
+    switch (event.type) {
+        case 'payment_intent.succeeded':
+            const paymentIntent = event.data.object;
+            console.log('Payment succeeded:', paymentIntent.id);
+            // Update order status, send confirmation email, etc.
+            break;
+        case 'payment_intent.payment_failed':
+            const failedPayment = event.data.object;
+            console.log('Payment failed:', failedPayment.id);
+            // Handle failed payment
+            break;
+        default:
+            console.log(`Unhandled event type ${event.type}`);
+    }
+
+    res.json({ received: true });
+}
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> 1.4% + £0.20 per UK transaction
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-category">
+                            <h4>📧 Communication Services</h4>
+                            <div class="service-cards">
+                                <div class="service-card">
+                                    <h5>📬 SendGrid Email</h5>
+                                    <div class="service-integration">
+                                        <strong>Ask Claude:</strong>
+                                        <div class="claude-prompt">
+                                            "Integrate SendGrid for transactional emails with templates and tracking"
+                                        </div>
+                                        <div class="code-block">
+import sgMail from '@sendgrid/mail';
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+// Send transactional email with template
+export const sendWelcomeEmail = async (userEmail, userName) => {
+    const msg = {
+        to: userEmail,
+        from: {
+            email: 'noreply@myapp.com',
+            name: 'MyApp Team'
+        },
+        templateId: process.env.SENDGRID_WELCOME_TEMPLATE_ID,
+        dynamicTemplateData: {
+            name: userName,
+            loginUrl: 'https://myapp.com/login',
+            supportEmail: 'support@myapp.com'
+        },
+        trackingSettings: {
+            clickTracking: { enable: true },
+            openTracking: { enable: true }
+        }
+    };
+
+    try {
+        await sgMail.send(msg);
+        console.log('Welcome email sent successfully');
+    } catch (error) {
+        console.error('Email sending failed:', error);
+        throw new Error('Failed to send welcome email');
+    }
+};
+
+// Send bulk emails with personalisation
+export const sendBulkEmails = async (recipients) => {
+    const personalizations = recipients.map(recipient => ({
+        to: [{ email: recipient.email }],
+        dynamicTemplateData: {
+            name: recipient.name,
+            customData: recipient.data
+        }
+    }));
+
+    const msg = {
+        from: 'newsletter@myapp.com',
+        templateId: process.env.SENDGRID_NEWSLETTER_TEMPLATE_ID,
+        personalizations
+    };
+
+    try {
+        await sgMail.send(msg);
+        console.log(`Bulk email sent to ${recipients.length} recipients`);
+    } catch (error) {
+        console.error('Bulk email failed:', error);
+        throw error;
+    }
+};
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Free tier (100/day), Essentials £12/month (50K)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="service-category">
+                            <h4>📊 Analytics & Tracking</h4>
+                            <div class="service-cards">
+                                <div class="service-card">
+                                    <h5>📈 Google Analytics 4</h5>
+                                    <div class="service-integration">
+                                        <strong>Ask Claude:</strong>
+                                        <div class="claude-prompt">
+                                            "Set up Google Analytics 4 with custom events and e-commerce tracking"
+                                        </div>
+                                        <div class="code-block">
+// Google Analytics 4 integration
+class AnalyticsManager {
+    constructor(measurementId) {
+        this.measurementId = measurementId;
+        this.isInitialized = false;
+    }
+
+    // Initialize GA4
+    init() {
+        if (typeof window === 'undefined' || this.isInitialized) return;
+
+        // Load gtag script
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${this.measurementId}`;
+        document.head.appendChild(script);
+
+        // Initialize gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', this.measurementId, {
+            page_title: document.title,
+            page_location: window.location.href
+        });
+
+        this.isInitialized = true;
+    }
+
+    // Track custom events
+    trackEvent(eventName, parameters = {}) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', eventName, parameters);
+        }
+    }
+
+    // Track page views
+    trackPageView(pagePath, pageTitle) {
+        this.trackEvent('page_view', {
+            page_path: pagePath,
+            page_title: pageTitle
+        });
+    }
+
+    // Track e-commerce purchase
+    trackPurchase(transactionId, items, value, currency = 'GBP') {
+        this.trackEvent('purchase', {
+            transaction_id: transactionId,
+            value: value,
+            currency: currency,
+            items: items.map(item => ({
+                item_id: item.id,
+                item_name: item.name,
+                category: item.category,
+                quantity: item.quantity,
+                price: item.price
+            }))
+        });
+    }
+
+    // Track user signup
+    trackSignup(method = 'email') {
+        this.trackEvent('sign_up', {
+            method: method
+        });
+    }
+}
+
+// Usage
+const analytics = new AnalyticsManager(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID);
+
+// In your app
+useEffect(() => {
+    analytics.init();
+}, []);
+
+// Track button clicks
+const handleSubscribe = () => {
+    analytics.trackEvent('subscribe', {
+        plan: 'premium',
+        value: 29.99,
+        currency: 'GBP'
+    });
+};
+                                        </div>
+                                    </div>
+                                    <div class="cost-indicator">
+                                        <strong>UK Cost:</strong> Free with 10M events/month
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Data Sources -->
+                <div class="data-category">
+                    <h3>⚡ Real-time Data Sources</h3>
+                    
+                    <div class="realtime-grid">
+                        <div class="realtime-card">
+                            <h4>🔄 WebSocket Connections</h4>
+                            <p><strong>Best for:</strong> Live chat, collaborative editing, real-time notifications</p>
+                            <div class="realtime-integration">
+                                <strong>Ask Claude:</strong>
+                                <div class="claude-prompt">
+                                    "Create a WebSocket service for real-time chat with room management and user presence"
+                                </div>
+                                <div class="code-block">
+// Real-time chat with Socket.io
+import { Server } from 'socket.io';
+
+export default function handler(req, res) {
+    if (res.socket.server.io) {
+        console.log('Socket is already running');
+    } else {
+        console.log('Socket is initializing');
+        const io = new Server(res.socket.server);
+        res.socket.server.io = io;
+
+        const rooms = new Map(); // Track room participants
+
+        io.on('connection', (socket) => {
+            console.log('User connected:', socket.id);
+
+            // Join room
+            socket.on('join-room', ({ roomId, username }) => {
+                socket.join(roomId);
+                socket.username = username;
+                socket.roomId = roomId;
+
+                // Track room participants
+                if (!rooms.has(roomId)) {
+                    rooms.set(roomId, new Set());
+                }
+                rooms.get(roomId).add({ id: socket.id, username });
+
+                // Broadcast user joined
+                socket.to(roomId).emit('user-joined', {
+                    username,
+                    timestamp: new Date().toISOString()
+                });
+
+                // Send current participants
+                socket.emit('room-participants', 
+                    Array.from(rooms.get(roomId))
+                );
+            });
+
+            // Handle messages
+            socket.on('send-message', ({ roomId, message }) => {
+                const messageData = {
+                    id: Date.now(),
+                    username: socket.username,
+                    message,
+                    timestamp: new Date().toISOString()
+                };
+
+                // Broadcast to room
+                io.to(roomId).emit('new-message', messageData);
+
+                // Optional: Save to database
+                // await saveMessage(roomId, messageData);
+            });
+
+            // Handle typing indicators
+            socket.on('typing-start', ({ roomId }) => {
+                socket.to(roomId).emit('user-typing', {
+                    username: socket.username,
+                    isTyping: true
+                });
+            });
+
+            socket.on('typing-stop', ({ roomId }) => {
+                socket.to(roomId).emit('user-typing', {
+                    username: socket.username,
+                    isTyping: false
+                });
+            });
+
+            // Handle disconnect
+            socket.on('disconnect', () => {
+                if (socket.roomId && socket.username) {
+                    // Remove from room participants
+                    const roomParticipants = rooms.get(socket.roomId);
+                    if (roomParticipants) {
+                        roomParticipants.delete({ id: socket.id, username: socket.username });
+                        
+                        // Broadcast user left
+                        socket.to(socket.roomId).emit('user-left', {
+                            username: socket.username,
+                            timestamp: new Date().toISOString()
+                        });
+                    }
+                }
+                console.log('User disconnected:', socket.id);
+            });
+        });
+    }
+    res.end();
+}
+                                </div>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> Server hosting + bandwidth, typically £10-100/month
+                            </div>
+                        </div>
+
+                        <div class="realtime-card">
+                            <h4>📡 Server-Sent Events</h4>
+                            <p><strong>Best for:</strong> Live updates, news feeds, monitoring dashboards</p>
+                            <div class="realtime-integration">
+                                <strong>Ask Claude:</strong>
+                                <div class="claude-prompt">
+                                    "Implement Server-Sent Events for live dashboard updates with automatic reconnection"
+                                </div>
+                                <div class="code-block">
+// Server-Sent Events implementation
+export default async function handler(req, res) {
+    if (req.method === 'GET') {
+        // Set SSE headers
+        res.writeHead(200, {
+            'Content-Type': 'text/event-stream',
+            'Cache-Control': 'no-cache',
+            'Connection': 'keep-alive',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'Cache-Control'
+        });
+
+        // Send initial connection message
+        res.write(`data: ${JSON.stringify({ 
+            type: 'connected', 
+            timestamp: new Date().toISOString() 
+        })}\n\n`);
+
+        // Function to send data
+        const sendUpdate = (data) => {
+            res.write(`data: ${JSON.stringify(data)}\n\n`);
+        };
+
+        // Simulate real-time updates (replace with actual data source)
+        const interval = setInterval(async () => {
+            try {
+                // Fetch latest data (e.g., from database, API, etc.)
+                const dashboardData = await getDashboardMetrics();
+                
+                sendUpdate({
+                    type: 'dashboard-update',
+                    data: dashboardData,
+                    timestamp: new Date().toISOString()
+                });
+            } catch (error) {
+                sendUpdate({
+                    type: 'error',
+                    message: 'Failed to fetch dashboard data',
+                    timestamp: new Date().toISOString()
+                });
+            }
+        }, 5000); // Update every 5 seconds
+
+        // Clean up on client disconnect
+        req.on('close', () => {
+            clearInterval(interval);
+            console.log('SSE client disconnected');
+        });
+
+        req.on('end', () => {
+            clearInterval(interval);
+            res.end();
+        });
+    }
+}
+
+// Client-side SSE handler with reconnection
+class SSEManager {
+    constructor(url) {
+        this.url = url;
+        this.eventSource = null;
+        this.reconnectAttempts = 0;
+        this.maxReconnectAttempts = 5;
+        this.reconnectDelay = 1000;
+    }
+
+    connect() {
+        try {
+            this.eventSource = new EventSource(this.url);
+
+            this.eventSource.onopen = () => {
+                console.log('SSE connection opened');
+                this.reconnectAttempts = 0;
+            };
+
+            this.eventSource.onmessage = (event) => {
+                try {
+                    const data = JSON.parse(event.data);
+                    this.handleMessage(data);
+                } catch (error) {
+                    console.error('Error parsing SSE data:', error);
+                }
+            };
+
+            this.eventSource.onerror = (error) => {
+                console.error('SSE error:', error);
+                this.eventSource.close();
+                this.attemptReconnect();
+            };
+
+        } catch (error) {
+            console.error('Failed to create SSE connection:', error);
+            this.attemptReconnect();
+        }
+    }
+
+    handleMessage(data) {
+        switch (data.type) {
+            case 'connected':
+                console.log('Connected to real-time updates');
+                break;
+            case 'dashboard-update':
+                this.updateDashboard(data.data);
+                break;
+            case 'error':
+                console.error('Server error:', data.message);
+                break;
+            default:
+                console.log('Unknown message type:', data.type);
+        }
+    }
+
+    attemptReconnect() {
+        if (this.reconnectAttempts < this.maxReconnectAttempts) {
+            this.reconnectAttempts++;
+            const delay = this.reconnectDelay * Math.pow(2, this.reconnectAttempts - 1);
+            
+            console.log(`Attempting to reconnect in ${delay}ms (attempt ${this.reconnectAttempts})`);
+            
+            setTimeout(() => {
+                this.connect();
+            }, delay);
+        } else {
+            console.error('Max reconnection attempts reached');
+        }
+    }
+
+    disconnect() {
+        if (this.eventSource) {
+            this.eventSource.close();
+            this.eventSource = null;
+        }
+    }
+}
+
+// Usage
+const sseManager = new SSEManager('/api/dashboard-stream');
+sseManager.connect();
+                                </div>
+                            </div>
+                            <div class="cost-indicator">
+                                <strong>UK Cost:</strong> Included with hosting, minimal bandwidth costs
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Integration Prompts -->
+                <div class="content-card">
+                    <h3>💬 Data Integration Prompts</h3>
+                    <div class="integration-prompts-grid">
+                        <div class="prompt-category">
+                            <h4>🏗️ CMS Integration</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Set up Contentful CMS for my portfolio with automatic image optimization and content delivery"</span>
+                                    <small>Complete headless CMS setup with performance optimization</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Migrate my WordPress site to use the REST API with a modern React frontend"</span>
+                                    <small>Headless WordPress implementation with modern frontend</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Create a custom Strapi backend with user authentication and role-based content access"</span>
+                                    <small>Advanced CMS with security and permissions</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-category">
+                            <h4>💳 Payment & Commerce</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Integrate Stripe payments with subscription billing and automatic invoice generation"</span>
+                                    <small>Complete payment processing with recurring billing</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Set up PayPal integration with proper error handling and refund management"</span>
+                                    <small>Alternative payment processor with full functionality</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Create a shopping cart system with inventory management and order tracking"</span>
+                                    <small>E-commerce functionality with business logic</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prompt-category">
+                            <h4>⚡ Real-time Features</h4>
+                            <div class="prompt-list">
+                                <div class="prompt-item">
+                                    <span class="prompt">"Build a real-time chat system with WebSockets and message persistence"</span>
+                                    <small>Live communication with data storage</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Implement live dashboard updates using Server-Sent Events with automatic reconnection"</span>
+                                    <small>Real-time data streaming with reliability</small>
+                                </div>
+                                <div class="prompt-item">
+                                    <span class="prompt">"Create collaborative document editing with conflict resolution and user presence"</span>
+                                    <small>Advanced real-time collaboration features</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Processing & Security -->
+                <div class="content-card">
+                    <h3>🔐 Data Security & Processing</h3>
+                    <div class="security-practices">
+                        <div class="security-category">
+                            <h4>🛡️ API Security</h4>
+                            <div class="code-block">
+// API security middleware
+export const secureAPIMiddleware = async (req, res, next) => {
+    try {
+        // Rate limiting
+        const clientIP = req.ip || req.connection.remoteAddress;
+        const rateLimitKey = `api_limit_${clientIP}`;
+        const currentRequests = await redis.get(rateLimitKey) || 0;
+        
+        if (currentRequests > 100) { // 100 requests per hour
+            return res.status(429).json({ 
+                error: 'Rate limit exceeded. Try again later.' 
+            });
+        }
+        
+        await redis.setex(rateLimitKey, 3600, parseInt(currentRequests) + 1);
+
+        // API key validation
+        const apiKey = req.headers['x-api-key'];
+        if (!apiKey || !isValidAPIKey(apiKey)) {
+            return res.status(401).json({ error: 'Invalid API key' });
+        }
+
+        // Input validation and sanitization
+        if (req.body) {
+            req.body = sanitizeInput(req.body);
+            
+            if (!validateInput(req.body, req.route.schema)) {
+                return res.status(400).json({ error: 'Invalid input data' });
+            }
+        }
+
+        // CORS headers
+        res.header('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGINS);
+        res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+        res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization,X-API-Key');
+
+        next();
+    } catch (error) {
+        console.error('Security middleware error:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
+// Data encryption for sensitive information
+import crypto from 'crypto';
+
+const algorithm = 'aes-256-gcm';
+const secretKey = process.env.ENCRYPTION_KEY;
+
+export const encryptSensitiveData = (text) => {
+    const iv = crypto.randomBytes(16);
+    const cipher = crypto.createCipher(algorithm, secretKey, iv);
+    
+    let encrypted = cipher.update(text, 'utf8', 'hex');
+    encrypted += cipher.final('hex');
+    
+    const authTag = cipher.getAuthTag();
+    
+    return {
+        encrypted,
+        iv: iv.toString('hex'),
+        authTag: authTag.toString('hex')
+    };
+};
+
+export const decryptSensitiveData = (encryptedData) => {
+    const { encrypted, iv, authTag } = encryptedData;
+    const decipher = crypto.createDecipher(algorithm, secretKey, Buffer.from(iv, 'hex'));
+    
+    decipher.setAuthTag(Buffer.from(authTag, 'hex'));
+    
+    let decrypted = decipher.update(encrypted, 'hex', 'utf8');
+    decrypted += decipher.final('utf8');
+    
+    return decrypted;
+};
                             </div>
                         </div>
                     </div>

@@ -454,3 +454,503 @@ function initializeDarkMode() {
 
 // Initialize dark mode (commented out for now)
 // initializeDarkMode();
+
+// Enhanced functionality for new sections
+
+// Download functionality
+function downloadCheatSheetPDF() {
+    // Create a comprehensive cheat sheet content
+    const cheatSheetData = generateCheatSheetContent();
+    downloadFile(cheatSheetData, 'claude-code-cheat-sheet.md', 'text/markdown');
+    
+    trackEvent('cheat_sheet_download', { format: 'markdown' });
+}
+
+function printCheatSheet() {
+    // Create a print-friendly version
+    const printContent = generatePrintableCheatSheet();
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(printContent);
+    printWindow.document.close();
+    printWindow.print();
+    
+    trackEvent('cheat_sheet_print', {});
+}
+
+function downloadTemplate(templateType) {
+    const templates = {
+        portfolio: generatePortfolioTemplate(),
+        business: generateBusinessTemplate(),
+        webapp: generateWebappTemplate(),
+        blog: generateBlogTemplate()
+    };
+    
+    const template = templates[templateType];
+    if (template) {
+        downloadFile(template.content, template.filename, 'text/markdown');
+        trackEvent('template_download', { type: templateType });
+    }
+}
+
+function downloadProjectTemplate() {
+    const template = generateProjectStructureTemplate();
+    downloadFile(template, 'project-structure-guide.md', 'text/markdown');
+    trackEvent('project_template_download', {});
+}
+
+// Helper function to generate cheat sheet content
+function generateCheatSheetContent() {
+    return `# Claude Code Cheat Sheet
+
+## Essential Commands
+- \`claude\` - Start Claude Code in current directory
+- \`/help\` - Show all available commands
+- \`/memory\` - Edit your CLAUDE.md file
+- \`/init\` - Create a new CLAUDE.md file
+
+## VS Code Shortcuts
+### Mac
+- \`Cmd+Esc\` - Quick launch Claude Code
+- \`Cmd+Option+K\` - Reference current file
+
+### Windows/Linux
+- \`Ctrl+Esc\` - Quick launch Claude Code
+- \`Alt+Ctrl+K\` - Reference current file
+
+## Best Practice Prompts
+
+### Project Review
+- "Give me an overview of this project"
+- "Review this code for improvements"
+- "Analyse this website for performance improvements"
+
+### Feature Development
+- "Make this website mobile-friendly"
+- "Add accessibility features"
+- "Optimise for Vercel deployment"
+
+### Debugging
+- "This [element] isn't working on [device/browser]"
+- "Explain this error: [error message]"
+- "Review this code for potential bugs"
+
+## Pro Tips
+- Be specific in your requests
+- Mention your target audience and platform
+- Ask for explanations to learn while you code
+- Use British English spelling (colour, centre, optimise)
+- Break large tasks into smaller steps
+
+## Vercel Deployment
+- \`vercel\` - Deploy your project
+- \`vercel --prod\` - Deploy to production
+- Always test mobile responsiveness before deploying
+- Add proper meta tags for SEO
+
+Generated with Claude Code Tutorial App
+`;
+}
+
+function generatePrintableCheatSheet() {
+    return `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claude Code Cheat Sheet</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #2563eb; }
+        code { background: #f3f4f6; padding: 2px 4px; border-radius: 3px; }
+        .section { margin-bottom: 20px; page-break-inside: avoid; }
+        ul { padding-left: 20px; }
+        @media print { body { margin: 0; } }
+    </style>
+</head>
+<body>
+    ${generateCheatSheetContent().replace(/\n/g, '<br>').replace(/#{1,3}\s/g, '<h3>').replace(/- /g, '<li>').replace(/\`([^`]+)\`/g, '<code>$1</code>')}
+</body>
+</html>`;
+}
+
+// Template generators
+function generatePortfolioTemplate() {
+    return {
+        filename: 'portfolio-claude.md',
+        content: `# My Portfolio Website
+
+## Project Overview
+- Personal portfolio showcasing creative work
+- Target audience: potential employers and clients
+- Clean, professional design emphasising visual content
+
+## Content Structure
+- Homepage with introduction and call-to-action
+- Portfolio gallery with project showcases
+- About page with personal story and skills
+- Contact form for enquiries
+
+## Design Preferences
+- Modern, minimalist aesthetic
+- Mobile-first responsive design
+- Fast loading with optimised images
+- Accessibility compliant (WCAG guidelines)
+
+## Technical Requirements
+- Static HTML/CSS/JavaScript
+- Deploy to Vercel for global performance
+- SEO optimised for search visibility
+- Social media sharing integration
+
+## Coding Standards
+- Use British English throughout
+- Semantic HTML5 elements
+- CSS Grid and Flexbox for layouts
+- Progressive enhancement approach`
+    };
+}
+
+function generateBusinessTemplate() {
+    return {
+        filename: 'business-claude.md',
+        content: `# Business Website
+
+## Project Overview
+- Professional business website
+- Target audience: potential customers and partners
+- Credible, trustworthy design that converts visitors
+
+## Key Features
+- Company information and services
+- Team profiles and testimonials
+- Contact details and enquiry forms
+- News/blog section for updates
+
+## Design Requirements
+- Professional, corporate aesthetic
+- Strong call-to-action elements
+- Mobile-optimised for all devices
+- Fast loading for better user experience
+
+## Technical Specifications
+- Static site for security and speed
+- Vercel deployment for reliability
+- Analytics integration for insights
+- Contact form with validation
+
+## Content Guidelines
+- Clear, professional language
+- Focus on benefits to customers
+- Include social proof and testimonials
+- Regular content updates for SEO`
+    };
+}
+
+function generateWebappTemplate() {
+    return {
+        filename: 'webapp-claude.md',
+        content: `# Web Application
+
+## Project Overview
+- Interactive web application
+- Target audience: end users requiring functionality
+- Intuitive, user-friendly interface design
+
+## Core Features
+- User authentication and profiles
+- Interactive functionality and forms
+- Data management and storage
+- Responsive design for all devices
+
+## Technical Architecture
+- Frontend: HTML5, CSS3, JavaScript
+- Backend integration capabilities
+- API connectivity for data exchange
+- Progressive Web App features
+
+## Development Standards
+- Component-based architecture
+- Accessibility first approach
+- Performance optimisation
+- Cross-browser compatibility
+
+## Deployment Strategy
+- Vercel for frontend hosting
+- Environment variable management
+- Staging and production environments
+- Automated testing and deployment`
+    };
+}
+
+function generateBlogTemplate() {
+    return {
+        filename: 'blog-claude.md',
+        content: `# Blog & Content Website
+
+## Project Overview
+- Content-focused website or blog
+- Target audience: readers and subscribers
+- SEO-optimised for search visibility
+
+## Content Strategy
+- Regular blog posts and articles
+- Categories and tagging system
+- Author profiles and bios
+- Comment system and engagement
+
+## Design Focus
+- Readable typography and layout
+- Content-first design approach
+- Social sharing integration
+- Newsletter signup and RSS feeds
+
+## Technical Features
+- Static site generation for speed
+- SEO meta tags and structured data
+- Social media integration
+- Analytics and performance tracking
+
+## Content Management
+- Easy content creation workflow
+- Image optimisation and management
+- Content scheduling capabilities
+- Search functionality for readers`
+    };
+}
+
+function generateProjectStructureTemplate() {
+    return `# Project Structure Guide
+
+## Recommended Folder Structure
+
+\`\`\`
+my-project/
+├── CLAUDE.md (project memory)
+├── README.md (project overview)
+├── index.html (main entry point)
+├── styles.css (styling)
+├── script.js (functionality)
+├── vercel.json (deployment config)
+├── docs/
+│   ├── ARCHITECTURE.md
+│   ├── PATTERNS.md
+│   └── CHANGELOG.md
+├── examples/
+│   ├── basic-usage.html
+│   └── advanced-features.js
+├── templates/
+│   ├── page-template.html
+│   └── component-template.js
+└── assets/
+    ├── images/
+    ├── fonts/
+    └── icons/
+\`\`\`
+
+## Essential Files
+
+### CLAUDE.md
+Your project's memory file containing:
+- Project overview and goals
+- Coding standards and preferences
+- Deployment instructions
+- Team conventions
+
+### docs/ARCHITECTURE.md
+Explains your project structure:
+- File organisation rationale
+- Design decisions and trade-offs
+- Technology choices
+- Future planning considerations
+
+### docs/PATTERNS.md
+Common coding patterns:
+- Naming conventions
+- Code style guidelines
+- Reusable components
+- Best practices
+
+## Benefits of Good Organisation
+- Faster onboarding for new team members
+- Easier maintenance and updates
+- Better collaboration with Claude
+- Professional project presentation
+- Simplified deployment processes
+
+This structure scales from simple websites to complex applications.
+`;
+}
+
+// File download utility
+function downloadFile(content, filename, mimeType) {
+    const blob = new Blob([content], { type: mimeType });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+}
+
+// Enhanced checklist functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Make checklists interactive
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:not([disabled])');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const label = this.nextElementSibling;
+            if (this.checked) {
+                label.style.textDecoration = 'line-through';
+                label.style.opacity = '0.6';
+                trackEvent('checklist_item_completed', {
+                    item: label.textContent.substring(0, 50)
+                });
+            } else {
+                label.style.textDecoration = 'none';
+                label.style.opacity = '1';
+            }
+        });
+    });
+    
+    // Add copy functionality to code blocks
+    const codeBlocks = document.querySelectorAll('.code-block, .prompt-text');
+    codeBlocks.forEach(block => {
+        block.style.cursor = 'pointer';
+        block.title = 'Click to copy';
+        
+        block.addEventListener('click', function() {
+            const text = this.textContent;
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showCopyFeedback(this);
+                });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopyFeedback(this);
+                } catch (err) {
+                    console.error('Copy failed:', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        });
+    });
+});
+
+// Enhanced copy feedback
+function showCopyFeedback(element) {
+    const originalBg = element.style.backgroundColor;
+    const originalText = element.textContent;
+    
+    // Show feedback
+    element.style.backgroundColor = '#059669';
+    element.style.color = 'white';
+    const feedback = document.createElement('span');
+    feedback.textContent = '✓ Copied!';
+    feedback.style.cssText = `
+        position: absolute;
+        background: #059669;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        z-index: 1000;
+        pointer-events: none;
+    `;
+    
+    document.body.appendChild(feedback);
+    const rect = element.getBoundingClientRect();
+    feedback.style.left = rect.left + 'px';
+    feedback.style.top = (rect.top - 30) + 'px';
+    
+    setTimeout(() => {
+        element.style.backgroundColor = originalBg;
+        element.style.color = '';
+        document.body.removeChild(feedback);
+    }, 1000);
+}
+
+// Smooth reveal animation for sections
+function initializeSectionReveal() {
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+}
+
+// Initialize enhanced features
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSectionReveal();
+    
+    // Add hover effects to interactive elements
+    const interactiveElements = document.querySelectorAll('.cheat-card, .template-card, .prompt-card');
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+
+// Progress tracking for tutorial completion
+function initializeTutorialProgress() {
+    const sections = document.querySelectorAll('.section[id]');
+    const totalSections = sections.length;
+    let visitedSections = new Set();
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                visitedSections.add(entry.target.id);
+                const progress = (visitedSections.size / totalSections) * 100;
+                updateProgressIndicator(progress);
+                
+                trackEvent('section_visited', {
+                    section: entry.target.id,
+                    progress: Math.round(progress)
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+function updateProgressIndicator(percentage) {
+    const indicator = document.getElementById('progress-indicator');
+    if (indicator) {
+        indicator.style.width = percentage + '%';
+        
+        // Add celebration effect when complete
+        if (percentage >= 100) {
+            indicator.style.background = 'linear-gradient(90deg, #059669, #10b981)';
+            setTimeout(() => {
+                indicator.style.background = '#2563eb';
+            }, 2000);
+        }
+    }
+}
+
+// Initialize tutorial progress tracking
+document.addEventListener('DOMContentLoaded', initializeTutorialProgress);

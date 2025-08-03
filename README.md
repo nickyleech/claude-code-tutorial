@@ -1,15 +1,26 @@
-# Claude Code Tutorial App
+# Claude Code Tutorial App - Complete Edition
 
-A minimalistic, mobile-friendly tutorial for Claude Code designed for non-technical users. Built with British English and optimised for all devices.
+A comprehensive, beautiful tutorial for Claude Code designed for non-technical users. This enhanced version includes downloadable resources, interactive components, and step-by-step guides for everything from basic usage to advanced Vercel deployment. Built with British English and optimised for all devices.
 
-## 🌟 Features
+## 🌟 Enhanced Features
 
+### 📖 Comprehensive Content
+- **Downloadable Cheat Sheet** - Essential commands and shortcuts
+- **CLAUDE.md Mastery** - Complete guide with templates
+- **Project Organisation** - Folder structures and best practices
+- **Testing Strategies** - Manual and automated testing with Claude
+- **Best Practice Prompts** - Proven prompts for every situation
+- **VS Code Integration** - Seamless editor integration
+- **Vercel Deployment Masterclass** - From code to live website
+- **Complete Walkthrough** - Sarah's Portfolio example
+
+### 🎨 Beautiful Design
 - **Mobile-First Design** - Perfect on phones, tablets, and desktops
 - **British English** - Localised content and terminology
-- **Minimalistic Interface** - Clean, professional design
-- **Interactive Navigation** - Smooth scrolling and hamburger menu
+- **Modern Interface** - Gradient backgrounds and smooth animations
+- **Interactive Components** - Hover effects and downloadable content
 - **Progressive Enhancement** - Works without JavaScript
-- **Accessibility** - ARIA labels and keyboard navigation
+- **Accessibility** - WCAG compliant with ARIA labels
 - **Print-Friendly** - Optimised for printing
 
 ## 🚀 Quick Start
