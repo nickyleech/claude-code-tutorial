@@ -46,7 +46,7 @@ body {
 }
 
 .menu-toggle {
-    display: flex; /* Show on all devices since sidebar is hidden by default */
+    display: none; /* Hidden on desktop since sidebar is permanent */
     flex-direction: column;
     background: none;
     border: none;
@@ -78,12 +78,11 @@ body {
 .side-menu {
     position: fixed;
     top: 0;
-    left: -320px; /* Hidden by default */
+    left: 0; /* Always visible as permanent sidebar */
     width: 320px;
     height: 100vh;
     background: #fff;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s ease;
     z-index: 1000;
     overflow-y: auto;
 }
@@ -92,14 +91,10 @@ body {
     left: 0;
 }
 
-/* Desktop specific behavior */
+/* Desktop: sidebar is always visible */
 @media (min-width: 1025px) {
     .side-menu {
-        left: -320px; /* Hidden by default on desktop too */
-    }
-    
-    .side-menu.active {
-        left: 0;
+        left: 0; /* Always visible on desktop */
     }
 }
 
@@ -306,12 +301,23 @@ body {
 
 /* Improved accessibility and touch targets */
 @media (max-width: 768px) {
-    .side-menu {
-        width: 100vw;
+    .menu-toggle {
+        display: flex; /* Show menu toggle on mobile */
     }
     
-    .side-menu:not(.active) {
-        left: -100vw;
+    .side-menu {
+        width: 100vw;
+        left: -100vw; /* Hidden by default on mobile */
+    }
+    
+    .side-menu.active {
+        left: 0; /* Show when active on mobile */
+    }
+    
+    .main-content {
+        margin-left: 0; /* No margin on mobile */
+        width: 100%;
+        max-width: none;
     }
     
     .category-header {
@@ -471,19 +477,47 @@ body {
 .main-content {
     flex: 1;
     padding: 2rem;
-    max-width: 1200px;
+    max-width: calc(1200px - 320px); /* Account for sidebar width */
     margin: 0 auto;
-    width: 100%;
-    margin-left: 0; /* No left margin since sidebar is hidden by default */
-    min-height: calc(100vh - 80px); /* Ensure full height without excessive scrolling */
-    transition: margin-left 0.3s ease; /* Smooth transition when sidebar appears */
+    width: calc(100% - 320px); /* Account for sidebar width */
+    margin-left: 320px; /* Always account for permanent sidebar */
+    min-height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Allow scrolling within content area */
 }
 
-/* Mobile main content adjustment */
-@media (max-width: 1024px) {
+/* Self-contained sections - hide all sections by default */
+.section {
+    display: none;
+    margin-bottom: 0; /* Remove bottom margin since only one section shows */
+    scroll-margin-top: 0; /* Remove scroll offset */
+    min-height: calc(100vh - 4rem); /* Fill viewport minus padding */
+    overflow-y: auto;
+}
+
+/* Show the first section by default */
+.section:first-of-type {
+    display: block;
+}
+
+/* Show active section */
+.section.active {
+    display: block;
+}
+
+/* Active navigation link highlighting */
+.menu-link.active {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-left: 4px solid #2563eb;
+    font-weight: 600;
+}
+
+/* Tablet adjustment - sidebar still visible but content adjusts */
+@media (max-width: 1024px) and (min-width: 769px) {
     .main-content {
-        margin-left: 0;
+        margin-left: 320px; /* Keep sidebar margin */
         padding: 2rem 1rem;
+        width: calc(100% - 320px);
     }
 }
 

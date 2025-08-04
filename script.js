@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMenu();
     initializeTabs();
     initializeProgressIndicator();
-    initializeScrollSpy();
+    initializeSections(); // Initialize section switching instead of scroll spy
     initializeSmoothScroll();
     initializeCategorizedNavigation();
     initializeNavigationSearch();
@@ -43,10 +43,20 @@ function initializeMenu() {
         closeMenuHandler();
     });
     
-    // Close menu when clicking menu links
+    // Handle menu link clicks for section switching
     menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            
+            // Close menu on mobile
             closeMenuHandler();
+            
+            // Get target section
+            const targetId = this.getAttribute('href').substring(1);
+            showSection(targetId);
+            
+            // Update active menu link
+            updateActiveMenuLink(this);
         });
     });
     
@@ -124,34 +134,53 @@ function updateProgressIndicator() {
     progressIndicator.style.width = scrollPercentage + '%';
 }
 
-// Scroll spy functionality
-function initializeScrollSpy() {
+// Section switching functionality (replaces scroll spy)
+function showSection(sectionId) {
+    // Hide all sections
     const sections = document.querySelectorAll('.section');
-    const menuLinksArray = Array.from(menuLinks);
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
     
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (window.pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        // Update active menu link
-        menuLinksArray.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-                link.classList.add('active');
-            }
-        });
+    // Show target section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
         
         // Update breadcrumb
-        updateBreadcrumb(current);
+        updateBreadcrumb(sectionId);
+        
+        // Scroll to top of content area
+        targetSection.scrollTop = 0;
+    }
+}
+
+function updateActiveMenuLink(activeLink) {
+    // Remove active class from all menu links
+    const menuLinksArray = Array.from(menuLinks);
+    menuLinksArray.forEach(link => {
+        link.classList.remove('active');
     });
+    
+    // Add active class to clicked link
+    activeLink.classList.add('active');
+}
+
+// Initialize first section as active
+function initializeSections() {
+    const firstSection = document.querySelector('.section');
+    if (firstSection) {
+        firstSection.classList.add('active');
+        
+        // Set first menu link as active
+        const firstMenuLink = document.querySelector('.menu-link');
+        if (firstMenuLink) {
+            firstMenuLink.classList.add('active');
+        }
+        
+        // Update breadcrumb for first section
+        updateBreadcrumb(firstSection.getAttribute('id'));
+    }
 }
 
 // Breadcrumb functionality
@@ -468,23 +497,8 @@ function initializeNavigationSearch() {
 
 // Smooth scroll for menu links
 function initializeSmoothScroll() {
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80; // Account for fixed header
-                
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // No longer needed since we're using section switching instead of scrolling
+    // Menu link handling is now done in initializeMenu()
 }
 
 // Handle window resize
