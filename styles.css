@@ -39,8 +39,10 @@ body {
 
 .nav-title {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #2563eb;
+    letter-spacing: -0.025em;
+    text-shadow: 0 1px 2px rgba(37, 99, 235, 0.1);
 }
 
 .menu-toggle {
@@ -163,6 +165,32 @@ body {
     padding: 0.5rem 0;
 }
 
+/* Category color coding */
+.nav-category[data-category="getting-started"] .category-header.active {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-left: 4px solid #3b82f6;
+}
+
+.nav-category[data-category="core-concepts"] .category-header.active {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-left: 4px solid #22c55e;
+}
+
+.nav-category[data-category="advanced-features"] .category-header.active {
+    background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+    border-left: 4px solid #eab308;
+}
+
+.nav-category[data-category="integrations"] .category-header.active {
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+    border-left: 4px solid #ec4899;
+}
+
+.nav-category[data-category="reference"] .category-header.active {
+    background: linear-gradient(135deg, #f4f3ff 0%, #e0e7ff 100%);
+    border-left: 4px solid #6366f1;
+}
+
 .nav-category {
     border-bottom: 1px solid #f3f4f6;
 }
@@ -187,6 +215,8 @@ body {
 
 .category-header:hover {
     background-color: #f8fafc;
+    transform: translateX(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .category-header.active {
@@ -253,6 +283,8 @@ body {
     background-color: #f1f5f9;
     color: #2563eb;
     border-left-color: #e2e8f0;
+    transform: translateX(2px);
+    box-shadow: inset 3px 0 0 #2563eb;
 }
 
 .menu-link.active {
@@ -332,9 +364,75 @@ body {
 /* Enhanced focus states for accessibility */
 .category-header:focus,
 .menu-link:focus,
-.search-input:focus {
+.search-input:focus,
+.menu-toggle:focus,
+.close-menu:focus,
+.breadcrumb-link:focus {
     outline: 2px solid #2563eb;
     outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .category-header:hover {
+        background-color: #e5e7eb;
+    }
+    
+    .menu-link:hover {
+        background-color: #e5e7eb;
+    }
+    
+    .breadcrumb-link:hover {
+        background-color: #e5e7eb;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .category-items,
+    .menu-toggle span,
+    .breadcrumb-link,
+    .category-header,
+    .menu-link {
+        transition: none;
+        transform: none !important;
+    }
+    
+    .category-items {
+        animation: none;
+    }
+    
+    .category-header:hover,
+    .menu-link:hover {
+        transform: none !important;
+    }
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 768px) {
+    .category-header {
+        min-height: 44px; /* iOS recommended minimum */
+        touch-action: manipulation;
+    }
+    
+    .menu-link {
+        min-height: 44px;
+        touch-action: manipulation;
+        display: flex;
+        align-items: center;
+    }
+    
+    .menu-toggle {
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+    
+    .close-menu {
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+    }
 }
 
 /* Smooth animations for category expansion */
@@ -386,6 +484,84 @@ body {
     .main-content {
         margin-left: 0;
         padding: 2rem 1rem;
+    }
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-nav {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-link {
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s;
+}
+
+.breadcrumb-link:hover {
+    color: #2563eb;
+    background-color: #f3f4f6;
+}
+
+.breadcrumb-separator {
+    color: #9ca3af;
+    font-size: 0.875rem;
+    user-select: none;
+}
+
+.breadcrumb-current {
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+}
+
+.breadcrumb-item.active .breadcrumb-current {
+    color: #2563eb;
+}
+
+.breadcrumb-category {
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-weight: 400;
+    padding: 0.25rem 0.5rem;
+}
+
+/* Mobile breadcrumb adjustments */
+@media (max-width: 768px) {
+    .breadcrumb-nav {
+        margin-bottom: 1rem;
+        padding: 0.5rem 0;
+    }
+    
+    .breadcrumb-link,
+    .breadcrumb-current,
+    .breadcrumb-separator {
+        font-size: 0.8rem;
+    }
+    
+    .breadcrumb-list {
+        gap: 0.25rem;
     }
 }
 
@@ -2662,5 +2838,432 @@ a:focus {
     .conversation-example .chat-message {
         padding: 0.5rem;
         font-size: 0.9rem;
+    }
+}
+
+/* GitHub Integration Specific Styles */
+.github-subsection {
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid #f3f4f6;
+}
+
+.github-subsection:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.github-subsection h4 {
+    color: #1f2937;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Workflow Cards */
+.workflow-examples {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.workflow-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: all 0.2s;
+}
+
+.workflow-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.workflow-card h5 {
+    color: #1e40af;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* API Cards */
+.api-examples,
+.graphql-examples,
+.webhook-examples {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.api-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+
+.api-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.api-card h5 {
+    color: #1f2937;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+/* Protection Settings */
+.protection-settings {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.setting-card {
+    background: #fefefe;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #10b981;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.setting-card h5 {
+    color: #065f46;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Security Cards */
+.security-card,
+.scan-card,
+.compliance-card {
+    background: #fefffe;
+    border: 1px solid #e5e7eb;
+    border-left: 4px solid #dc2626;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.security-card h5,
+.scan-card h5,
+.compliance-card h5 {
+    color: #7c2d12;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Pricing Breakdown */
+.pricing-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.pricing-tier {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.pricing-tier:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+}
+
+.pricing-tier.recommended {
+    border-color: #10b981;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.pricing-tier.enterprise {
+    border-color: #7c3aed;
+    background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+}
+
+.tier-badge {
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #10b981;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pricing-tier h4 {
+    color: #1f2937;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: #2563eb;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+}
+
+.price-note {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.best-for {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+}
+
+/* Cost Optimization */
+.optimization-tips {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.tip-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.tip-card h5 {
+    color: #166534;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.cost-impact {
+    background: #166534;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+/* ROI Analysis */
+.roi-scenarios {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.scenario-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scenario-card h5 {
+    color: #1f2937;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.scenario-costs,
+.scenario-benefits {
+    margin: 1rem 0;
+}
+
+.cost-line,
+.benefit-line {
+    padding: 0.25rem 0;
+    font-size: 0.875rem;
+}
+
+.cost-line strong,
+.benefit-line strong {
+    color: #059669;
+    font-size: 1rem;
+}
+
+/* Quick Start Steps */
+.quick-start-steps {
+    margin: 2rem 0;
+}
+
+.start-step {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    align-items: flex-start;
+}
+
+.start-step .step-number {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.start-step .step-content h4 {
+    color: #1f2937;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Next Steps Grid */
+.next-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.next-step-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.next-step-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+}
+
+.next-step-card h4 {
+    color: #1f2937;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.next-step-card p {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.btn-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+}
+
+.btn-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Management Cards */
+.management-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.management-card h5 {
+    color: #1e40af;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Cost Analysis Specific */
+.cost-analysis {
+    border-left: 4px solid #059669;
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+}
+
+/* Mobile Responsiveness for GitHub Components */
+@media (max-width: 768px) {
+    .pricing-breakdown {
+        grid-template-columns: 1fr;
+    }
+    
+    .workflow-step,
+    .start-step {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .step-number {
+        align-self: flex-start;
+    }
+    
+    .next-steps-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .github-subsection {
+        padding: 1rem 0;
+    }
+    
+    .pricing-tier {
+        padding: 1.5rem;
+    }
+    
+    .price {
+        font-size: 1.75rem;
     }
 }

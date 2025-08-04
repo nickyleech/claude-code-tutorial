@@ -13,24 +13,24 @@
         <nav class="nav-bar">
             <div class="nav-content">
                 <h1 class="nav-title">Claude Code Tutorial</h1>
-                <button class="menu-toggle" id="menu-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="side-menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </div>
         </nav>
 
         <!-- Side Menu -->
-        <aside class="side-menu" id="side-menu">
+        <aside class="side-menu" id="side-menu" role="navigation" aria-label="Main navigation">
             <div class="menu-header">
                 <h2>Navigation</h2>
-                <button class="close-menu" id="close-menu">&times;</button>
+                <button class="close-menu" id="close-menu" aria-label="Close navigation menu">&times;</button>
             </div>
             
             <!-- Quick Search -->
             <div class="menu-search">
-                <input type="text" id="nav-search" placeholder="Search sections..." class="search-input">
+                <input type="text" id="nav-search" placeholder="Search sections..." class="search-input" aria-label="Search navigation sections">
                 <div class="search-icon">🔍</div>
             </div>
             
@@ -38,12 +38,12 @@
             <nav class="nav-categories">
                 <!-- Getting Started Category -->
                 <div class="nav-category">
-                    <button class="category-header" data-category="getting-started">
-                        <span class="category-icon">🚀</span>
+                    <button class="category-header" data-category="getting-started" aria-expanded="false" aria-controls="getting-started-items">
+                        <span class="category-icon" aria-hidden="true">🚀</span>
                         <span class="category-title">Getting Started</span>
-                        <span class="category-toggle">▼</span>
+                        <span class="category-toggle" aria-hidden="true">▼</span>
                     </button>
-                    <ul class="category-items" data-category="getting-started">
+                    <ul class="category-items" data-category="getting-started" id="getting-started-items" role="group" aria-labelledby="getting-started-header">
                         <li><a href="#intro" class="menu-link">What is Claude Code?</a></li>
                         <li><a href="#getting-started" class="menu-link">Getting Started</a></li>
                         <li><a href="#first-chat" class="menu-link">Your First Chat</a></li>
@@ -52,12 +52,12 @@
 
                 <!-- Core Concepts Category -->
                 <div class="nav-category">
-                    <button class="category-header" data-category="core-concepts">
-                        <span class="category-icon">📚</span>
+                    <button class="category-header" data-category="core-concepts" aria-expanded="false" aria-controls="core-concepts-items">
+                        <span class="category-icon" aria-hidden="true">📚</span>
                         <span class="category-title">Core Concepts</span>
-                        <span class="category-toggle">▼</span>
+                        <span class="category-toggle" aria-hidden="true">▼</span>
                     </button>
-                    <ul class="category-items" data-category="core-concepts">
+                    <ul class="category-items" data-category="core-concepts" id="core-concepts-items" role="group" aria-labelledby="core-concepts-header">
                         <li><a href="#claude-md" class="menu-link">📝 CLAUDE.md Files</a></li>
                         <li><a href="#project-organisation" class="menu-link">📁 Project Organisation</a></li>
                         <li><a href="#testing" class="menu-link">🧪 Testing Strategy</a></li>
@@ -66,12 +66,12 @@
 
                 <!-- Advanced Features Category -->
                 <div class="nav-category">
-                    <button class="category-header" data-category="advanced-features">
-                        <span class="category-icon">💡</span>
+                    <button class="category-header" data-category="advanced-features" aria-expanded="false" aria-controls="advanced-features-items">
+                        <span class="category-icon" aria-hidden="true">💡</span>
                         <span class="category-title">Advanced Features</span>
-                        <span class="category-toggle">▼</span>
+                        <span class="category-toggle" aria-hidden="true">▼</span>
                     </button>
-                    <ul class="category-items" data-category="advanced-features">
+                    <ul class="category-items" data-category="advanced-features" id="advanced-features-items" role="group" aria-labelledby="advanced-features-header">
                         <li><a href="#prompts-library" class="menu-link">💬 Best Prompts</a></li>
                         <li><a href="#vscode-integration" class="menu-link">💻 VS Code Integration</a></li>
                         <li><a href="#vercel-masterclass" class="menu-link">🚀 Vercel Deployment</a></li>
@@ -81,26 +81,27 @@
 
                 <!-- Integrations Category -->
                 <div class="nav-category">
-                    <button class="category-header" data-category="integrations">
-                        <span class="category-icon">🛠️</span>
+                    <button class="category-header" data-category="integrations" aria-expanded="false" aria-controls="integrations-items">
+                        <span class="category-icon" aria-hidden="true">🛠️</span>
                         <span class="category-title">Integrations</span>
-                        <span class="category-toggle">▼</span>
+                        <span class="category-toggle" aria-hidden="true">▼</span>
                     </button>
-                    <ul class="category-items" data-category="integrations">
+                    <ul class="category-items" data-category="integrations" id="integrations-items" role="group" aria-labelledby="integrations-header">
                         <li><a href="#storage-integration" class="menu-link">💾 Storage Integration</a></li>
                         <li><a href="#api-integration" class="menu-link">🔌 API Integration</a></li>
                         <li><a href="#data-sources" class="menu-link">📡 Data Sources</a></li>
+                        <li><a href="#github-integration" class="menu-link">🐙 GitHub Integration</a></li>
                     </ul>
                 </div>
 
                 <!-- Reference Category -->
                 <div class="nav-category">
-                    <button class="category-header" data-category="reference">
-                        <span class="category-icon">📖</span>
+                    <button class="category-header" data-category="reference" aria-expanded="false" aria-controls="reference-items">
+                        <span class="category-icon" aria-hidden="true">📖</span>
                         <span class="category-title">Reference</span>
-                        <span class="category-toggle">▼</span>
+                        <span class="category-toggle" aria-hidden="true">▼</span>
                     </button>
-                    <ul class="category-items" data-category="reference">
+                    <ul class="category-items" data-category="reference" id="reference-items" role="group" aria-labelledby="reference-header">
                         <li><a href="#cheat-sheet" class="menu-link">📄 Cheat Sheet</a></li>
                         <li><a href="#common-tasks" class="menu-link">Common Tasks</a></li>
                         <li><a href="#best-practices" class="menu-link">Best Practices</a></li>
@@ -113,6 +114,19 @@
 
         <!-- Main Content -->
         <main class="main-content">
+            <!-- Breadcrumb Navigation -->
+            <nav class="breadcrumb-nav" id="breadcrumb-nav" aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item">
+                        <a href="#" class="breadcrumb-link">Home</a>
+                    </li>
+                    <li class="breadcrumb-separator">›</li>
+                    <li class="breadcrumb-item active" id="current-section">
+                        <span class="breadcrumb-current">What is Claude Code?</span>
+                    </li>
+                </ol>
+            </nav>
+
             <!-- Introduction Section -->
             <section id="intro" class="section">
                 <div class="section-header">
@@ -3952,6 +3966,957 @@ export const decryptSensitiveData = (encryptedData) => {
     return decrypted;
 };
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GitHub Integration Ecosystem -->
+            <section id="github-integration" class="section">
+                <div class="section-header">
+                    <h2>🐙 GitHub Integration Ecosystem</h2>
+                    <p class="subtitle">Master GitHub workflows with Claude Code</p>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>GitHub as Your Development Hub</h3>
+                    <p>GitHub isn't just code storage - it's a complete development ecosystem. Claude Code can help you leverage GitHub's full potential, from repository management to advanced CI/CD workflows, making you more productive whilst following best practices.</p>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>🏗️ Repository Management</h4>
+                            <p>Organise code, manage branches, and structure projects effectively</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>📊 GitHub as Data Source</h4>
+                            <p>Extract insights, automate workflows, and integrate with external services</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>👥 Collaboration Tools</h4>
+                            <p>Code reviews, project management, and team coordination</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔒 Security & Compliance</h4>
+                            <p>Protect your code and maintain enterprise-grade security</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repository Management Subsection -->
+                <div class="content-card">
+                    <h3>🏗️ Repository Management Excellence</h3>
+                    <p>Master the fundamentals of repository organisation and workflow management.</p>
+                    
+                    <div class="github-subsection">
+                        <h4>Git Workflows & Branching Strategies</h4>
+                        <div class="workflow-examples">
+                            <div class="workflow-card">
+                                <h5>GitHub Flow (Recommended for Web Projects)</h5>
+                                <div class="code-block">
+# 1. Create feature branch
+git checkout -b feature/new-user-dashboard
+git push -u origin feature/new-user-dashboard
+
+# 2. Make changes and commit
+git add .
+git commit -m "Add responsive user dashboard with data visualisation"
+
+# 3. Open Pull Request via GitHub CLI
+gh pr create --title "Add User Dashboard" --body "Implements responsive dashboard with charts and user metrics"
+
+# 4. After review and approval, merge
+gh pr merge --squash
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-card">
+                                <h5>GitFlow (For Complex Release Cycles)</h5>
+                                <div class="code-block">
+# Initialize gitflow
+git flow init
+
+# Start new feature
+git flow feature start user-authentication
+
+# Finish feature (creates PR automatically)
+git flow feature finish user-authentication
+
+# Create release
+git flow release start v1.2.0
+git flow release finish v1.2.0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>Branch Protection & Merge Policies</h4>
+                        <div class="protection-settings">
+                            <div class="setting-card">
+                                <h5>Essential Protection Rules</h5>
+                                <ul class="checkmark-list">
+                                    <li>Require pull request reviews before merging</li>
+                                    <li>Require status checks to pass (CI/CD pipelines)</li>
+                                    <li>Require branches to be up to date before merging</li>
+                                    <li>Include administrators in restrictions</li>
+                                    <li>Allow force pushes to protected branches (disabled)</li>
+                                </ul>
+                            </div>
+                            <div class="setting-card">
+                                <h5>Advanced Configurations</h5>
+                                <div class="code-block">
+# .github/branch-protection.yml
+name: Branch Protection
+on:
+  push:
+    branches: [main, develop]
+
+jobs:
+  protect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Protect Main Branch
+        uses: benjefferies/branch-protection-bot@master
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          required_status_checks: |
+            continuous-integration
+            code-quality-check
+            security-scan
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>Repository Structure Best Practices</h4>
+                        <div class="structure-example">
+                            <div class="code-block">
+your-project/
+├── .github/                    # GitHub-specific files
+│   ├── workflows/             # GitHub Actions
+│   │   ├── ci.yml
+│   │   ├── deploy.yml
+│   │   └── security-scan.yml
+│   ├── ISSUE_TEMPLATE/        # Issue templates
+│   │   ├── bug_report.yml
+│   │   └── feature_request.yml
+│   ├── pull_request_template.md
+│   └── CODEOWNERS            # Code ownership
+├── docs/                      # Documentation
+│   ├── API.md
+│   ├── CONTRIBUTING.md
+│   └── DEPLOYMENT.md
+├── src/                       # Source code
+├── tests/                     # Test files
+├── .gitignore                # Git ignore rules
+├── README.md                 # Project documentation
+├── LICENCE                   # Licence information
+└── SECURITY.md              # Security policy
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub as Data Source Subsection -->
+                <div class="content-card">
+                    <h3>📊 GitHub as Data Source</h3>
+                    <p>Leverage GitHub's rich APIs to extract insights and automate workflows.</p>
+                    
+                    <div class="github-subsection">
+                        <h4>GitHub REST API Integration</h4>
+                        <div class="api-examples">
+                            <div class="api-card">
+                                <h5>Repository Analytics</h5>
+                                <div class="code-block">
+// Fetch repository statistics
+const getRepoStats = async (owner, repo) => {
+    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+        headers: {
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json'
+        }
+    });
+    
+    const repoData = await response.json();
+    
+    return {
+        stars: repoData.stargazers_count,
+        forks: repoData.forks_count,
+        openIssues: repoData.open_issues_count,
+        language: repoData.language,
+        lastUpdated: repoData.updated_at,
+        size: repoData.size
+    };
+};
+
+// Usage
+const stats = await getRepoStats('anthropics', 'claude-code');
+console.log(`Repository has ${stats.stars} stars and ${stats.forks} forks`);
+                                </div>
+                            </div>
+                            
+                            <div class="api-card">
+                                <h5>Pull Request Automation</h5>
+                                <div class="code-block">
+// Automatically label PRs based on changed files
+const labelPullRequest = async (owner, repo, prNumber) => {
+    const filesResponse = await fetch(
+        `https://api.github.com/repos/${owner}/${repo}/pulls/${prNumber}/files`,
+        {
+            headers: {
+                'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+                'Accept': 'application/vnd.github.v3+json'
+            }
+        }
+    );
+    
+    const files = await filesResponse.json();
+    const labels = [];
+    
+    // Determine labels based on file changes
+    if (files.some(file => file.filename.includes('test'))) {
+        labels.push('tests');
+    }
+    if (files.some(file => file.filename.includes('.md'))) {
+        labels.push('documentation');
+    }
+    if (files.some(file => file.filename.includes('package.json'))) {
+        labels.push('dependencies');
+    }
+    
+    // Apply labels
+    await fetch(`https://api.github.com/repos/${owner}/${repo}/issues/${prNumber}/labels`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ labels })
+    });
+};
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>GitHub GraphQL API for Complex Queries</h4>
+                        <div class="graphql-examples">
+                            <div class="api-card">
+                                <h5>Advanced Repository Insights</h5>
+                                <div class="code-block">
+// GraphQL query for comprehensive repository analysis
+const REPO_ANALYSIS_QUERY = `
+  query($owner: String!, $repo: String!) {
+    repository(owner: $owner, name: $repo) {
+      name
+      description
+      stargazerCount
+      forkCount
+      
+      # Recent activity
+      pullRequests(last: 10, states: [OPEN, MERGED]) {
+        nodes {
+          title
+          author {
+            login
+          }
+          createdAt
+          state
+          additions
+          deletions
+        }
+      }
+      
+      # Contributors
+      collaborators(first: 20) {
+        nodes {
+          login
+          name
+        }
+      }
+      
+      # Language breakdown
+      languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+        edges {
+          size
+          node {
+            name
+            colour
+          }
+        }
+      }
+      
+      # Release information
+      releases(last: 5) {
+        nodes {
+          name
+          tagName
+          publishedAt
+          description
+        }
+      }
+    }
+  }
+`;
+
+const analyzeRepository = async (owner, repo) => {
+    const response = await fetch('https://api.github.com/graphql', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${process.env.GITHUB_TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            query: REPO_ANALYSIS_QUERY,
+            variables: { owner, repo }
+        })
+    });
+    
+    const { data } = await response.json();
+    return data.repository;
+};
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>Webhook Integration for Real-time Events</h4>
+                        <div class="webhook-examples">
+                            <div class="api-card">
+                                <h5>Express.js Webhook Handler</h5>
+                                <div class="code-block">
+const express = require('express');
+const crypto = require('crypto');
+const app = express();
+
+// Webhook secret validation
+const verifyGitHubWebhook = (req, res, next) => {
+    const signature = req.headers['x-hub-signature-256'];
+    const payload = JSON.stringify(req.body);
+    const expectedSignature = crypto
+        .createHmac('sha256', process.env.GITHUB_WEBHOOK_SECRET)
+        .update(payload)
+        .digest('hex');
+    
+    if (signature !== `sha256=${expectedSignature}`) {
+        return res.status(401).send('Unauthorized');
+    }
+    next();
+};
+
+// Handle push events
+app.post('/webhook/push', verifyGitHubWebhook, (req, res) => {
+    const { ref, commits, repository } = req.body;
+    
+    // Trigger deployment for main branch pushes
+    if (ref === 'refs/heads/main') {
+        console.log(`Deploying ${repository.name} with ${commits.length} new commits`);
+        // Trigger your deployment pipeline here
+        triggerDeployment(repository.name, commits);
+    }
+    
+    res.status(200).send('OK');
+});
+
+// Handle pull request events
+app.post('/webhook/pr', verifyGitHubWebhook, (req, res) => {
+    const { action, pull_request } = req.body;
+    
+    if (action === 'opened') {
+        // Run automated checks
+        runPRChecks(pull_request);
+    } else if (action === 'closed' && pull_request.merged) {
+        // Handle successful merge
+        handleMergedPR(pull_request);
+    }
+    
+    res.status(200).send('OK');
+});
+
+app.listen(3000, () => {
+    console.log('GitHub webhook server running on port 3000');
+});
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collaboration Features Subsection -->
+                <div class="content-card">
+                    <h3>👥 Collaboration Features</h3>
+                    <p>Streamline team workflows and improve code quality through effective collaboration.</p>
+                    
+                    <div class="github-subsection">
+                        <h4>Code Review Workflows</h4>
+                        <div class="review-workflow">
+                            <div class="workflow-step">
+                                <h5>1. Pull Request Creation</h5>
+                                <div class="code-block">
+# Create PR with comprehensive template
+gh pr create \
+  --title "feat: Add user authentication system" \
+  --body-file .github/pull_request_template.md \
+  --reviewer @team-leads \
+  --assignee @yourself \
+  --label "feature,security"
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-step">
+                                <h5>2. Automated PR Template</h5>
+                                <div class="code-block">
+## Description
+Brief description of changes and motivation
+
+## Type of Change
+- [ ] Bug fix (non-breaking change that fixes an issue)
+- [ ] New feature (non-breaking change that adds functionality)
+- [ ] Breaking change (fix or feature that causes existing functionality to change)
+- [ ] Documentation update
+
+## Testing
+- [ ] Unit tests pass
+- [ ] Integration tests pass
+- [ ] Manual testing completed
+
+## Security Checklist
+- [ ] No sensitive data exposed
+- [ ] Input validation implemented
+- [ ] Authentication/authorization verified
+
+## Screenshots (if applicable)
+Add screenshots for UI changes
+
+## Reviewer Notes
+Any specific areas that need attention
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>CODEOWNERS Implementation</h4>
+                        <div class="codeowners-example">
+                            <div class="code-block">
+# .github/CODEOWNERS
+# Global owners
+* @tech-leads @senior-developers
+
+# Frontend team owns UI components
+/src/components/ @frontend-team
+/src/styles/ @frontend-team @design-team
+
+# Backend team owns API and server code
+/src/api/ @backend-team
+/src/server/ @backend-team
+/src/database/ @backend-team @database-admins
+
+# DevOps team owns infrastructure
+/.github/workflows/ @devops-team
+/docker/ @devops-team
+/k8s/ @devops-team
+
+# Security team reviews sensitive files
+/src/auth/ @security-team
+/src/encryption/ @security-team
+SECURITY.md @security-team
+
+# Documentation team owns docs
+/docs/ @docs-team
+README.md @docs-team
+*.md @docs-team
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>Project Management with GitHub</h4>
+                        <div class="project-management">
+                            <div class="management-card">
+                                <h5>Issue Templates for Better Bug Reports</h5>
+                                <div class="code-block">
+name: Bug Report
+description: File a bug report to help us improve
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees: ["maintainers"]
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this bug report!
+        
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.1
+        - 1.0.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Compliance Subsection -->
+                <div class="content-card">
+                    <h3>🔒 Security & Compliance</h3>
+                    <p>Implement enterprise-grade security practices and maintain compliance standards.</p>
+                    
+                    <div class="github-subsection">
+                        <h4>GitHub Secrets Management</h4>
+                        <div class="secrets-management">
+                            <div class="security-card">
+                                <h5>Repository Secrets Best Practices</h5>
+                                <ul class="checkmark-list">
+                                    <li>Use environment-specific secrets (DEV, STAGING, PROD)</li>
+                                    <li>Rotate secrets regularly (90-day cycle)</li>
+                                    <li>Never log or expose secrets in CI/CD output</li>
+                                    <li>Use least-privilege access for secrets</li>
+                                    <li>Implement secret scanning alerts</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="security-card">
+                                <h5>GitHub Actions Secret Usage</h5>
+                                <div class="code-block">
+name: Secure Deployment
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production  # Use environment protection
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Deploy to Production
+      env:
+        # Environment secrets
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        API_KEY: ${{ secrets.API_KEY }}
+        # Organisation secrets for shared resources
+        DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+      run: |
+        # Verify secrets are available (without exposing them)
+        if [ -z "$DATABASE_URL" ]; then
+          echo "❌ DATABASE_URL secret not found"
+          exit 1
+        fi
+        
+        # Use secrets securely
+        npm run deploy
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>Dependabot & Security Scanning</h4>
+                        <div class="security-scanning">
+                            <div class="scan-card">
+                                <h5>Dependabot Configuration</h5>
+                                <div class="code-block">
+# .github/dependabot.yml
+version: 2
+updates:
+  # npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "security-team"
+    labels:
+      - "dependencies"
+      - "security"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "github-actions"
+      - "security"
+
+  # Docker
+  - package-ecosystem: "docker"
+    directory: "/docker"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "docker"
+      - "security"
+                                </div>
+                            </div>
+                            
+                            <div class="scan-card">
+                                <h5>CodeQL Security Analysis</h5>
+                                <div class="code-block">
+name: "CodeQL Analysis"
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * 1'  # Weekly Monday 6 AM
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'javascript', 'python' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+        queries: security-extended,security-and-quality
+
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-subsection">
+                        <h4>Compliance & Audit Logging</h4>
+                        <div class="compliance-features">
+                            <div class="compliance-card">
+                                <h5>GDPR & Data Protection</h5>
+                                <ul class="simple-list">
+                                    <li><strong>Data Retention:</strong> Configure automatic deletion of old artifacts and logs</li>
+                                    <li><strong>Access Logs:</strong> Monitor and audit repository access patterns</li>
+                                    <li><strong>Personal Data:</strong> Scan for accidentally committed personal information</li>
+                                    <li><strong>Right to Erasure:</strong> Implement processes to remove user data from Git history</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="compliance-card">
+                                <h5>SOC 2 Compliance Features</h5>
+                                <ul class="simple-list">
+                                    <li><strong>Access Controls:</strong> Multi-factor authentication and SSO integration</li>
+                                    <li><strong>Audit Trails:</strong> Comprehensive logging of all repository activities</li>
+                                    <li><strong>Data Encryption:</strong> End-to-end encryption for sensitive repositories</li>
+                                    <li><strong>Incident Response:</strong> Automated security incident detection and response</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UK Cost Analysis -->
+                <div class="content-card cost-analysis">
+                    <h3>💰 UK Cost Analysis & Pricing Strategy</h3>
+                    <p>Understand GitHub's pricing structure and optimise your usage for UK businesses.</p>
+                    
+                    <div class="pricing-breakdown">
+                        <div class="pricing-tier">
+                            <h4>GitHub Free</h4>
+                            <div class="price">£0/month</div>
+                            <ul class="feature-list">
+                                <li>✅ Unlimited public repositories</li>
+                                <li>✅ 3,000 private repositories</li>
+                                <li>✅ 2,000 Actions minutes/month</li>
+                                <li>✅ 500MB Packages storage</li>
+                                <li>✅ Basic community support</li>
+                                <li>❌ Advanced security features</li>
+                                <li>❌ Required reviewers</li>
+                            </ul>
+                            <div class="best-for">Best for: Personal projects, open source, small teams</div>
+                        </div>
+                        
+                        <div class="pricing-tier recommended">
+                            <div class="tier-badge">Most Popular</div>
+                            <h4>GitHub Pro</h4>
+                            <div class="price">£3.20/month per user</div>
+                            <div class="price-note">(£38.40/year, prices include 20% VAT)</div>
+                            <ul class="feature-list">
+                                <li>✅ Everything in Free</li>
+                                <li>✅ 3,000 Actions minutes/month</li>
+                                <li>✅ 2GB Packages storage</li>
+                                <li>✅ Required reviewers</li>
+                                <li>✅ Draft pull requests</li>
+                                <li>✅ Repository insights</li>
+                                <li>✅ Email support</li>
+                            </ul>
+                            <div class="best-for">Best for: Professional developers, consultants, small agencies</div>
+                        </div>
+                        
+                        <div class="pricing-tier">
+                            <h4>GitHub Team</h4>
+                            <div class="price">£3.20/month per user</div>
+                            <div class="price-note">(£38.40/year, prices include 20% VAT)</div>
+                            <ul class="feature-list">
+                                <li>✅ Everything in Pro</li>
+                                <li>✅ Protected branches</li>
+                                <li>✅ CODEOWNERS</li>
+                                <li>✅ Team access controls</li>
+                                <li>✅ Web-based support</li>
+                                <li>❌ SAML/SCIM</li>
+                                <li>❌ Advanced security</li>
+                            </ul>
+                            <div class="best-for">Best for: Growing teams, startups, scale-ups</div>
+                        </div>
+                        
+                        <div class="pricing-tier enterprise">
+                            <h4>GitHub Enterprise</h4>
+                            <div class="price">£16.80/month per user</div>
+                            <div class="price-note">(£201.60/year, prices include 20% VAT)</div>
+                            <ul class="feature-list">
+                                <li>✅ Everything in Team</li>
+                                <li>✅ SAML single sign-on</li>
+                                <li>✅ Advanced security features</li>
+                                <li>✅ 50,000 Actions minutes/month</li>
+                                <li>✅ 50GB Packages storage</li>
+                                <li>✅ Premium support (24/7)</li>
+                                <li>✅ Advanced compliance</li>
+                            </ul>
+                            <div class="best-for">Best for: Large enterprises, regulated industries</div>
+                        </div>
+                    </div>
+                    
+                    <div class="cost-optimization">
+                        <h4>🎯 Cost Optimisation Strategies</h4>
+                        <div class="optimization-tips">
+                            <div class="tip-card">
+                                <h5>Actions Minutes Management</h5>
+                                <ul class="simple-list">
+                                    <li>Use self-hosted runners for compute-intensive tasks</li>
+                                    <li>Optimise workflow triggers (avoid unnecessary runs)</li>
+                                    <li>Cache dependencies to reduce build times</li>
+                                    <li>Use matrix builds efficiently</li>
+                                </ul>
+                                <div class="cost-impact">Potential savings: £50-200/month for active teams</div>
+                            </div>
+                            
+                            <div class="tip-card">
+                                <h5>Storage Optimisation</h5>
+                                <ul class="simple-list">
+                                    <li>Regular cleanup of old packages and artifacts</li>
+                                    <li>Use Git LFS only when necessary</li>
+                                    <li>Implement retention policies for CI/CD artifacts</li>
+                                    <li>Monitor repository sizes and clean up large files</li>
+                                </ul>
+                                <div class="cost-impact">Potential savings: £20-100/month depending on usage</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="roi-analysis">
+                        <h4>📊 ROI Analysis for UK Businesses</h4>
+                        <div class="roi-scenarios">
+                            <div class="scenario-card">
+                                <h5>Small Agency (5 developers)</h5>
+                                <div class="scenario-costs">
+                                    <div class="cost-line">GitHub Team: £192/month (£2,304/year)</div>
+                                    <div class="cost-line">Actions usage: ~£50/month</div>
+                                    <div class="cost-line"><strong>Total: ~£2,904/year</strong></div>
+                                </div>
+                                <div class="scenario-benefits">
+                                    <div class="benefit-line">Time saved: ~40 hours/month</div>
+                                    <div class="benefit-line">Value at £75/hour: £3,000/month</div>
+                                    <div class="benefit-line"><strong>Annual ROI: 1,134%</strong></div>
+                                </div>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h5>Growing Startup (15 developers)</h5>
+                                <div class="scenario-costs">
+                                    <div class="cost-line">GitHub Team: £576/month</div>
+                                    <div class="cost-line">Additional Actions: ~£150/month</div>
+                                    <div class="cost-line"><strong>Total: ~£8,712/year</strong></div>
+                                </div>
+                                <div class="scenario-benefits">
+                                    <div class="benefit-line">Deployment efficiency: 50% faster</div>
+                                    <div class="benefit-line">Reduced bugs: 30% fewer production issues</div>
+                                    <div class="benefit-line"><strong>Annual ROI: 400-600%</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Started with GitHub Integration -->
+                <div class="content-card highlight">
+                    <h3>🚀 Quick Start: Your First GitHub Integration</h3>
+                    <p>Get started with GitHub integration in under 30 minutes.</p>
+                    
+                    <div class="quick-start-steps">
+                        <div class="start-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Set Up GitHub CLI</h4>
+                                <div class="code-block">
+# Install GitHub CLI (macOS)
+brew install gh
+
+# Install GitHub CLI (Windows)
+winget install --id GitHub.cli
+
+# Authenticate
+gh auth login
+
+# Verify installation
+gh repo list
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="start-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Create Your First Automated Workflow</h4>
+                                <div class="code-block">
+# Create .github/workflows/ci.yml
+mkdir -p .github/workflows
+cat > .github/workflows/ci.yml << 'EOF'
+name: CI Pipeline
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    - run: npm ci
+    - run: npm test
+    - run: npm run lint
+EOF
+
+# Commit and push
+git add .github/workflows/ci.yml
+git commit -m "Add CI pipeline with automated testing"
+git push
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="start-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Set Up Branch Protection</h4>
+                                <div class="code-block">
+# Enable branch protection via GitHub CLI
+gh api repos/:owner/:repo/branches/main/protection \
+  --method PUT \
+  --field required_status_checks='{"strict":true,"contexts":["test"]}' \
+  --field enforce_admins=true \
+  --field required_pull_request_reviews='{"required_approving_review_count":1}' \
+  --field restrictions=null
+
+echo "✅ Branch protection enabled for main branch"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="content-card">
+                    <h3>🎯 Next Steps</h3>
+                    <div class="next-steps-grid">
+                        <div class="next-step-card">
+                            <h4>🔄 Advanced CI/CD</h4>
+                            <p>Set up deployment pipelines with GitHub Actions</p>
+                            <a href="#github-actions" class="btn-link">Learn GitHub Actions →</a>
+                        </div>
+                        
+                        <div class="next-step-card">
+                            <h4>🔐 Security Hardening</h4>
+                            <p>Implement advanced security scanning and policies</p>
+                            <a href="#security" class="btn-link">Security Guide →</a>
+                        </div>
+                        
+                        <div class="next-step-card">
+                            <h4>📊 Analytics Dashboard</h4>
+                            <p>Build custom dashboards using GitHub's API</p>
+                            <a href="#api-integration" class="btn-link">API Integration →</a>
+                        </div>
+                        
+                        <div class="next-step-card">
+                            <h4>👥 Team Workflows</h4>
+                            <p>Optimise collaboration and code review processes</p>
+                            <a href="#collaboration" class="btn-link">Team Guide →</a>
                         </div>
                     </div>
                 </div>

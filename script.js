@@ -73,6 +73,10 @@ function openMenuHandler() {
     menuOverlay.classList.add('active');
     menuToggle.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    // Update ARIA attributes
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', 'Close navigation menu');
 }
 
 function closeMenuHandler() {
@@ -80,6 +84,10 @@ function closeMenuHandler() {
     menuOverlay.classList.remove('active');
     menuToggle.classList.remove('active');
     document.body.style.overflow = '';
+    
+    // Update ARIA attributes
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation menu');
 }
 
 // Tab functionality
@@ -140,7 +148,67 @@ function initializeScrollSpy() {
                 link.classList.add('active');
             }
         });
+        
+        // Update breadcrumb
+        updateBreadcrumb(current);
     });
+}
+
+// Breadcrumb functionality
+function updateBreadcrumb(currentSectionId) {
+    const breadcrumbCurrent = document.querySelector('.breadcrumb-current');
+    const currentSectionItem = document.getElementById('current-section');
+    
+    if (breadcrumbCurrent && currentSectionItem) {
+        // Get the section title from the h2 element
+        const currentSection = document.getElementById(currentSectionId);
+        if (currentSection) {
+            const sectionTitle = currentSection.querySelector('h2');
+            if (sectionTitle) {
+                breadcrumbCurrent.textContent = sectionTitle.textContent;
+                
+                // Find which category this section belongs to
+                const activeLink = document.querySelector(`a[href="#${currentSectionId}"]`);
+                if (activeLink) {
+                    const categoryItems = activeLink.closest('.category-items');
+                    if (categoryItems) {
+                        const categoryName = categoryItems.getAttribute('data-category');
+                        const categoryHeader = document.querySelector(`.category-header[data-category="${categoryName}"]`);
+                        if (categoryHeader) {
+                            const categoryTitle = categoryHeader.querySelector('.category-title');
+                            if (categoryTitle) {
+                                // Update breadcrumb with category context
+                                const breadcrumbList = document.querySelector('.breadcrumb-list');
+                                // Check if category breadcrumb already exists
+                                let categoryBreadcrumb = breadcrumbList.querySelector('.category-breadcrumb');
+                                if (!categoryBreadcrumb) {
+                                    // Create category breadcrumb item
+                                    const categoryItem = document.createElement('li');
+                                    categoryItem.className = 'breadcrumb-item category-breadcrumb';
+                                    categoryItem.innerHTML = `<span class="breadcrumb-category">${categoryTitle.textContent}</span>`;
+                                    
+                                    const separator = document.createElement('li');
+                                    separator.className = 'breadcrumb-separator';
+                                    separator.textContent = '›';
+                                    
+                                    // Insert before current section
+                                    const currentItem = breadcrumbList.querySelector('.breadcrumb-item.active');
+                                    breadcrumbList.insertBefore(separator, currentItem);
+                                    breadcrumbList.insertBefore(categoryItem, separator);
+                                } else {
+                                    // Update existing category breadcrumb
+                                    const categorySpan = categoryBreadcrumb.querySelector('.breadcrumb-category');
+                                    if (categorySpan) {
+                                        categorySpan.textContent = categoryTitle.textContent;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 // Categorized Navigation functionality
@@ -166,11 +234,13 @@ function initializeCategorizedNavigation() {
                 // Collapse this category
                 this.classList.remove('active');
                 targetCategoryItems.classList.remove('expanded');
+                this.setAttribute('aria-expanded', 'false');
             } else {
                 // First collapse all other categories
                 categoryHeaders.forEach(otherHeader => {
                     if (otherHeader !== this) {
                         otherHeader.classList.remove('active');
+                        otherHeader.setAttribute('aria-expanded', 'false');
                         const otherCategoryName = otherHeader.getAttribute('data-category');
                         const otherCategoryItems = document.querySelector(`.category-items[data-category="${otherCategoryName}"]`);
                         otherCategoryItems.classList.remove('expanded');
@@ -180,6 +250,7 @@ function initializeCategorizedNavigation() {
                 // Then expand this category
                 this.classList.add('active');
                 targetCategoryItems.classList.add('expanded');
+                this.setAttribute('aria-expanded', 'true');
             }
             
             // Track category interaction

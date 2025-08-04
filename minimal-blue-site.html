@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A minimalist blue-themed website with modern design and accessibility features">
+    <meta name="keywords" content="minimalist, blue, modern, responsive, accessible">
+    <meta name="author" content="Minimalist Design Studio">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Minimalist Blue Website">
+    <meta property="og:description" content="Clean, modern design with beautiful blue aesthetics">
+    <meta property="og:type" content="website">
+    <title>Minimalist Blue - Modern Design</title>
+    <link rel="stylesheet" href="minimal-blue-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+            <div class="sidebar-header">
+                <h1 class="logo">Minimalist</h1>
+                <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation menu">
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                    <span class="toggle-line"></span>
+                </button>
+            </div>
+            
+            <ul class="nav-menu" role="menubar">
+                <li role="menuitem">
+                    <a href="#home" class="nav-link active" aria-current="page">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text">Home</span>
+                    </a>
+                </li>
+                <li role="menuitem">
+                    <a href="#about" class="nav-link">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">About</span>
+                    </a>
+                </li>
+                <li role="menuitem">
+                    <a href="#services" class="nav-link">
+                        <span class="nav-icon">⚡</span>
+                        <span class="nav-text">Services</span>
+                    </a>
+                </li>
+                <li role="menuitem">
+                    <a href="#portfolio" class="nav-link">
+                        <span class="nav-icon">💼</span>
+                        <span class="nav-text">Portfolio</span>
+                    </a>
+                </li>
+                <li role="menuitem">
+                    <a href="#blog" class="nav-link">
+                        <span class="nav-icon">📝</span>
+                        <span class="nav-text">Blog</span>
+                    </a>
+                </li>
+                <li role="menuitem">
+                    <a href="#contact" class="nav-link">
+                        <span class="nav-icon">📞</span>
+                        <span class="nav-text">Contact</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="sidebar-footer">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <span>𝕏</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <span>💼</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <span>🐙</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Overlay -->
+        <div class="mobile-overlay" id="mobile-overlay"></div>
+        
+        <!-- Main Content -->
+        <main class="main-content" id="main-content">
+            <!-- Hero Section -->
+            <section id="home" class="section hero-section">
+                <div class="container">
+                    <h1 class="hero-title">Beautiful Minimalist Design</h1>
+                    <p class="hero-subtitle">Clean, modern, and accessible web experiences crafted with precision</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">Get Started</button>
+                        <button class="btn btn-secondary">Learn More</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- About Section -->
+            <section id="about" class="section">
+                <div class="container">
+                    <h2 class="section-title">About Us</h2>
+                    <div class="content-grid">
+                        <div class="content-card">
+                            <h3>Our Mission</h3>
+                            <p>We believe in the power of simplicity. Our designs focus on essential elements, creating meaningful user experiences through clean aesthetics and intuitive functionality.</p>
+                        </div>
+                        <div class="content-card">
+                            <h3>Our Approach</h3>
+                            <p>Every project begins with understanding your unique needs. We combine modern design principles with accessibility standards to deliver exceptional results.</p>
+                        </div>
+                        <div class="content-card">
+                            <h3>Our Values</h3>
+                            <p>Quality over quantity, accessibility for all, and sustainable design practices guide everything we create. We're committed to making the web better.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Services Section -->
+            <section id="services" class="section alt-section">
+                <div class="container">
+                    <h2 class="section-title">Services</h2>
+                    <div class="services-grid">
+                        <article class="service-card">
+                            <div class="service-icon">🎨</div>
+                            <h3>UI/UX Design</h3>
+                            <p>Intuitive interfaces that delight users and drive engagement through thoughtful design decisions.</p>
+                            <ul class="service-features">
+                                <li>User Research</li>
+                                <li>Wireframing</li>
+                                <li>Prototyping</li>
+                                <li>Visual Design</li>
+                            </ul>
+                        </article>
+                        
+                        <article class="service-card">
+                            <div class="service-icon">💻</div>
+                            <h3>Web Development</h3>
+                            <p>Responsive, fast, and accessible websites built with modern technologies and best practices.</p>
+                            <ul class="service-features">
+                                <li>HTML5 & CSS3</li>
+                                <li>JavaScript ES6+</li>
+                                <li>React & Vue</li>
+                                <li>Performance Optimization</li>
+                            </ul>
+                        </article>
+                        
+                        <article class="service-card">
+                            <div class="service-icon">📱</div>
+                            <h3>Mobile First</h3>
+                            <p>Mobile-optimized experiences that work seamlessly across all devices and screen sizes.</p>
+                            <ul class="service-features">
+                                <li>Responsive Design</li>
+                                <li>Touch Optimization</li>
+                                <li>Progressive Web Apps</li>
+                                <li>Cross-platform Testing</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="section">
+                <div class="container">
+                    <h2 class="section-title">Portfolio</h2>
+                    <div class="portfolio-grid">
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <div class="placeholder-image">🖼️</div>
+                            </div>
+                            <div class="portfolio-content">
+                                <h3>E-commerce Platform</h3>
+                                <p>Modern shopping experience with seamless checkout flow</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">Stripe</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <div class="placeholder-image">📊</div>
+                            </div>
+                            <div class="portfolio-content">
+                                <h3>Analytics Dashboard</h3>
+                                <p>Real-time data visualization with interactive charts</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">Vue.js</span>
+                                    <span class="tag">D3.js</span>
+                                    <span class="tag">API</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="portfolio-item">
+                            <div class="portfolio-image">
+                                <div class="placeholder-image">🏢</div>
+                            </div>
+                            <div class="portfolio-content">
+                                <h3>Corporate Website</h3>
+                                <p>Professional presence with content management system</p>
+                                <div class="portfolio-tags">
+                                    <span class="tag">HTML5</span>
+                                    <span class="tag">CSS3</span>
+                                    <span class="tag">CMS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Blog Section -->
+            <section id="blog" class="section alt-section">
+                <div class="container">
+                    <h2 class="section-title">Latest Blog Posts</h2>
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-15">Jan 15, 2024</time>
+                                <span class="blog-category">Design</span>
+                            </div>
+                            <h3>The Art of Minimalist Web Design</h3>
+                            <p>Exploring how less can be more in creating impactful user experiences through strategic simplicity.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-10">Jan 10, 2024</time>
+                                <span class="blog-category">Development</span>
+                            </div>
+                            <h3>CSS Grid vs Flexbox in 2024</h3>
+                            <p>A comprehensive guide to choosing the right layout method for your next project.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-meta">
+                                <time datetime="2024-01-05">Jan 5, 2024</time>
+                                <span class="blog-category">Accessibility</span>
+                            </div>
+                            <h3>Building Inclusive Web Experiences</h3>
+                            <p>Best practices for creating websites that work for everyone, regardless of ability.</p>
+                            <a href="#" class="read-more">Read More →</a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <div class="container">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <h3>Let's Work Together</h3>
+                            <p>Ready to start your next project? We'd love to hear from you and discuss how we can bring your vision to life.</p>
+                            
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-details">
+                                        <h4>Email</h4>
+                                        <p>hello@minimalist.design</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="contact-icon">📞</div>
+                                    <div class="contact-details">
+                                        <h4>Phone</h4>
+                                        <p>+44 20 1234 5678</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="contact-method">
+                                    <div class="contact-icon">📍</div>
+                                    <div class="contact-details">
+                                        <h4>Location</h4>
+                                        <p>London, United Kingdom</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form class="contact-form" aria-label="Contact form">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required aria-required="true">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required aria-required="true">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="minimal-blue-script.js"></script>
+</body>
+</html>
