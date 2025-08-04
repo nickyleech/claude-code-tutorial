@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeProgressIndicator();
     initializeScrollSpy();
     initializeSmoothScroll();
+    initializeCategorizedNavigation();
+    initializeNavigationSearch();
 });
 
 // Menu functionality
@@ -138,6 +140,249 @@ function initializeScrollSpy() {
                 link.classList.add('active');
             }
         });
+    });
+}
+
+// Categorized Navigation functionality
+function initializeCategorizedNavigation() {
+    const categoryHeaders = document.querySelectorAll('.category-header');
+    const categoryItems = document.querySelectorAll('.category-items');
+    
+    // Set initial state - expand first category by default
+    if (categoryHeaders.length > 0) {
+        categoryHeaders[0].classList.add('active');
+        categoryItems[0].classList.add('expanded');
+    }
+    
+    categoryHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const categoryName = this.getAttribute('data-category');
+            const categoryItems = document.querySelector(`.category-items[data-category="${categoryName}"]`);
+            const isActive = this.classList.contains('active');
+            
+            if (isActive) {
+                // Collapse this category
+                this.classList.remove('active');
+                categoryItems.classList.remove('expanded');
+            } else {
+                // Expand this category
+                this.classList.add('active');
+                categoryItems.classList.add('expanded');
+            }
+            
+            // Track category interaction
+            trackEvent('navigation_category_toggle', {
+                category: categoryName,
+                expanded: !isActive
+            });
+        });
+        
+        // Add keyboard support
+        header.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+    
+    // Enhanced active link highlighting with category context
+    const allMenuLinks = document.querySelectorAll('.menu-link');
+    window.addEventListener('scroll', function() {
+        let current = '';
+        const sections = document.querySelectorAll('.section');
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.pageYOffset >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        // Update active menu link and expand parent category
+        allMenuLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+                
+                // Expand parent category if not already expanded
+                const parentCategory = link.closest('.category-items');
+                const parentHeader = document.querySelector(`.category-header[data-category="${parentCategory.getAttribute('data-category')}"]`);
+                
+                if (parentCategory && !parentCategory.classList.contains('expanded')) {
+                    parentHeader.classList.add('active');
+                    parentCategory.classList.add('expanded');
+                }
+            }
+        });
+    });
+}
+
+// Navigation Search functionality
+function initializeNavigationSearch() {
+    const searchInput = document.getElementById('nav-search');
+    const categoryItems = document.querySelectorAll('.category-items');
+    const categoryHeaders = document.querySelectorAll('.category-header');
+    const menuLinks = document.querySelectorAll('.menu-link');
+    
+    if (!searchInput) return;
+    
+    let searchTimeout;
+    
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            const searchTerm = this.value.toLowerCase().trim();
+            performNavSearch(searchTerm);
+        }, 150);
+    });
+    
+    function performNavSearch(searchTerm) {
+        if (searchTerm === '') {
+            // Reset to normal state
+            resetNavigationView();
+            return;
+        }
+        
+        let hasResults = false;
+        
+        // Hide all categories first
+        categoryHeaders.forEach(header => {
+            header.style.display = 'none';
+        });
+        
+        categoryItems.forEach(items => {
+            items.style.display = 'none';
+        });
+        
+        // Show matching links and their categories
+        menuLinks.forEach(link => {
+            const linkText = link.textContent.toLowerCase();
+            const linkMatches = linkText.includes(searchTerm);
+            const linkParent = link.closest('.category-items');
+            const categoryHeader = document.querySelector(`.category-header[data-category="${linkParent.getAttribute('data-category')}"]`);
+            
+            if (linkMatches) {
+                hasResults = true;
+                // Show the link
+                link.parentElement.style.display = 'block';
+                // Show parent category
+                linkParent.style.display = 'block';
+                linkParent.classList.add('expanded');
+                categoryHeader.style.display = 'flex';
+                categoryHeader.classList.add('active');
+                
+                // Highlight matching text
+                highlightSearchTerm(link, searchTerm);
+            } else {
+                link.parentElement.style.display = 'none';
+                removeHighlight(link);
+            }
+        });
+        
+        // Show "no results" message if needed
+        showNoResultsMessage(!hasResults, searchTerm);
+        
+        // Track search usage
+        trackEvent('navigation_search', {
+            term: searchTerm,
+            hasResults: hasResults
+        });
+    }
+    
+    function resetNavigationView() {
+        // Show all categories and links
+        categoryHeaders.forEach(header => {
+            header.style.display = 'flex';
+        });
+        
+        categoryItems.forEach(items => {
+            items.style.display = 'block';
+        });
+        
+        menuLinks.forEach(link => {
+            link.parentElement.style.display = 'block';
+            removeHighlight(link);
+        });
+        
+        // Reset to default expanded state (first category)
+        categoryHeaders.forEach((header, index) => {
+            if (index === 0) {
+                header.classList.add('active');
+                categoryItems[index].classList.add('expanded');
+            } else {
+                header.classList.remove('active');
+                categoryItems[index].classList.remove('expanded');
+            }
+        });
+        
+        removeNoResultsMessage();
+    }
+    
+    function highlightSearchTerm(element, term) {
+        const text = element.textContent;
+        const regex = new RegExp(`(${term})`, 'gi');
+        const highlightedText = text.replace(regex, '<mark>$1</mark>');
+        element.innerHTML = highlightedText;
+    }
+    
+    function removeHighlight(element) {
+        const text = element.textContent;
+        element.innerHTML = text;
+    }
+    
+    function showNoResultsMessage(show, term) {
+        removeNoResultsMessage();
+        
+        if (show) {
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'nav-search-no-results';
+            noResultsDiv.innerHTML = `
+                <div style="padding: 2rem 1rem; text-align: center; color: #6b7280;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+                    <div style="font-weight: 500; margin-bottom: 0.25rem;">No results found</div>
+                    <div style="font-size: 0.875rem;">Try searching for "getting started", "integration", or "deployment"</div>
+                </div>
+            `;
+            
+            const navCategories = document.querySelector('.nav-categories');
+            navCategories.appendChild(noResultsDiv);
+        }
+    }
+    
+    function removeNoResultsMessage() {
+        const existingMessage = document.querySelector('.nav-search-no-results');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+    }
+    
+    // Clear search on escape key
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            resetNavigationView();
+            this.blur();
+        }
+    });
+    
+    // Add search shortcut (Ctrl/Cmd + K)
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            
+            // Open menu if closed
+            if (!sideMenu.classList.contains('active')) {
+                openMenuHandler();
+            }
+            
+            // Focus search input
+            setTimeout(() => {
+                searchInput.focus();
+            }, 100);
+            
+            trackEvent('navigation_search_shortcut', {});
+        }
     });
 }
 

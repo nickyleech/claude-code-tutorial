@@ -24,29 +24,91 @@
         <!-- Side Menu -->
         <aside class="side-menu" id="side-menu">
             <div class="menu-header">
-                <h2>Sections</h2>
+                <h2>Navigation</h2>
                 <button class="close-menu" id="close-menu">&times;</button>
             </div>
-            <ul class="menu-items">
-                <li><a href="#intro" class="menu-link">What is Claude Code?</a></li>
-                <li><a href="#getting-started" class="menu-link">Getting Started</a></li>
-                <li><a href="#first-chat" class="menu-link">Your First Chat</a></li>
-                <li><a href="#cheat-sheet" class="menu-link">📄 Cheat Sheet</a></li>
-                <li><a href="#claude-md" class="menu-link">📝 CLAUDE.md Files</a></li>
-                <li><a href="#project-organisation" class="menu-link">📁 Project Organisation</a></li>
-                <li><a href="#testing" class="menu-link">🧪 Testing Strategy</a></li>
-                <li><a href="#prompts-library" class="menu-link">💬 Best Prompts</a></li>
-                <li><a href="#vscode-integration" class="menu-link">💻 VS Code Integration</a></li>
-                <li><a href="#vercel-masterclass" class="menu-link">🚀 Vercel Deployment</a></li>
-                <li><a href="#complete-walkthrough" class="menu-link">👩‍💻 Complete Walkthrough</a></li>
-                <li><a href="#storage-integration" class="menu-link">💾 Storage Integration</a></li>
-                <li><a href="#api-integration" class="menu-link">🔌 API Integration</a></li>
-                <li><a href="#data-sources" class="menu-link">📡 Data Sources</a></li>
-                <li><a href="#common-tasks" class="menu-link">Common Tasks</a></li>
-                <li><a href="#best-practices" class="menu-link">Best Practices</a></li>
-                <li><a href="#safety" class="menu-link">Safety First</a></li>
-                <li><a href="#examples" class="menu-link">Real Examples</a></li>
-            </ul>
+            
+            <!-- Quick Search -->
+            <div class="menu-search">
+                <input type="text" id="nav-search" placeholder="Search sections..." class="search-input">
+                <div class="search-icon">🔍</div>
+            </div>
+            
+            <!-- Categorized Navigation -->
+            <nav class="nav-categories">
+                <!-- Getting Started Category -->
+                <div class="nav-category">
+                    <button class="category-header" data-category="getting-started">
+                        <span class="category-icon">🚀</span>
+                        <span class="category-title">Getting Started</span>
+                        <span class="category-toggle">▼</span>
+                    </button>
+                    <ul class="category-items" data-category="getting-started">
+                        <li><a href="#intro" class="menu-link">What is Claude Code?</a></li>
+                        <li><a href="#getting-started" class="menu-link">Getting Started</a></li>
+                        <li><a href="#first-chat" class="menu-link">Your First Chat</a></li>
+                    </ul>
+                </div>
+
+                <!-- Core Concepts Category -->
+                <div class="nav-category">
+                    <button class="category-header" data-category="core-concepts">
+                        <span class="category-icon">📚</span>
+                        <span class="category-title">Core Concepts</span>
+                        <span class="category-toggle">▼</span>
+                    </button>
+                    <ul class="category-items" data-category="core-concepts">
+                        <li><a href="#claude-md" class="menu-link">📝 CLAUDE.md Files</a></li>
+                        <li><a href="#project-organisation" class="menu-link">📁 Project Organisation</a></li>
+                        <li><a href="#testing" class="menu-link">🧪 Testing Strategy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Advanced Features Category -->
+                <div class="nav-category">
+                    <button class="category-header" data-category="advanced-features">
+                        <span class="category-icon">💡</span>
+                        <span class="category-title">Advanced Features</span>
+                        <span class="category-toggle">▼</span>
+                    </button>
+                    <ul class="category-items" data-category="advanced-features">
+                        <li><a href="#prompts-library" class="menu-link">💬 Best Prompts</a></li>
+                        <li><a href="#vscode-integration" class="menu-link">💻 VS Code Integration</a></li>
+                        <li><a href="#vercel-masterclass" class="menu-link">🚀 Vercel Deployment</a></li>
+                        <li><a href="#complete-walkthrough" class="menu-link">👩‍💻 Complete Walkthrough</a></li>
+                    </ul>
+                </div>
+
+                <!-- Integrations Category -->
+                <div class="nav-category">
+                    <button class="category-header" data-category="integrations">
+                        <span class="category-icon">🛠️</span>
+                        <span class="category-title">Integrations</span>
+                        <span class="category-toggle">▼</span>
+                    </button>
+                    <ul class="category-items" data-category="integrations">
+                        <li><a href="#storage-integration" class="menu-link">💾 Storage Integration</a></li>
+                        <li><a href="#api-integration" class="menu-link">🔌 API Integration</a></li>
+                        <li><a href="#data-sources" class="menu-link">📡 Data Sources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Reference Category -->
+                <div class="nav-category">
+                    <button class="category-header" data-category="reference">
+                        <span class="category-icon">📖</span>
+                        <span class="category-title">Reference</span>
+                        <span class="category-toggle">▼</span>
+                    </button>
+                    <ul class="category-items" data-category="reference">
+                        <li><a href="#cheat-sheet" class="menu-link">📄 Cheat Sheet</a></li>
+                        <li><a href="#common-tasks" class="menu-link">Common Tasks</a></li>
+                        <li><a href="#best-practices" class="menu-link">Best Practices</a></li>
+                        <li><a href="#safety" class="menu-link">Safety First</a></li>
+                        <li><a href="#examples" class="menu-link">Real Examples</a></li>
+                    </ul>
+                </div>
+            </nav>
         </aside>
 
         <!-- Main Content -->
