@@ -148,26 +148,38 @@ function initializeCategorizedNavigation() {
     const categoryHeaders = document.querySelectorAll('.category-header');
     const categoryItems = document.querySelectorAll('.category-items');
     
-    // Set initial state - expand first category by default
-    if (categoryHeaders.length > 0) {
-        categoryHeaders[0].classList.add('active');
-        categoryItems[0].classList.add('expanded');
-    }
+    // Set initial state - all categories collapsed
+    categoryHeaders.forEach(header => {
+        header.classList.remove('active');
+    });
+    categoryItems.forEach(items => {
+        items.classList.remove('expanded');
+    });
     
     categoryHeaders.forEach(header => {
         header.addEventListener('click', function() {
             const categoryName = this.getAttribute('data-category');
-            const categoryItems = document.querySelector(`.category-items[data-category="${categoryName}"]`);
+            const targetCategoryItems = document.querySelector(`.category-items[data-category="${categoryName}"]`);
             const isActive = this.classList.contains('active');
             
             if (isActive) {
                 // Collapse this category
                 this.classList.remove('active');
-                categoryItems.classList.remove('expanded');
+                targetCategoryItems.classList.remove('expanded');
             } else {
-                // Expand this category
+                // First collapse all other categories
+                categoryHeaders.forEach(otherHeader => {
+                    if (otherHeader !== this) {
+                        otherHeader.classList.remove('active');
+                        const otherCategoryName = otherHeader.getAttribute('data-category');
+                        const otherCategoryItems = document.querySelector(`.category-items[data-category="${otherCategoryName}"]`);
+                        otherCategoryItems.classList.remove('expanded');
+                    }
+                });
+                
+                // Then expand this category
                 this.classList.add('active');
-                categoryItems.classList.add('expanded');
+                targetCategoryItems.classList.add('expanded');
             }
             
             // Track category interaction
@@ -305,15 +317,12 @@ function initializeNavigationSearch() {
             removeHighlight(link);
         });
         
-        // Reset to default expanded state (first category)
-        categoryHeaders.forEach((header, index) => {
-            if (index === 0) {
-                header.classList.add('active');
-                categoryItems[index].classList.add('expanded');
-            } else {
-                header.classList.remove('active');
-                categoryItems[index].classList.remove('expanded');
-            }
+        // Reset to default collapsed state (all categories closed)
+        categoryHeaders.forEach((header) => {
+            header.classList.remove('active');
+        });
+        categoryItems.forEach((items) => {
+            items.classList.remove('expanded');
         });
         
         removeNoResultsMessage();
