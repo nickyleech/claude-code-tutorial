@@ -125,61 +125,6 @@
                 <div class="search-icon">🔍</div>
             </div>
             
-            <!-- Content Overview Dashboard -->
-            <div class="content-overview">
-                <div class="overview-header">
-                    <h4>📊 Tutorial Overview</h4>
-                    <span class="section-count">22 sections</span>
-                </div>
-                <div class="overview-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">🚀</span>
-                        <span class="stat-label">Quick Start</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">📚</span>
-                        <span class="stat-label">Deep Dive</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">🔧</span>
-                        <span class="stat-label">Tools</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">💡</span>
-                        <span class="stat-label">Advanced</span>
-                    </div>
-                </div>
-                <div class="overview-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="tutorial-progress" style="width: 0%"></div>
-                    </div>
-                    <span class="progress-text">0% complete</span>
-                </div>
-            </div>
-            
-            <!-- Quick Access Toolbar -->
-            <div class="quick-access-toolbar">
-                <div class="toolbar-section">
-                    <h4>🚀 Start Here</h4>
-                    <div class="quick-links">
-                        <a href="#30-second-setup" class="quick-link primary">⏱️ Quick Setup</a>
-                        <a href="#cheat-sheet" class="quick-link">📄 Cheat Sheet</a>
-                    </div>
-                </div>
-                <div class="toolbar-section">
-                    <h4>🔥 Popular</h4>
-                    <div class="quick-links">
-                        <a href="#prompts-library" class="quick-link">💬 Best Prompts</a>
-                        <a href="#roi-calculator" class="quick-link">💰 ROI Calc</a>
-                    </div>
-                </div>
-                <div class="toolbar-section">
-                    <h4>🆕 Latest</h4>
-                    <div class="quick-links">
-                        <a href="#latest-features" class="quick-link highlight">✨ What's New</a>
-                    </div>
-                </div>
-            </div>
             
             <!-- Categorized Navigation -->
             <nav class="nav-categories">
@@ -288,130 +233,195 @@
                 </ol>
             </nav>
 
-            <!-- Home/Landing Page - Minimalist Split Design -->
-            <section id="home" class="section home-section">
-                <div class="split-container">
-                    <div class="split-left">
-                        <div class="hero-content">
-                            <h1>Claude Code Guide</h1>
-                            <p>Master AI-powered development with our comprehensive enterprise tutorial</p>
-                            <div class="hero-stats">
-                                <div class="stat-badge">
-                                    <span class="stat-number">22</span>
-                                    <span class="stat-text">sections</span>
-                                </div>
-                                <div class="stat-badge">
-                                    <span class="stat-number">✨</span>
-                                    <span class="stat-text">enterprise-ready</span>
-                                </div>
-                                <div class="stat-badge">
-                                    <span class="stat-number">🇬🇧</span>
-                                    <span class="stat-text">UK focused</span>
-                                </div>
+            <!-- Minimal News Feed - Default Landing -->
+            <section id="home" class="section news-feed-section">
+                <header class="news-header">
+                    <h1>Claude Code Guide</h1>
+                    <p>Latest updates and comprehensive tutorials</p>
+                </header>
+                
+                <div class="news-grid">
+                    <!-- Featured: Claude 4 Release -->
+                    <article class="news-item featured">
+                        <div class="news-badge new">Latest</div>
+                        <h2>Claude 4 Family Released</h2>
+                        <p class="news-meta">January 2025 • Anthropic</p>
+                        <p>Claude Opus 4 and Sonnet 4 set new standards for coding and reasoning. Opus 4 leads SWE-bench at 72.5% and offers extended thinking capabilities.</p>
+                        <div class="news-tags">
+                            <span class="tag">Coding</span>
+                            <span class="tag">Reasoning</span>
+                        </div>
+                    </article>
+                    
+                    <!-- Claude Code GA -->
+                    <article class="news-item">
+                        <h3>Claude Code Generally Available</h3>
+                        <p class="news-meta">May 22, 2025</p>
+                        <p>Now supports GitHub Actions, VS Code integration, and seamless pair programming workflows.</p>
+                    </article>
+                    
+                    <!-- Web Search -->
+                    <article class="news-item">
+                        <h3>Web Search Capability</h3>
+                        <p class="news-meta">December 2024</p>
+                        <p>Claude can now search the internet for real-time information with direct citations.</p>
+                    </article>
+                    
+                    <!-- Computer Use -->
+                    <article class="news-item">
+                        <h3>Computer Use Feature</h3>
+                        <p class="news-meta">October 2024</p>
+                        <p>Claude 3.5 Sonnet can interact with computers through screen interpretation and mouse/keyboard control.</p>
+                    </article>
+                </div>
+                
+                <div class="quick-links">
+                    <a href="#" onclick="showSection('30-second-setup')" class="quick-link">⏱️ Quick Setup</a>
+                    <a href="#" onclick="showSection('claude-code-changelog')" class="quick-link">📋 Full Changelog</a>
+                    <a href="#" onclick="toggleFullNavigation()" class="quick-link">📚 Browse Tutorial</a>
+                </div>
+            </section>
+
+            <!-- Anthropic News & Updates -->
+            <section id="latest-features" class="section">
+                <h2>Anthropic News & Updates</h2>
+                
+                <div class="news-timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-date">January 2025</div>
+                        <div class="timeline-content">
+                            <h3>🚀 Claude 4 Family</h3>
+                            <p><strong>Claude Opus 4</strong> - World's best coding model, 72.5% on SWE-bench</p>
+                            <p><strong>Claude Sonnet 4</strong> - Extended thinking with tool use capabilities</p>
+                            <div class="highlights">
+                                • Sustained performance on long-running tasks<br>
+                                • Parallel tool usage and improved memory<br>
+                                • Available on Pro, Max, Team, Enterprise plans
                             </div>
                         </div>
-                    </div>
-                    <div class="split-right">
-                        <div class="navigation-menu">
-                            <h2>Start Your Journey</h2>
-                            <nav class="home-nav">
-                                <a href="#30-second-setup" class="nav-item primary" onclick="showSection('30-second-setup')">
-                                    <span class="nav-icon">⏱️</span>
-                                    <div class="nav-content">
-                                        <strong>30-Second Setup</strong>
-                                        <small>Get started instantly</small>
-                                    </div>
-                                </a>
-                                <a href="#intro" class="nav-item" onclick="showSection('intro')">
-                                    <span class="nav-icon">🚀</span>
-                                    <div class="nav-content">
-                                        <strong>What is Claude Code?</strong>
-                                        <small>Perfect for beginners</small>
-                                    </div>
-                                </a>
-                                <a href="#cheat-sheet" class="nav-item" onclick="showSection('cheat-sheet')">
-                                    <span class="nav-icon">📄</span>
-                                    <div class="nav-content">
-                                        <strong>Quick Reference</strong>
-                                        <small>Commands & shortcuts</small>
-                                    </div>
-                                </a>
-                                <a href="#roi-calculator" class="nav-item" onclick="showSection('roi-calculator')">
-                                    <span class="nav-icon">💰</span>
-                                    <div class="nav-content">
-                                        <strong>ROI Calculator</strong>
-                                        <small>Enterprise value analysis</small>
-                                    </div>
-                                </a>
-                                <a href="#latest-features" class="nav-item" onclick="showSection('latest-features')">
-                                    <span class="nav-icon">🆕</span>
-                                    <div class="nav-content">
-                                        <strong>What's New</strong>
-                                        <small>Latest features & updates</small>
-                                    </div>
-                                </a>
-                            </nav>
-                            <div class="browse-all">
-                                <button onclick="toggleFullNavigation()" class="browse-button">
-                                    🗺️ Browse All Sections
-                                </button>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-date">December 2024</div>
+                        <div class="timeline-content">
+                            <h3>🌐 Web Search</h3>
+                            <p>Claude can now search the internet for up-to-date information with direct citations.</p>
+                            <div class="highlights">
+                                • Real-time information access<br>
+                                • Fact-checking with source citations<br>
+                                • Available for paid users in the US
                             </div>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-date">October 2024</div>
+                        <div class="timeline-content">
+                            <h3>🖥️ Computer Use (Beta)</h3>
+                            <p>Claude 3.5 Sonnet can interact with computers through screen interpretation.</p>
+                            <div class="highlights">
+                                • Screen image interpretation<br>
+                                • Mouse and keyboard control<br>
+                                • Top performer on OSWorld benchmark (14.9%)
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-date">June 2024</div>
+                        <div class="timeline-content">
+                            <h3>🎯 Claude 3.5 Sonnet</h3>
+                            <p>Most intelligent model with graduate-level reasoning and coding proficiency.</p>
+                            <div class="highlights">
+                                • 64% problem-solving rate in coding evaluation<br>
+                                • Industry-leading benchmarks<br>
+                                • Cost-effective with mid-tier pricing
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="business-metrics">
+                    <h3>📊 Business Impact</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <span class="metric-number">$850M</span>
+                            <span class="metric-label">2024 Revenue</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-number">$2.2B</span>
+                            <span class="metric-label">2025 Projected</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-number">18.9M</span>
+                            <span class="metric-label">Monthly Users</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Latest Features Section - Prominent -->
-            <section id="latest-features" class="section featured-section">
-                <div class="section-header">
-                    <h2>🔥 Latest Claude Code Features</h2>
-                    <p class="subtitle">Stay ahead with the newest capabilities</p>
-                </div>
+            <!-- Claude Code Changelog -->
+            <section id="claude-code-changelog" class="section">
+                <h2>📋 Claude Code Changelog</h2>
+                <p class="subtitle">Track every update and improvement</p>
                 
-                <div class="content-card highlight">
-                    <div class="update-banner">
-                        <span class="update-badge">NEW</span>
-                        <strong>Claude Code v2.5.1 Released!</strong>
-                        <span class="update-date">Released 8 Aug 2025</span>
+                <div class="changelog-timeline">
+                    <div class="changelog-item">
+                        <div class="changelog-version">
+                            <span class="version-tag">Latest</span>
+                            <strong>June 30, 2025</strong>
+                        </div>
+                        <div class="changelog-content">
+                            <h4>🎣 Hooks Support</h4>
+                            <p>Added support for "hooks" with community input from GitHub Issues</p>
+                        </div>
                     </div>
                     
-                    <div class="feature-grid">
-                        <div class="feature-item new">
-                            <h4>⚡ Enhanced Performance</h4>
-                            <p>50% faster code analysis and 30% reduced memory usage</p>
-                            <span class="feature-badge">Performance</span>
+                    <div class="changelog-item">
+                        <div class="changelog-version">June 18, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🔌 MCP Enhancements</h4>
+                            <p>• SSE and HTTP transports for MCP servers<br>
+                               • `/mcp` command for OAuth 2.0 authentication<br>
+                               • Reference MCP resources with `@server:protocol://path`</p>
                         </div>
-                        <div class="feature-item new">
-                            <h4>🔒 Advanced Security</h4>
-                            <p>New security scanning with zero-trust architecture</p>
-                            <span class="feature-badge">Security</span>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">June 11, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🛠️ SDK Release</h4>
+                            <p>Claude Code SDK for TypeScript and Python</p>
                         </div>
-                        <div class="feature-item new">
-                            <h4>🌐 Multi-language Support</h4>
-                            <p>Added support for Rust, Go, and TypeScript improvements</p>
-                            <span class="feature-badge">Languages</span>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">June 4, 2025</div>
+                        <div class="changelog-content">
+                            <h4>💎 Pro & Max Plans</h4>
+                            <p>Claude Code now available on Pro and Max subscription plans</p>
                         </div>
-                        <div class="feature-item beta">
-                            <h4>🧪 AI Code Reviews</h4>
-                            <p>Automated code quality suggestions (Beta)</p>
-                            <span class="feature-badge beta">Beta</span>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">May 22, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🚀 General Availability</h4>
+                            <p>Claude Code reaches GA with GitHub Actions and IDE integrations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">February 24, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🧪 Research Preview</h4>
+                            <p>Claude Code command line tool enters research preview</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="content-card">
-                    <h3>🎯 Quick Action Dashboard</h3>
-                    <div class="quick-actions">
-                        <button class="action-button primary" onclick="showSection('30-second-setup')">
-                            ⏱️ Get Started in 30 Seconds
-                        </button>
-                        <button class="action-button secondary" onclick="showSection('version-changelog')">
-                            📋 View Full Changelog
-                        </button>
-                        <button class="action-button secondary" onclick="showSection('roi-calculator')">
-                            💰 Calculate ROI
-                        </button>
-                    </div>
+                <div class="changelog-footer">
+                    <p><em>For complete release notes, visit the <a href="https://docs.anthropic.com/en/release-notes/claude-code" target="_blank">official documentation</a></em></p>
                 </div>
             </section>
 
