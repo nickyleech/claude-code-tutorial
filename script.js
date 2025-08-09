@@ -37,8 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeROICalculator();
     initializeLiveUpdates();
     
-    // Show the "What's New" section by default
-    showSection('latest-features');
+    // Show the home section by default
+    showSection('home');
+    
+    // Initialize quick access links
+    initializeQuickAccess();
+    
+    // Auto-expand getting started category for new users
+    const gettingStartedHeader = document.querySelector('[data-category="getting-started"]');
+    if (gettingStartedHeader && !localStorage.getItem('claude-tutorial-visited')) {
+        gettingStartedHeader.click();
+        localStorage.setItem('claude-tutorial-visited', 'true');
+    }
 });
 
 // Menu functionality
@@ -1887,3 +1897,211 @@ function showFallbackNavigation() {
 
 // Initialize performance optimizations on load
 document.addEventListener('DOMContentLoaded', initializePerformanceOptimizations);
+
+// Quick Access Navigation
+function initializeQuickAccess() {
+    const quickLinks = document.querySelectorAll('.quick-link');
+    
+    quickLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetSection = this.getAttribute('href').substring(1);
+            
+            // Show the target section
+            showSection(targetSection);
+            
+            // Auto-expand the relevant category
+            expandRelevantCategory(targetSection);
+            
+            // Close mobile menu
+            closeMenuHandler();
+            
+            // Track quick access usage
+            trackEvent('quick_access_used', {
+                target_section: targetSection,
+                link_type: this.className.includes('primary') ? 'primary' : 'secondary'
+            });
+        });
+    });
+}
+
+function expandRelevantCategory(sectionId) {
+    // Map sections to their categories
+    const sectionToCategory = {
+        '30-second-setup': 'updates',
+        'latest-features': 'updates', 
+        'roi-calculator': 'updates',
+        'intro': 'getting-started',
+        'getting-started': 'getting-started',
+        'first-chat': 'getting-started',
+        'claude-md': 'core-concepts',
+        'project-organisation': 'core-concepts',
+        'testing': 'core-concepts',
+        'prompts-library': 'advanced-features',
+        'vscode-integration': 'advanced-features',
+        'vercel-masterclass': 'advanced-features',
+        'complete-walkthrough': 'advanced-features',
+        'storage-integration': 'integrations',
+        'api-integration': 'integrations',
+        'data-sources': 'integrations',
+        'github-integration': 'integrations',
+        'cheat-sheet': 'reference',
+        'common-tasks': 'reference',
+        'best-practices': 'reference',
+        'safety': 'reference',
+        'examples': 'reference'
+    };
+    
+    const categoryName = sectionToCategory[sectionId];
+    if (categoryName) {
+        const categoryHeader = document.querySelector(`[data-category="${categoryName}"]`);
+        const categoryItems = document.querySelector(`.category-items[data-category="${categoryName}"]`);
+        
+        if (categoryHeader && categoryItems) {
+            // Expand the category if it's not already expanded
+            if (!categoryHeader.classList.contains('active')) {
+                categoryHeader.click();
+            }
+        }
+    }
+}
+
+// Enhanced section display with better UX  
+function showSection(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // Show target section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.style.display = 'block';
+        
+        // Smooth scroll to top of main content
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+            mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Update breadcrumb
+        updateBreadcrumb(sectionId);
+        
+        // Update active menu link
+        updateActiveMenuLink(document.querySelector(`[href="#${sectionId}"]`));
+        
+        // Update progress
+        updateTutorialProgress();
+        
+        // Track section view
+        trackEvent('section_viewed', {
+            section: sectionId
+        });
+    }
+    
+    // Close mobile menu
+    if (window.innerWidth <= 1024) {
+        closeMenuHandler();
+    }
+}
+
+// Toggle full navigation function for the Browse All Sections button
+function toggleFullNavigation() {
+    const homeSection = document.getElementById('home');
+    const sidebar = document.querySelector('.sidebar');
+    
+    if (homeSection && homeSection.style.display !== 'none') {
+        // Hide home section and show full navigation
+        homeSection.style.display = 'none';
+        if (sidebar) {
+            sidebar.style.display = 'block';
+        }
+        // Show the first content section
+        showSection('introduction');
+    }
+}
+
+// Tutorial Progress Tracking
+function updateTutorialProgress() {
+    const visitedSections = JSON.parse(localStorage.getItem('claude-tutorial-progress') || '[]');
+    const currentSection = document.querySelector('.section[style*="block"]')?.id;
+    
+    if (currentSection && !visitedSections.includes(currentSection)) {
+        visitedSections.push(currentSection);
+        localStorage.setItem('claude-tutorial-progress', JSON.stringify(visitedSections));
+    }
+    
+    // Update progress display
+    const totalSections = document.querySelectorAll('.section').length;
+    const progressPercentage = Math.round((visitedSections.length / totalSections) * 100);
+    
+    const progressFill = document.getElementById('tutorial-progress');
+    const progressText = document.querySelector('.progress-text');
+    
+    if (progressFill) {
+        progressFill.style.width = progressPercentage + '%';
+    }
+    
+    if (progressText) {
+        progressText.textContent = `${progressPercentage}% complete`;
+    }
+    
+    // Celebration effect when complete
+    if (progressPercentage === 100) {
+        setTimeout(() => {
+            showCelebrationMessage();
+        }, 500);
+    }
+}
+
+function showCelebrationMessage() {
+    const celebration = document.createElement('div');
+    celebration.className = 'celebration-message';
+    celebration.innerHTML = `
+        <div class="celebration-content">
+            <h3>🎉 Congratulations!</h3>
+            <p>You've completed the Claude Code tutorial!</p>
+            <button onclick="this.parentElement.parentElement.remove()" class="celebration-close">
+                Continue Exploring
+            </button>
+        </div>
+    `;
+    
+    celebration.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10001;
+        animation: fadeIn 0.3s ease;
+    `;
+    
+    const content = celebration.querySelector('.celebration-content');
+    content.style.cssText = `
+        background: white;
+        padding: 2rem;
+        border-radius: 1rem;
+        text-align: center;
+        max-width: 400px;
+        margin: 1rem;
+        animation: bounce 0.6s ease;
+    `;
+    
+    document.body.appendChild(celebration);
+    
+    trackEvent('tutorial_completed', {
+        sections_visited: JSON.parse(localStorage.getItem('claude-tutorial-progress') || '[]').length
+    });
+}
+
+// Initialize tutorial progress on load
+document.addEventListener('DOMContentLoaded', function() {
+    updateTutorialProgress();
+});
