@@ -1,0 +1,84 @@
+{
+  "name": "Claude Code Tutorial - Enterprise Guide",
+  "short_name": "Claude Code Tutorial",
+  "description": "Master Claude Code with our comprehensive enterprise tutorial featuring live updates, ROI calculators, and professional workflows.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#ff6b35",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-GB",
+  "categories": ["education", "productivity", "developer"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%23ff6b35' rx='24'/><text x='96' y='130' text-anchor='middle' font-size='100' fill='white'>⚡</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23ff6b35' rx='64'/><text x='256' y='350' text-anchor='middle' font-size='280' fill='white'>⚡</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1280 800'><rect width='1280' height='800' fill='%23fafafa'/><rect x='0' y='0' width='320' height='800' fill='%23ffffff'/><rect x='40' y='80' width='240' height='32' fill='%23ff6b35' rx='16'/><text x='640' y='200' text-anchor='middle' font-size='48' fill='%23171717'>Claude Code Tutorial</text><text x='640' y='250' text-anchor='middle' font-size='24' fill='%23525252'>Enterprise-Grade AI Development Guide</text></svg>",
+      "sizes": "1280x800",
+      "type": "image/svg+xml",
+      "form_factor": "wide",
+      "label": "Desktop view of Claude Code Tutorial"
+    }
+  ],
+  "features": [
+    "Cross Platform",
+    "fast",
+    "simple"
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "What's New",
+      "short_name": "Updates",
+      "description": "View latest Claude Code features and updates",
+      "url": "/#latest-features",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='80'>🆕</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "30-Second Setup",
+      "short_name": "Quick Start",
+      "description": "Get started with Claude Code in 30 seconds",
+      "url": "/#30-second-setup",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='80'>⏱️</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "ROI Calculator",
+      "short_name": "ROI Calc",
+      "description": "Calculate your development time savings",
+      "url": "/#roi-calculator",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><text y='.9em' font-size='80'>💰</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-// DOM Elements
+// DOM Elements - Enterprise Enhanced
 const menuToggle = document.getElementById('menu-toggle');
 const closeMenu = document.getElementById('close-menu');
 const sideMenu = document.getElementById('side-menu');
@@ -6,19 +6,39 @@ const menuLinks = document.querySelectorAll('.menu-link');
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabContents = document.querySelectorAll('.tab-content');
 const progressIndicator = document.getElementById('progress-indicator');
+const themeToggle = document.getElementById('theme-toggle');
+const navSearch = document.getElementById('nav-search');
+const currentSection = document.getElementById('current-section');
 
 // Menu overlay for mobile
 let menuOverlay = null;
 
-// Initialize app
+// Enterprise features state
+let currentTheme = 'light';
+let setupTimer = null;
+let roiCalculatorData = {
+    teamSize: 5,
+    avgSalary: 75000,
+    timeSaved: 20,
+    claudeCost: 600
+};
+
+// Initialize app - Enterprise Enhanced
 document.addEventListener('DOMContentLoaded', function() {
     initializeMenu();
     initializeTabs();
     initializeProgressIndicator();
-    initializeSections(); // Initialize section switching instead of scroll spy
+    initializeSections();
     initializeSmoothScroll();
     initializeCategorizedNavigation();
     initializeNavigationSearch();
+    initializeThemeToggle();
+    initializeInteractiveFeatures();
+    initializeROICalculator();
+    initializeLiveUpdates();
+    
+    // Show the "What's New" section by default
+    showSection('latest-features');
 });
 
 // Menu functionality
@@ -341,13 +361,56 @@ function initializeNavigationSearch() {
     
     let searchTimeout;
     
+    // Enhanced search with keyboard navigation
+    let selectedIndex = -1;
+    let searchResults = [];
+    
     searchInput.addEventListener('input', function() {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(() => {
             const searchTerm = this.value.toLowerCase().trim();
             performNavSearch(searchTerm);
+            selectedIndex = -1; // Reset selection
         }, 150);
     });
+    
+    // Keyboard navigation for search results
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            selectedIndex = Math.min(selectedIndex + 1, searchResults.length - 1);
+            highlightSelectedResult();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            selectedIndex = Math.max(selectedIndex - 1, -1);
+            highlightSelectedResult();
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (selectedIndex >= 0 && searchResults[selectedIndex]) {
+                searchResults[selectedIndex].click();
+                searchInput.blur();
+                closeMenuHandler();
+            }
+        } else if (e.key === 'Escape') {
+            searchInput.value = '';
+            searchInput.blur();
+            resetNavigationView();
+        }
+    });
+    
+    function highlightSelectedResult() {
+        searchResults.forEach((result, index) => {
+            result.classList.toggle('search-selected', index === selectedIndex);
+        });
+        
+        // Scroll selected result into view
+        if (selectedIndex >= 0 && searchResults[selectedIndex]) {
+            searchResults[selectedIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }
+    }
     
     function performNavSearch(searchTerm) {
         if (searchTerm === '') {
@@ -1293,3 +1356,534 @@ function updateProgressIndicator(percentage) {
 
 // Initialize tutorial progress tracking
 document.addEventListener('DOMContentLoaded', initializeTutorialProgress);
+
+/* ========================================
+   ENTERPRISE-GRADE FUNCTIONALITY
+   ======================================== */
+
+// Theme Toggle Functionality
+function initializeThemeToggle() {
+    if (!themeToggle) return;
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('claude-tutorial-theme') || 'light';
+    setTheme(savedTheme);
+    
+    themeToggle.addEventListener('click', function() {
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(currentTheme);
+    });
+}
+
+function setTheme(theme) {
+    currentTheme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('claude-tutorial-theme', theme);
+    
+    if (themeToggle) {
+        themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+        themeToggle.setAttribute('aria-label', `Switch to ${theme === 'light' ? 'dark' : 'light'} theme`);
+    }
+}
+
+// Interactive Features
+function initializeInteractiveFeatures() {
+    // Copy to clipboard functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('copy-btn') || e.target.closest('.copy-btn')) {
+            copyToClipboard(e.target.closest('.copy-btn'));
+        }
+    });
+    
+    // Setup timer functionality
+    const timerElement = document.getElementById('setup-timer');
+    if (timerElement) {
+        startSetupTimer();
+    }
+    
+    // Interactive step completion
+    initializeStepTracking();
+}
+
+function copyToClipboard(button) {
+    const codeBlock = button.closest('.code-block');
+    if (!codeBlock) return;
+    
+    const code = codeBlock.querySelector('code');
+    if (!code) return;
+    
+    navigator.clipboard.writeText(code.textContent).then(() => {
+        // Visual feedback
+        const originalText = button.textContent;
+        button.textContent = '✓';
+        button.style.background = 'var(--color-success)';
+        button.style.color = 'white';
+        
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = '';
+            button.style.color = '';
+        }, 1500);
+        
+        // Analytics
+        trackEvent('code_copied', {
+            code: code.textContent.substring(0, 50)
+        });
+    }).catch(err => {
+        console.error('Copy failed:', err);
+        button.textContent = '❌';
+        setTimeout(() => {
+            button.textContent = '📋';
+        }, 1000);
+    });
+}
+
+function startSetupTimer() {
+    let seconds = 30;
+    const timerDisplay = document.getElementById('setup-timer');
+    if (!timerDisplay) return;
+    
+    setupTimer = setInterval(() => {
+        seconds--;
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        
+        if (seconds <= 0) {
+            clearInterval(setupTimer);
+            timerDisplay.textContent = '00:00';
+            showSuccessMessage();
+        }
+    }, 1000);
+}
+
+function showSuccessMessage() {
+    const successMessage = document.querySelector('.success-message');
+    if (successMessage) {
+        successMessage.style.display = 'block';
+        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Celebration animation
+        successMessage.style.animation = 'bounce 0.6s ease-in-out';
+        
+        trackEvent('setup_completed', {
+            time_taken: 30 - parseInt(document.getElementById('setup-timer').textContent.split(':')[1])
+        });
+    }
+}
+
+function initializeStepTracking() {
+    const stepItems = document.querySelectorAll('.step-item');
+    stepItems.forEach((step, index) => {
+        step.addEventListener('click', function() {
+            this.classList.add('completed');
+            
+            // Visual feedback
+            const stepNumber = this.querySelector('.step-number');
+            if (stepNumber) {
+                stepNumber.textContent = '✓';
+                stepNumber.style.background = 'var(--color-success)';
+            }
+            
+            // Check if all steps are completed
+            const completedSteps = document.querySelectorAll('.step-item.completed');
+            if (completedSteps.length === stepItems.length) {
+                showSuccessMessage();
+            }
+            
+            trackEvent('setup_step_completed', {
+                step: index + 1,
+                total_steps: stepItems.length
+            });
+        });
+    });
+}
+
+// ROI Calculator
+function initializeROICalculator() {
+    const calculatorInputs = document.querySelectorAll('#team-size, #avg-salary, #time-saved, #claude-cost');
+    
+    calculatorInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            roiCalculatorData[this.id.replace('-', '')] = parseFloat(this.value) || 0;
+            updateROIResults();
+        });
+    });
+    
+    // Initialize with default values
+    updateROIResults();
+}
+
+function updateROIResults() {
+    const { teamsize, avgsalary, timesaved, claudecost } = roiCalculatorData;
+    
+    // Calculate annual savings
+    const weeklyHours = 40;
+    const weeksPerYear = 52;
+    const hourlyRate = avgsalary / (weeklyHours * weeksPerYear);
+    const weeklyTimeSaved = (weeklyHours * timesaved) / 100;
+    const annualSavings = teamsize * weeklyTimeSaved * weeksPerYear * hourlyRate;
+    
+    // Calculate annual cost
+    const annualCost = claudecost * 12;
+    
+    // Calculate ROI
+    const netSavings = annualSavings - annualCost;
+    const roi = (netSavings / annualCost) * 100;
+    
+    // Calculate payback period (months)
+    const paybackPeriod = annualCost / (annualSavings / 12);
+    
+    // Update display
+    updateResultDisplay('annual-savings', `£${annualSavings.toLocaleString()}`);
+    updateResultDisplay('payback-period', `${paybackPeriod.toFixed(1)} months`);
+    updateResultDisplay('roi-percentage', `${roi.toFixed(0)}%`);
+    
+    trackEvent('roi_calculated', {
+        team_size: teamsize,
+        annual_savings: Math.round(annualSavings),
+        roi: Math.round(roi)
+    });
+}
+
+function updateResultDisplay(id, value) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.textContent = value;
+        
+        // Animation effect
+        element.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            element.style.transform = 'scale(1)';
+        }, 200);
+    }
+}
+
+function generateROIReport() {
+    const report = {
+        teamSize: roiCalculatorData.teamsize || 5,
+        avgSalary: roiCalculatorData.avgsalary || 75000,
+        timeSaved: roiCalculatorData.timesaved || 20,
+        claudeCost: roiCalculatorData.claudecost || 600,
+        generatedAt: new Date().toISOString()
+    };
+    
+    // Create downloadable report
+    const reportContent = generateReportHTML(report);
+    const blob = new Blob([reportContent], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `claude-code-roi-report-${new Date().toISOString().split('T')[0]}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    trackEvent('roi_report_generated', report);
+}
+
+function generateReportHTML(data) {
+    return `
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Claude Code ROI Analysis Report</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 40px; }
+        .header { background: linear-gradient(135deg, #ff6b35, #ff8f65); color: white; padding: 20px; border-radius: 8px; }
+        .metric { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 6px; }
+        .highlight { font-size: 24px; font-weight: bold; color: #ff6b35; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Claude Code ROI Analysis Report</h1>
+        <p>Generated: ${new Date(data.generatedAt).toLocaleDateString()}</p>
+    </div>
+    
+    <div class="metric">
+        <h3>Team Configuration</h3>
+        <p><strong>Team Size:</strong> ${data.teamSize} developers</p>
+        <p><strong>Average Salary:</strong> £${data.avgSalary.toLocaleString()}/year</p>
+        <p><strong>Expected Time Savings:</strong> ${data.timeSaved}% per week</p>
+    </div>
+    
+    <div class="metric">
+        <h3>Investment</h3>
+        <p><strong>Claude Code Cost:</strong> £${data.claudeCost}/month</p>
+        <p><strong>Annual Investment:</strong> £${(data.claudeCost * 12).toLocaleString()}</p>
+    </div>
+    
+    <div class="metric">
+        <h3>Returns</h3>
+        <p class="highlight">Annual Savings: £${calculateAnnualSavings(data).toLocaleString()}</p>
+        <p><strong>ROI:</strong> ${calculateROI(data).toFixed(0)}%</p>
+        <p><strong>Payback Period:</strong> ${calculatePayback(data).toFixed(1)} months</p>
+    </div>
+</body>
+</html>`;
+}
+
+function calculateAnnualSavings(data) {
+    const weeklyHours = 40;
+    const weeksPerYear = 52;
+    const hourlyRate = data.avgSalary / (weeklyHours * weeksPerYear);
+    const weeklyTimeSaved = (weeklyHours * data.timeSaved) / 100;
+    return data.teamSize * weeklyTimeSaved * weeksPerYear * hourlyRate;
+}
+
+function calculateROI(data) {
+    const annualSavings = calculateAnnualSavings(data);
+    const annualCost = data.claudeCost * 12;
+    return ((annualSavings - annualCost) / annualCost) * 100;
+}
+
+function calculatePayback(data) {
+    const annualSavings = calculateAnnualSavings(data);
+    const annualCost = data.claudeCost * 12;
+    return annualCost / (annualSavings / 12);
+}
+
+// Live Updates System
+function initializeLiveUpdates() {
+    // Simulate live version checking
+    checkForUpdates();
+    
+    // Check for updates every 30 minutes
+    setInterval(checkForUpdates, 30 * 60 * 1000);
+    
+    // Add update notification system
+    createUpdateNotificationSystem();
+}
+
+async function checkForUpdates() {
+    try {
+        // In a real implementation, this would fetch from Anthropic's API
+        // For demo purposes, we'll simulate an update check
+        const mockResponse = {
+            version: '2.5.1',
+            releaseDate: '2024-08-08',
+            hasUpdate: Math.random() > 0.8, // 20% chance of update
+            features: [
+                'Enhanced performance optimization',
+                'New security scanning features',
+                'Improved error handling'
+            ]
+        };
+        
+        if (mockResponse.hasUpdate) {
+            showUpdateNotification(mockResponse);
+        }
+        
+        // Update version badge
+        const versionBadge = document.querySelector('.version-badge span:last-child');
+        if (versionBadge) {
+            versionBadge.textContent = `v${mockResponse.version}`;
+        }
+        
+    } catch (error) {
+        console.error('Failed to check for updates:', error);
+    }
+}
+
+function createUpdateNotificationSystem() {
+    // Create update notification container
+    const notificationContainer = document.createElement('div');
+    notificationContainer.id = 'update-notifications';
+    notificationContainer.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 10000;
+        max-width: 350px;
+    `;
+    document.body.appendChild(notificationContainer);
+}
+
+function showUpdateNotification(updateInfo) {
+    const container = document.getElementById('update-notifications');
+    if (!container) return;
+    
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        background: var(--gradient-claude);
+        color: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: var(--shadow-lg);
+        animation: slideInRight 0.3s ease;
+        cursor: pointer;
+    `;
+    
+    notification.innerHTML = `
+        <h4 style="margin: 0 0 0.5rem 0;">🆕 New Claude Code Update!</h4>
+        <p style="margin: 0; font-size: 0.9rem;">Version ${updateInfo.version} is available</p>
+        <p style="margin: 0.5rem 0 0 0; font-size: 0.8rem; opacity: 0.9;">Click to view what's new</p>
+    `;
+    
+    notification.addEventListener('click', () => {
+        showSection('latest-features');
+        container.removeChild(notification);
+    });
+    
+    container.appendChild(notification);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+        if (container.contains(notification)) {
+            container.removeChild(notification);
+        }
+    }, 10000);
+    
+    trackEvent('update_notification_shown', {
+        version: updateInfo.version
+    });
+}
+
+// Enhanced Navigation for New Sections
+function showSection(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // Show target section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.style.display = 'block';
+        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Update breadcrumb
+        updateBreadcrumb(sectionId);
+        
+        // Update active menu link
+        updateActiveMenuLink(document.querySelector(`[href="#${sectionId}"]`));
+        
+        // Track section view
+        trackEvent('section_viewed', {
+            section: sectionId
+        });
+    }
+    
+    // Close mobile menu
+    if (window.innerWidth <= 1024) {
+        closeMenuHandler();
+    }
+}
+
+function updateBreadcrumb(sectionId) {
+    const breadcrumbCurrent = document.querySelector('.breadcrumb-current');
+    if (!breadcrumbCurrent) return;
+    
+    const sectionTitles = {
+        'latest-features': 'What\'s New',
+        '30-second-setup': '30-Second Setup',
+        'roi-calculator': 'ROI Calculator',
+        'security-compliance': 'Security & Compliance',
+        'team-management': 'Team Management',
+        'scaling-guide': 'Scaling Guide'
+    };
+    
+    breadcrumbCurrent.textContent = sectionTitles[sectionId] || 'Section';
+}
+
+function updateActiveMenuLink(activeLink) {
+    // Remove active class from all menu links
+    document.querySelectorAll('.menu-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Add active class to current link
+    if (activeLink) {
+        activeLink.classList.add('active');
+    }
+}
+
+// Analytics and Event Tracking
+function trackEvent(eventName, properties = {}) {
+    // In a real implementation, this would send to analytics service
+    console.log('Event tracked:', eventName, properties);
+    
+    // Store locally for demo purposes
+    const events = JSON.parse(localStorage.getItem('claude-tutorial-events') || '[]');
+    events.push({
+        event: eventName,
+        properties,
+        timestamp: new Date().toISOString()
+    });
+    
+    // Keep only last 100 events
+    if (events.length > 100) {
+        events.splice(0, events.length - 100);
+    }
+    
+    localStorage.setItem('claude-tutorial-events', JSON.stringify(events));
+}
+
+// Performance Optimization
+function initializePerformanceOptimizations() {
+    // Lazy load images
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+    
+    // Preload critical CSS
+    const criticalCSS = document.createElement('link');
+    criticalCSS.rel = 'preload';
+    criticalCSS.href = 'styles.css';
+    criticalCSS.as = 'style';
+    document.head.appendChild(criticalCSS);
+}
+
+// Error Handling and Fallbacks
+window.addEventListener('error', function(e) {
+    console.error('JavaScript error:', e.error);
+    
+    trackEvent('javascript_error', {
+        message: e.message,
+        filename: e.filename,
+        lineno: e.lineno
+    });
+    
+    // Show user-friendly error message for critical failures
+    if (e.error && e.error.stack && e.error.stack.includes('initializeMenu')) {
+        showFallbackNavigation();
+    }
+});
+
+function showFallbackNavigation() {
+    // Create a simple fallback navigation if main navigation fails
+    const fallbackNav = document.createElement('div');
+    fallbackNav.innerHTML = `
+        <div style="background: #fee; padding: 1rem; border: 1px solid #fcc; border-radius: 4px; margin: 1rem;">
+            <h4>Navigation temporarily unavailable</h4>
+            <p>Please refresh the page or try again later.</p>
+            <button onclick="location.reload()" style="background: #ff6b35; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">
+                Refresh Page
+            </button>
+        </div>
+    `;
+    
+    const container = document.querySelector('.app-container');
+    if (container) {
+        container.insertBefore(fallbackNav, container.firstChild);
+    }
+}
+
+// Initialize performance optimizations on load
+document.addEventListener('DOMContentLoaded', initializePerformanceOptimizations);
