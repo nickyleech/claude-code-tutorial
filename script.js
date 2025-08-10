@@ -875,16 +875,7 @@ function initializeDarkMode() {
 
 // Enhanced functionality for new sections
 
-// Enhanced Download functionality with multiple formats
-function downloadCheatSheetPDF() {
-    // Create a comprehensive cheat sheet content
-    const cheatSheetData = generateCheatSheetContent();
-    downloadFile(cheatSheetData, 'claude-code-cheat-sheet-2025.md', 'text/markdown');
-    
-    trackEvent('cheat_sheet_download', { format: 'markdown' });
-}
-
-// New Markdown download function
+// Markdown download function
 function downloadCheatSheetMarkdown() {
     const cheatSheetData = generateCheatSheetContent();
     downloadFile(cheatSheetData, 'claude-code-cheat-sheet-2025.md', 'text/markdown');
@@ -892,24 +883,6 @@ function downloadCheatSheetMarkdown() {
     trackEvent('cheat_sheet_download', { format: 'markdown' });
 }
 
-// JSON format download
-function downloadCheatSheetJSON() {
-    const cheatSheetData = generateCheatSheetJSON();
-    downloadFile(JSON.stringify(cheatSheetData, null, 2), 'claude-code-cheat-sheet-2025.json', 'application/json');
-    
-    trackEvent('cheat_sheet_download', { format: 'json' });
-}
-
-function printCheatSheet() {
-    // Create a print-friendly version
-    const printContent = generatePrintableCheatSheet();
-    const printWindow = window.open('', '_blank');
-    printWindow.document.write(printContent);
-    printWindow.document.close();
-    printWindow.print();
-    
-    trackEvent('cheat_sheet_print', {});
-}
 
 function downloadTemplate(templateType) {
     const templates = {
@@ -1010,26 +983,6 @@ Generated with Claude Code Cheat Sheet 2025 - v2.5.1+
 `;
 }
 
-function generatePrintableCheatSheet() {
-    return `
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Claude Code Cheat Sheet</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 20px; }
-        h1, h2, h3 { color: #2563eb; }
-        code { background: #f3f4f6; padding: 2px 4px; border-radius: 3px; }
-        .section { margin-bottom: 20px; page-break-inside: avoid; }
-        ul { padding-left: 20px; }
-        @media print { body { margin: 0; } }
-    </style>
-</head>
-<body>
-    ${generateCheatSheetContent().replace(/\n/g, '<br>').replace(/#{1,3}\s/g, '<h3>').replace(/- /g, '<li>').replace(/\`([^`]+)\`/g, '<code>$1</code>')}
-</body>
-</html>`;
-}
 
 // Template generators
 function generatePortfolioTemplate() {
@@ -1529,147 +1482,11 @@ function generateCheatSheetJSON() {
 
 // Initialize Enhanced Cheat Sheet Features
 function initializeEnhancedCheatSheet() {
-    initializeCheatSearch();
     initializeCheatToggleBar();
     initializeCheatCollapse();
     initializeEnhancedCopyButtons();
 }
 
-// Cheat Sheet Search Functionality
-function initializeCheatSearch() {
-    const searchInput = document.getElementById('cheat-search');
-    if (!searchInput) return;
-
-    let searchTimeout;
-    
-    searchInput.addEventListener('input', function() {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
-            const searchTerm = this.value.toLowerCase().trim();
-            performCheatSearch(searchTerm);
-        }, 150);
-    });
-    
-    // Keyboard shortcuts
-    searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            this.value = '';
-            resetCheatSearch();
-        }
-    });
-    
-    // Add search shortcut (Ctrl/Cmd + K)
-    document.addEventListener('keydown', function(e) {
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k' && e.target.tagName !== 'INPUT') {
-            e.preventDefault();
-            searchInput.focus();
-            searchInput.select();
-        }
-    });
-}
-
-function performCheatSearch(searchTerm) {
-    const cheatCards = document.querySelectorAll('.cheat-card');
-    
-    if (!searchTerm) {
-        resetCheatSearch();
-        return;
-    }
-    
-    let hasResults = false;
-    
-    cheatCards.forEach(card => {
-        const cardText = card.textContent.toLowerCase();
-        const isMatch = cardText.includes(searchTerm);
-        
-        if (isMatch) {
-            card.classList.remove('hidden');
-            hasResults = true;
-            // Highlight matching text
-            highlightSearchMatches(card, searchTerm);
-        } else {
-            card.classList.add('hidden');
-        }
-    });
-    
-    // Show/hide "no results" message
-    showCheatSearchResults(!hasResults, searchTerm);
-    
-    trackEvent('cheat_search', {
-        term: searchTerm,
-        hasResults: hasResults
-    });
-}
-
-function resetCheatSearch() {
-    const cheatCards = document.querySelectorAll('.cheat-card');
-    cheatCards.forEach(card => {
-        card.classList.remove('hidden');
-        removeSearchHighlights(card);
-    });
-    
-    // Remove "no results" message
-    const noResults = document.querySelector('.cheat-no-results');
-    if (noResults) {
-        noResults.remove();
-    }
-}
-
-function highlightSearchMatches(element, searchTerm) {
-    // Simple highlighting - you could make this more sophisticated
-    const walker = document.createTreeWalker(
-        element,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-    );
-    
-    const textNodes = [];
-    let node;
-    while (node = walker.nextNode()) {
-        textNodes.push(node);
-    }
-    
-    textNodes.forEach(textNode => {
-        const text = textNode.textContent;
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
-        if (regex.test(text)) {
-            const highlightedText = text.replace(regex, '<mark>$1</mark>');
-            const span = document.createElement('span');
-            span.innerHTML = highlightedText;
-            textNode.parentNode.replaceChild(span, textNode);
-        }
-    });
-}
-
-function removeSearchHighlights(element) {
-    const highlights = element.querySelectorAll('mark');
-    highlights.forEach(highlight => {
-        highlight.outerHTML = highlight.textContent;
-    });
-}
-
-function showCheatSearchResults(noResults, searchTerm) {
-    const existingMessage = document.querySelector('.cheat-no-results');
-    if (existingMessage) {
-        existingMessage.remove();
-    }
-    
-    if (noResults) {
-        const noResultsDiv = document.createElement('div');
-        noResultsDiv.className = 'cheat-no-results';
-        noResultsDiv.innerHTML = `
-            <div style="text-align: center; padding: 2rem; color: #6b7280;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
-                <div style="font-weight: 500; margin-bottom: 0.25rem;">No results found for "${searchTerm}"</div>
-                <div style="font-size: 0.875rem;">Try searching for "claude", "shift+tab", "think", or "mcp"</div>
-            </div>
-        `;
-        
-        const cheatGrid = document.querySelector('.cheat-sections-grid.enhanced');
-        cheatGrid.appendChild(noResultsDiv);
-    }
-}
 
 // Toggle Bar Functionality
 function initializeCheatToggleBar() {
