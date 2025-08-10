@@ -103,553 +103,6 @@
         <!-- Main Content -->
         <main class="main-content" id="main-content">
 
-            <!-- Simple Tutorial Section -->
-            <section id="tutorial" class="section">
-                <div class="section-header">
-                    <h2>Getting Started</h2>
-                    <p class="subtitle">Everything you need to start using Claude Code</p>
-                </div>
-                
-                <div class="content-card">
-                    <h3>Installation & Setup</h3>
-                    <div class="setup-steps">
-                        <div class="setup-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Install Claude Code</h4>
-                                <div class="code-block">
-                                    <code>npm install -g @anthropic-ai/claude-code</code>
-                                </div>
-                                <p>Install Claude Code globally on your system. Requires Node.js 18 or newer.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="setup-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Navigate to Your Project</h4>
-                                <div class="code-block">
-                                    <code>cd your-project</code>
-                                </div>
-                                <p>Go to your project directory. Claude Code works best when run from your project root.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="setup-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Start Claude Code</h4>
-                                <div class="code-block">
-                                    <code>claude</code>
-                                </div>
-                                <p>Launch Claude Code and start your conversation. You'll see a welcome message and prompt.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="content-card">
-                    <h3>Essential Commands</h3>
-                    <p>These commands work in any Claude Code session:</p>
-                    <div class="command-list">
-                        <div class="command-item">
-                            <code>/help</code>
-                            <span>Show all available commands and their descriptions</span>
-                        </div>
-                        <div class="command-item">
-                            <code>/memory</code>
-                            <span>Edit your CLAUDE.md file to store project context</span>
-                        </div>
-                        <div class="command-item">
-                            <code>/clear</code>
-                            <span>Clear chat history and start a fresh conversation</span>
-                        </div>
-                        <div class="command-item">
-                            <code>/init</code>
-                            <span>Create a new CLAUDE.md file for your project</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="content-card">
-                    <h3>Your First Conversation</h3>
-                    <p>Try starting with one of these prompts:</p>
-                    <div class="prompt-examples">
-                        <div class="prompt-item">
-                            <div class="prompt-text">"Give me an overview of this project"</div>
-                            <div class="prompt-desc">Understand what your codebase does</div>
-                        </div>
-                        <div class="prompt-item">
-                            <div class="prompt-text">"Help me build a simple website"</div>
-                            <div class="prompt-desc">Start a new project from scratch</div>
-                        </div>
-                        <div class="prompt-item">
-                            <div class="prompt-text">"Fix the bug in my login form"</div>
-                            <div class="prompt-desc">Debug existing code issues</div>
-                        </div>
-                        <div class="prompt-item">
-                            <div class="prompt-text">"Add a dark mode toggle"</div>
-                            <div class="prompt-desc">Implement new features</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Anthropic News & Updates -->
-            <section id="latest-features" class="section">
-                <h2>Anthropic News & Updates</h2>
-                
-                <div class="news-timeline">
-                    <article class="timeline-item">
-                        <div class="timeline-date">January 2025</div>
-                        <div class="timeline-content">
-                            <h3>🚀 Claude 4 Family</h3>
-                            <p><strong>Claude Opus 4</strong> - World's best coding model, 72.5% on SWE-bench</p>
-                            <p><strong>Claude Sonnet 4</strong> - Extended thinking with tool use capabilities</p>
-                            <div class="highlights">
-                                • Sustained performance on long-running tasks<br>
-                                • Parallel tool usage and improved memory<br>
-                                • Available on Pro, Max, Team, Enterprise plans
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="timeline-item">
-                        <div class="timeline-date">December 2024</div>
-                        <div class="timeline-content">
-                            <h3>🌐 Web Search</h3>
-                            <p>Claude can now search the internet for up-to-date information with direct citations.</p>
-                            <div class="highlights">
-                                • Real-time information access<br>
-                                • Fact-checking with source citations<br>
-                                • Available for paid users in the US
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="timeline-item">
-                        <div class="timeline-date">October 2024</div>
-                        <div class="timeline-content">
-                            <h3>🖥️ Computer Use (Beta)</h3>
-                            <p>Claude 3.5 Sonnet can interact with computers through screen interpretation.</p>
-                            <div class="highlights">
-                                • Screen image interpretation<br>
-                                • Mouse and keyboard control<br>
-                                • Top performer on OSWorld benchmark (14.9%)
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="timeline-item">
-                        <div class="timeline-date">June 2024</div>
-                        <div class="timeline-content">
-                            <h3>🎯 Claude 3.5 Sonnet</h3>
-                            <p>Most intelligent model with graduate-level reasoning and coding proficiency.</p>
-                            <div class="highlights">
-                                • 64% problem-solving rate in coding evaluation<br>
-                                • Industry-leading benchmarks<br>
-                                • Cost-effective with mid-tier pricing
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                
-                <div class="business-metrics">
-                    <h3>📊 Business Impact</h3>
-                    <div class="metrics-grid">
-                        <div class="metric">
-                            <span class="metric-number">$850M</span>
-                            <span class="metric-label">2024 Revenue</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-number">$2.2B</span>
-                            <span class="metric-label">2025 Projected</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-number">18.9M</span>
-                            <span class="metric-label">Monthly Users</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Claude Code Changelog -->
-            <section id="claude-code-changelog" class="section">
-                <h2>📋 Claude Code Changelog</h2>
-                <p class="subtitle">Track every update and improvement</p>
-                
-                <div class="changelog-timeline">
-                    <div class="changelog-item">
-                        <div class="changelog-version">
-                            <span class="version-tag">Latest</span>
-                            <strong>June 30, 2025</strong>
-                        </div>
-                        <div class="changelog-content">
-                            <h4>🎣 Hooks Support</h4>
-                            <p>Added support for "hooks" with community input from GitHub Issues</p>
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-version">June 18, 2025</div>
-                        <div class="changelog-content">
-                            <h4>🔌 MCP Enhancements</h4>
-                            <p>• SSE and HTTP transports for MCP servers<br>
-                               • `/mcp` command for OAuth 2.0 authentication<br>
-                               • Reference MCP resources with `@server:protocol://path`</p>
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-version">June 11, 2025</div>
-                        <div class="changelog-content">
-                            <h4>🛠️ SDK Release</h4>
-                            <p>Claude Code SDK for TypeScript and Python</p>
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-version">June 4, 2025</div>
-                        <div class="changelog-content">
-                            <h4>💎 Pro & Max Plans</h4>
-                            <p>Claude Code now available on Pro and Max subscription plans</p>
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-version">May 22, 2025</div>
-                        <div class="changelog-content">
-                            <h4>🚀 General Availability</h4>
-                            <p>Claude Code reaches GA with GitHub Actions and IDE integrations</p>
-                        </div>
-                    </div>
-                    
-                    <div class="changelog-item">
-                        <div class="changelog-version">February 24, 2025</div>
-                        <div class="changelog-content">
-                            <h4>🧪 Research Preview</h4>
-                            <p>Claude Code command line tool enters research preview</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="changelog-footer">
-                    <p><em>For complete release notes, visit the <a href="https://docs.anthropic.com/en/release-notes/claude-code" target="_blank">official documentation</a></em></p>
-                </div>
-            </section>
-
-            <!-- 30-Second Setup Section -->
-            <section id="30-second-setup" class="section">
-                <div class="section-header">
-                    <h2>⏱️ 30-Second Setup</h2>
-                    <p class="subtitle">From zero to productivity instantly</p>
-                </div>
-                
-                <div class="content-card">
-                    <div class="setup-timer">
-                        <div class="timer-display">⏱️ <span id="setup-timer">00:30</span></div>
-                        <p>Follow along and beat the clock!</p>
-                    </div>
-                    
-                    <div class="setup-steps">
-                        <div class="step-item" data-step="1">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h4>Install Claude Code</h4>
-                                <div class="code-block interactive">
-                                    <code>npm install -g @anthropic-ai/claude-code</code>
-                                    <button class="copy-btn" onclick="copyToClipboard(this)">📋</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="step-item" data-step="2">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h4>Navigate to Your Project</h4>
-                                <div class="code-block interactive">
-                                    <code>cd your-project</code>
-                                    <button class="copy-btn" onclick="copyToClipboard(this)">📋</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="step-item" data-step="3">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h4>Start Claude Code</h4>
-                                <div class="code-block interactive">
-                                    <code>claude</code>
-                                    <button class="copy-btn" onclick="copyToClipboard(this)">📋</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="success-message" style="display: none;">
-                        <h4>🎉 Success! You're ready to code with Claude!</h4>
-                        <p>Try asking: "Help me understand this codebase" or "Create a new React component"</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ROI Calculator Section -->
-            <section id="roi-calculator" class="section">
-                <div class="section-header">
-                    <h2>💰 Enterprise ROI Calculator</h2>
-                    <p class="subtitle">Calculate your development time savings</p>
-                </div>
-                
-                <div class="content-card">
-                    <div class="roi-calculator">
-                        <div class="calculator-inputs">
-                            <div class="input-group">
-                                <label for="team-size">Team Size</label>
-                                <input type="number" id="team-size" value="5" min="1" max="100">
-                                <span class="input-suffix">developers</span>
-                            </div>
-                            
-                            <div class="input-group">
-                                <label for="avg-salary">Average Salary</label>
-                                <input type="number" id="avg-salary" value="75000" min="30000" max="200000">
-                                <span class="input-suffix">£/year</span>
-                            </div>
-                            
-                            <div class="input-group">
-                                <label for="time-saved">Time Saved</label>
-                                <input type="number" id="time-saved" value="20" min="5" max="50">
-                                <span class="input-suffix">% per week</span>
-                            </div>
-                            
-                            <div class="input-group">
-                                <label for="claude-cost">Claude Code Cost</label>
-                                <input type="number" id="claude-cost" value="600" min="100" max="5000">
-                                <span class="input-suffix">£/month</span>
-                            </div>
-                        </div>
-                        
-                        <div class="calculator-results">
-                            <div class="result-card primary">
-                                <h4>Annual Savings</h4>
-                                <div class="result-value" id="annual-savings">£78,000</div>
-                                <div class="result-change">+15% vs last year</div>
-                            </div>
-                            
-                            <div class="result-card">
-                                <h4>Payback Period</h4>
-                                <div class="result-value" id="payback-period">0.9 months</div>
-                            </div>
-                            
-                            <div class="result-card">
-                                <h4>ROI</h4>
-                                <div class="result-value" id="roi-percentage">1,083%</div>
-                            </div>
-                        </div>
-                        
-                        <button class="action-button primary full-width" onclick="generateROIReport()">
-                            📊 Generate Full Report
-                        </button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Introduction Section -->
-            <section id="intro" class="section">
-                <div class="section-header">
-                    <h2>What is Claude Code?</h2>
-                    <p class="subtitle">Your personal coding assistant</p>
-                </div>
-                
-                <div class="content-card">
-                    <h3>Think of Claude Code as Your Brilliant Mate</h3>
-                    <p>Imagine having a knowledgeable friend who:</p>
-                    <ul class="benefit-list">
-                        <li>Understands your entire project at a glance</li>
-                        <li>Can explain complex technical bits in simple terms</li>
-                        <li>Makes changes to your code just by chatting</li>
-                        <li>Never judges your questions, no matter how basic</li>
-                    </ul>
-                    <p>That's exactly what Claude Code is!</p>
-                </div>
-
-                <div class="content-card">
-                    <h3>What Can Claude Code Do?</h3>
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <h4>🔍 Understand Your Project</h4>
-                            <p>"What does this website do?"</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>✏️ Make Changes</h4>
-                            <p>"Change the title to 'My Portfolio'"</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>🔧 Fix Problems</h4>
-                            <p>"This button isn't working, can you help?"</p>
-                        </div>
-                        <div class="feature-item">
-                            <h4>➕ Add New Features</h4>
-                            <p>"Add a dark mode toggle"</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-card highlight">
-                    <h3>Key Benefits</h3>
-                    <ul class="checkmark-list">
-                        <li>No programming knowledge required</li>
-                        <li>Instant understanding of your project</li>
-                        <li>Safe changes with your approval</li>
-                        <li>Learn as you go</li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Getting Started Section -->
-            <section id="getting-started" class="section">
-                <div class="section-header">
-                    <h2>Getting Started</h2>
-                    <p class="subtitle">Everything you need to begin</p>
-                </div>
-
-                <div class="content-card">
-                    <h3>What You'll Need</h3>
-                    <ul class="simple-list">
-                        <li>A computer (Windows, Mac, or Linux)</li>
-                        <li>An internet connection</li>
-                        <li>A project folder (even an empty one!)</li>
-                    </ul>
-                </div>
-
-                <div class="content-card">
-                    <h3>Installation</h3>
-                    <div class="step-tabs">
-                        <button class="tab-button active" data-tab="mac">Mac</button>
-                        <button class="tab-button" data-tab="windows">Windows</button>
-                        <button class="tab-button" data-tab="linux">Linux</button>
-                    </div>
-                    
-                    <div class="tab-content active" id="mac">
-                        <ol class="step-list">
-                            <li>Open Terminal (press <kbd>Cmd + Space</kbd>, type "Terminal")</li>
-                            <li>Type this command:
-                                <div class="code-block">
-                                    npm install -g @anthropic-ai/claude-code
-                                </div>
-                            </li>
-                            <li>Press Enter and wait for installation</li>
-                        </ol>
-                    </div>
-                    
-                    <div class="tab-content" id="windows">
-                        <ol class="step-list">
-                            <li>Open Command Prompt (press <kbd>Windows + R</kbd>, type "cmd")</li>
-                            <li>Type this command:
-                                <div class="code-block">
-                                    npm install -g @anthropic-ai/claude-code
-                                </div>
-                            </li>
-                            <li>Press Enter and wait for installation</li>
-                        </ol>
-                    </div>
-                    
-                    <div class="tab-content" id="linux">
-                        <ol class="step-list">
-                            <li>Open Terminal (usually <kbd>Ctrl + Alt + T</kbd>)</li>
-                            <li>Type this command:
-                                <div class="code-block">
-                                    npm install -g @anthropic-ai/claude-code
-                                </div>
-                            </li>
-                            <li>Press Enter and wait for installation</li>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <h3>Starting Claude Code</h3>
-                    <ol class="step-list">
-                        <li>Navigate to your project folder</li>
-                        <li>Type: <code class="inline-code">claude</code></li>
-                        <li>Look for the welcome message!</li>
-                    </ol>
-                </div>
-            </section>
-
-            <!-- First Chat Section -->
-            <section id="first-chat" class="section">
-                <div class="section-header">
-                    <h2>Your First Chat</h2>
-                    <p class="subtitle">Perfect starting points for new users</p>
-                </div>
-                
-                <div class="content-card highlight">
-                    <h3>🌟 Starting Fresh? Try These</h3>
-                    <div class="question-examples">
-                        <div class="question-item">
-                            <strong>Create something new:</strong>
-                            <p>"Help me build a personal portfolio website"</p>
-                        </div>
-                        <div class="question-item">
-                            <strong>Learn by doing:</strong>
-                            <p>"Create a simple to-do list app with HTML, CSS, and JavaScript"</p>
-                        </div>
-                        <div class="question-item">
-                            <strong>Get project ideas:</strong>
-                            <p>"What's a good beginner web development project for someone learning?"</p>
-                        </div>
-                        <div class="question-item">
-                            <strong>Understand the setup:</strong>
-                            <p>"How do I set up a new web project that I can deploy to Vercel?"</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <h3>💬 Example First Conversation</h3>
-                    <div class="chat-example">
-                        <div class="chat-message user">
-                            <strong>You:</strong> I'm new to web development. Can you help me create a simple personal website?
-                        </div>
-                        <div class="chat-message claude">
-                            <strong>Claude:</strong> Absolutely! I'd love to help you create your first website. Let's start with a simple personal site that you can be proud of.<br><br>
-                            
-                            I'll create:
-                            • A clean HTML structure<br>
-                            • Modern CSS styling<br>
-                            • Mobile-friendly design<br>
-                            • Ready to deploy to Vercel<br><br>
-                            
-                            What should we call your website? And what would you like to showcase about yourself?
-                        </div>
-                        <div class="chat-message user">
-                            <strong>You:</strong> Let's call it "My Portfolio" and I'd like to show my photography work.
-                        </div>
-                        <div class="chat-message claude">
-                            <strong>Claude:</strong> Perfect! A photography portfolio is a great choice. I'll create a beautiful site with:<br><br>
-                            
-                            📸 <strong>Homepage:</strong> Welcome message and featured photo<br>
-                            🖼️ <strong>Gallery:</strong> Grid layout for your photos<br>
-                            📝 <strong>About:</strong> Your story as a photographer<br>
-                            📧 <strong>Contact:</strong> How people can reach you<br><br>
-                            
-                            Let me start by creating the main files. Should I begin?
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <h3>🎯 First Chat Success Tips</h3>
-                    <ul class="tips-list">
-                        <li><strong>Be specific about your goals:</strong> "I want to build a restaurant website" rather than "I need a website"</li>
-                        <li><strong>Mention your experience level:</strong> "I'm a complete beginner" or "I know some HTML/CSS"</li>
-                        <li><strong>Ask for explanations:</strong> "Can you explain what this CSS does?" helps you learn</li>
-                        <li><strong>Start simple:</strong> Begin with basic features, then add complexity later</li>
-                        <li><strong>Ask about deployment:</strong> "How do I put this online?" - Claude can help with Vercel!</li>
-                    </ul>
-                </div>
-            </section>
-
             <!-- Cheat Sheet Section -->
             <section id="cheat-sheet" class="section">
                 <div class="section-header">
@@ -992,6 +445,439 @@
                     <p><strong>Quick tip:</strong> Use <code>Ctrl/Cmd + F</code> to search this page, or use the search bar above for instant results!</p>
                 </div>
 
+            </section>
+
+            <!-- Tutorial Section -->
+            <section id="tutorial" class="section">
+                <div class="section-header">
+                    <h2>Getting Started</h2>
+                    <p class="subtitle">Everything you need to start using Claude Code</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Installation & Setup</h3>
+                    <div class="setup-steps">
+                        <div class="setup-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Install Claude Code</h4>
+                                <div class="code-block">
+                                    <code>npm install -g @anthropic-ai/claude-code</code>
+                                </div>
+                                <p>Install Claude Code globally on your system. Requires Node.js 18 or newer.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="setup-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Navigate to Your Project</h4>
+                                <div class="code-block">
+                                    <code>cd your-project</code>
+                                </div>
+                                <p>Go to your project directory. Claude Code works best when run from your project root.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="setup-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Start Claude Code</h4>
+                                <div class="code-block">
+                                    <code>claude</code>
+                                </div>
+                                <p>Launch Claude Code and start your conversation. You'll see a welcome message and prompt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Essential Commands</h3>
+                    <p>These commands work in any Claude Code session:</p>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>/help</code>
+                            <span>Show all available commands and their descriptions</span>
+                        </div>
+                        <div class="command-item">
+                            <code>/memory</code>
+                            <span>Edit your CLAUDE.md file to store project context</span>
+                        </div>
+                        <div class="command-item">
+                            <code>/clear</code>
+                            <span>Clear chat history and start a fresh conversation</span>
+                        </div>
+                        <div class="command-item">
+                            <code>/init</code>
+                            <span>Create a new CLAUDE.md file for your project</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Your First Conversation</h3>
+                    <p>Try starting with one of these prompts:</p>
+                    <div class="prompt-examples">
+                        <div class="prompt-item">
+                            <div class="prompt-text">"Give me an overview of this project"</div>
+                            <div class="prompt-desc">Understand what your codebase does</div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-text">"Help me build a simple website"</div>
+                            <div class="prompt-desc">Start a new project from scratch</div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-text">"Fix the bug in my login form"</div>
+                            <div class="prompt-desc">Debug existing code issues</div>
+                        </div>
+                        <div class="prompt-item">
+                            <div class="prompt-text">"Add a dark mode toggle"</div>
+                            <div class="prompt-desc">Implement new features</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Anthropic News & Updates -->
+            <section id="latest-features" class="section">
+                <h2>Anthropic News & Updates</h2>
+                
+                <div class="news-timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-date">January 2025</div>
+                        <div class="timeline-content">
+                            <h3>🚀 Claude 4 Family</h3>
+                            <p><strong>Claude Opus 4</strong> - World's best coding model, 72.5% on SWE-bench</p>
+                            <p><strong>Claude Sonnet 4</strong> - Extended thinking with tool use capabilities</p>
+                            <div class="highlights">
+                                • Sustained performance on long-running tasks<br>
+                                • Parallel tool usage and improved memory<br>
+                                • Available on Pro, Max, Team, Enterprise plans
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-date">December 2024</div>
+                        <div class="timeline-content">
+                            <h3>🌐 Web Search</h3>
+                            <p>Claude can now search the internet for up-to-date information with direct citations.</p>
+                            <div class="highlights">
+                                • Real-time information access<br>
+                                • Fact-checking with source citations<br>
+                                • Available for paid users in the US
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-date">October 2024</div>
+                        <div class="timeline-content">
+                            <h3>🖥️ Computer Use (Beta)</h3>
+                            <p>Claude 3.5 Sonnet can interact with computers through screen interpretation.</p>
+                            <div class="highlights">
+                                • Screen image interpretation<br>
+                                • Mouse and keyboard control<br>
+                                • Top performer on OSWorld benchmark (14.9%)
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="timeline-item">
+                        <div class="timeline-date">June 2024</div>
+                        <div class="timeline-content">
+                            <h3>🎯 Claude 3.5 Sonnet</h3>
+                            <p>Most intelligent model with graduate-level reasoning and coding proficiency.</p>
+                            <div class="highlights">
+                                • 64% problem-solving rate in coding evaluation<br>
+                                • Industry-leading benchmarks<br>
+                                • Cost-effective with mid-tier pricing
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="business-metrics">
+                    <h3>📊 Business Impact</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <span class="metric-number">$850M</span>
+                            <span class="metric-label">2024 Revenue</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-number">$2.2B</span>
+                            <span class="metric-label">2025 Projected</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-number">18.9M</span>
+                            <span class="metric-label">Monthly Users</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Claude Code Changelog -->
+            <section id="claude-code-changelog" class="section">
+                <h2>📋 Claude Code Changelog</h2>
+                <p class="subtitle">Track every update and improvement</p>
+                
+                <div class="changelog-timeline">
+                    <div class="changelog-item">
+                        <div class="changelog-version">
+                            <span class="version-tag">Latest</span>
+                            <strong>June 30, 2025</strong>
+                        </div>
+                        <div class="changelog-content">
+                            <h4>🎣 Hooks Support</h4>
+                            <p>Added support for "hooks" with community input from GitHub Issues</p>
+                        </div>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">June 18, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🔌 MCP Enhancements</h4>
+                            <p>• SSE and HTTP transports for MCP servers<br>
+                               • `/mcp` command for OAuth 2.0 authentication<br>
+                               • Reference MCP resources with `@server:protocol://path`</p>
+                        </div>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">June 11, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🛠️ SDK Release</h4>
+                            <p>Claude Code SDK for TypeScript and Python</p>
+                        </div>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">June 4, 2025</div>
+                        <div class="changelog-content">
+                            <h4>💎 Pro & Max Plans</h4>
+                            <p>Claude Code now available on Pro and Max subscription plans</p>
+                        </div>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">May 22, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🚀 General Availability</h4>
+                            <p>Claude Code reaches GA with GitHub Actions and IDE integrations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="changelog-item">
+                        <div class="changelog-version">February 24, 2025</div>
+                        <div class="changelog-content">
+                            <h4>🧪 Research Preview</h4>
+                            <p>Claude Code command line tool enters research preview</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="changelog-footer">
+                    <p><em>For complete release notes, visit the <a href="https://docs.anthropic.com/en/release-notes/claude-code" target="_blank">official documentation</a></em></p>
+                </div>
+            </section>
+
+
+            <!-- Introduction Section -->
+            <section id="intro" class="section">
+                <div class="section-header">
+                    <h2>What is Claude Code?</h2>
+                    <p class="subtitle">Your personal coding assistant</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Think of Claude Code as Your Brilliant Mate</h3>
+                    <p>Imagine having a knowledgeable friend who:</p>
+                    <ul class="benefit-list">
+                        <li>Understands your entire project at a glance</li>
+                        <li>Can explain complex technical bits in simple terms</li>
+                        <li>Makes changes to your code just by chatting</li>
+                        <li>Never judges your questions, no matter how basic</li>
+                    </ul>
+                    <p>That's exactly what Claude Code is!</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>What Can Claude Code Do?</h3>
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>🔍 Understand Your Project</h4>
+                            <p>"What does this website do?"</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>✏️ Make Changes</h4>
+                            <p>"Change the title to 'My Portfolio'"</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔧 Fix Problems</h4>
+                            <p>"This button isn't working, can you help?"</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>➕ Add New Features</h4>
+                            <p>"Add a dark mode toggle"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card highlight">
+                    <h3>Key Benefits</h3>
+                    <ul class="checkmark-list">
+                        <li>No programming knowledge required</li>
+                        <li>Instant understanding of your project</li>
+                        <li>Safe changes with your approval</li>
+                        <li>Learn as you go</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Getting Started Section -->
+            <section id="getting-started" class="section">
+                <div class="section-header">
+                    <h2>Getting Started</h2>
+                    <p class="subtitle">Everything you need to begin</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>What You'll Need</h3>
+                    <ul class="simple-list">
+                        <li>A computer (Windows, Mac, or Linux)</li>
+                        <li>An internet connection</li>
+                        <li>A project folder (even an empty one!)</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <h3>Installation</h3>
+                    <div class="step-tabs">
+                        <button class="tab-button active" data-tab="mac">Mac</button>
+                        <button class="tab-button" data-tab="windows">Windows</button>
+                        <button class="tab-button" data-tab="linux">Linux</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="mac">
+                        <ol class="step-list">
+                            <li>Open Terminal (press <kbd>Cmd + Space</kbd>, type "Terminal")</li>
+                            <li>Type this command:
+                                <div class="code-block">
+                                    npm install -g @anthropic-ai/claude-code
+                                </div>
+                            </li>
+                            <li>Press Enter and wait for installation</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tab-content" id="windows">
+                        <ol class="step-list">
+                            <li>Open Command Prompt (press <kbd>Windows + R</kbd>, type "cmd")</li>
+                            <li>Type this command:
+                                <div class="code-block">
+                                    npm install -g @anthropic-ai/claude-code
+                                </div>
+                            </li>
+                            <li>Press Enter and wait for installation</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="tab-content" id="linux">
+                        <ol class="step-list">
+                            <li>Open Terminal (usually <kbd>Ctrl + Alt + T</kbd>)</li>
+                            <li>Type this command:
+                                <div class="code-block">
+                                    npm install -g @anthropic-ai/claude-code
+                                </div>
+                            </li>
+                            <li>Press Enter and wait for installation</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>Starting Claude Code</h3>
+                    <ol class="step-list">
+                        <li>Navigate to your project folder</li>
+                        <li>Type: <code class="inline-code">claude</code></li>
+                        <li>Look for the welcome message!</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- First Chat Section -->
+            <section id="first-chat" class="section">
+                <div class="section-header">
+                    <h2>Your First Chat</h2>
+                    <p class="subtitle">Perfect starting points for new users</p>
+                </div>
+                
+                <div class="content-card highlight">
+                    <h3>🌟 Starting Fresh? Try These</h3>
+                    <div class="question-examples">
+                        <div class="question-item">
+                            <strong>Create something new:</strong>
+                            <p>"Help me build a personal portfolio website"</p>
+                        </div>
+                        <div class="question-item">
+                            <strong>Learn by doing:</strong>
+                            <p>"Create a simple to-do list app with HTML, CSS, and JavaScript"</p>
+                        </div>
+                        <div class="question-item">
+                            <strong>Get project ideas:</strong>
+                            <p>"What's a good beginner web development project for someone learning?"</p>
+                        </div>
+                        <div class="question-item">
+                            <strong>Understand the setup:</strong>
+                            <p>"How do I set up a new web project that I can deploy to Vercel?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>💬 Example First Conversation</h3>
+                    <div class="chat-example">
+                        <div class="chat-message user">
+                            <strong>You:</strong> I'm new to web development. Can you help me create a simple personal website?
+                        </div>
+                        <div class="chat-message claude">
+                            <strong>Claude:</strong> Absolutely! I'd love to help you create your first website. Let's start with a simple personal site that you can be proud of.<br><br>
+                            
+                            I'll create:
+                            • A clean HTML structure<br>
+                            • Modern CSS styling<br>
+                            • Mobile-friendly design<br>
+                            • Ready to deploy to Vercel<br><br>
+                            
+                            What should we call your website? And what would you like to showcase about yourself?
+                        </div>
+                        <div class="chat-message user">
+                            <strong>You:</strong> Let's call it "My Portfolio" and I'd like to show my photography work.
+                        </div>
+                        <div class="chat-message claude">
+                            <strong>Claude:</strong> Perfect! A photography portfolio is a great choice. I'll create a beautiful site with:<br><br>
+                            
+                            📸 <strong>Homepage:</strong> Welcome message and featured photo<br>
+                            🖼️ <strong>Gallery:</strong> Grid layout for your photos<br>
+                            📝 <strong>About:</strong> Your story as a photographer<br>
+                            📧 <strong>Contact:</strong> How people can reach you<br><br>
+                            
+                            Let me start by creating the main files. Should I begin?
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🎯 First Chat Success Tips</h3>
+                    <ul class="tips-list">
+                        <li><strong>Be specific about your goals:</strong> "I want to build a restaurant website" rather than "I need a website"</li>
+                        <li><strong>Mention your experience level:</strong> "I'm a complete beginner" or "I know some HTML/CSS"</li>
+                        <li><strong>Ask for explanations:</strong> "Can you explain what this CSS does?" helps you learn</li>
+                        <li><strong>Start simple:</strong> Begin with basic features, then add complexity later</li>
+                        <li><strong>Ask about deployment:</strong> "How do I put this online?" - Claude can help with Vercel!</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- CLAUDE.md Files Section -->

@@ -1860,23 +1860,40 @@ a:focus {
 .nav-link {
     background: none;
     border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
     color: var(--color-foreground-secondary);
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     font-family: var(--font-family-sans);
+    position: relative;
+    border: 1px solid transparent;
 }
 
 .nav-link:hover {
     background: var(--color-background-tertiary);
     color: var(--color-foreground);
+    transform: translateY(-1px);
+}
+
+.nav-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-claude-primary);
 }
 
 .nav-link.active {
-    background: var(--color-claude-primary);
+    background: var(--gradient-claude);
     color: white;
+    font-weight: 600;
+    border-color: var(--color-claude-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.nav-link.active:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Tutorial Section */
