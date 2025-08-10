@@ -2333,9 +2333,7 @@ a:focus {
 }
 
 .cheat-card.hidden {
-    opacity: 0;
-    transform: scale(0.95);
-    pointer-events: none;
+    display: none;
 }
 
 /* Collapsed State */
