@@ -40,11 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show the cheat sheet section by default
     showSection('cheat-sheet');
     
-    // Set cheat sheet menu link as active by default
-    const cheatSheetLink = document.querySelector('a[href="#cheat-sheet"]');
-    if (cheatSheetLink) {
-        updateActiveMenuLink(cheatSheetLink);
-    }
+    // Initialize navigation links
+    initializeNavigation();
     
     // Initialize quick access links
     initializeQuickAccess();
@@ -1652,6 +1649,25 @@ toastStyle.textContent = `
     }
 `;
 document.head.appendChild(toastStyle);
+
+// Initialize simple navigation
+function initializeNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Remove active class from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            
+            // Show corresponding section
+            const sectionId = this.getAttribute('data-section');
+            showSection(sectionId);
+        });
+    });
+}
 
 // Initialize enhanced cheat sheet on DOM ready
 document.addEventListener('DOMContentLoaded', function() {

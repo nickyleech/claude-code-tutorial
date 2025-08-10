@@ -88,20 +88,13 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
     <div class="app-container">
-        <!-- Enterprise Navigation Header -->
+        <!-- Simple Navigation Header -->
         <nav class="nav-bar">
             <div class="nav-content">
-                <h1 class="nav-title">Claude Code Cheat Sheet 2025</h1>
-                <div class="nav-status">
-                    <!-- Live Updates Banner -->
-                    <div class="version-badge" title="Latest Claude Code version">
-                        <span class="status-dot"></span>
-                        <span>v2.5.1</span>
-                    </div>
-                    <!-- Theme Toggle -->
-                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" title="Switch theme">
-                        🌙
-                    </button>
+                <h1 class="nav-title">Claude Code</h1>
+                <div class="nav-links">
+                    <button class="nav-link active" data-section="cheat-sheet">Cheat Sheet</button>
+                    <button class="nav-link" data-section="tutorial">Tutorial</button>
                 </div>
             </div>
         </nav>
@@ -110,52 +103,55 @@
         <!-- Main Content -->
         <main class="main-content" id="main-content">
 
-            <!-- Minimal News Feed - Default Landing -->
-            <section id="home" class="section news-feed-section">
-                <header class="news-header">
-                    <h1>Claude Code Guide</h1>
-                    <p>Latest updates and comprehensive tutorials</p>
-                </header>
-                
-                <div class="news-grid">
-                    <!-- Featured: Claude 4 Release -->
-                    <article class="news-item featured">
-                        <div class="news-badge new">Latest</div>
-                        <h2>Claude 4 Family Released</h2>
-                        <p class="news-meta">January 2025 • Anthropic</p>
-                        <p>Claude Opus 4 and Sonnet 4 set new standards for coding and reasoning. Opus 4 leads SWE-bench at 72.5% and offers extended thinking capabilities.</p>
-                        <div class="news-tags">
-                            <span class="tag">Coding</span>
-                            <span class="tag">Reasoning</span>
-                        </div>
-                    </article>
-                    
-                    <!-- Claude Code GA -->
-                    <article class="news-item">
-                        <h3>Claude Code Generally Available</h3>
-                        <p class="news-meta">May 22, 2025</p>
-                        <p>Now supports GitHub Actions, VS Code integration, and seamless pair programming workflows.</p>
-                    </article>
-                    
-                    <!-- Web Search -->
-                    <article class="news-item">
-                        <h3>Web Search Capability</h3>
-                        <p class="news-meta">December 2024</p>
-                        <p>Claude can now search the internet for real-time information with direct citations.</p>
-                    </article>
-                    
-                    <!-- Computer Use -->
-                    <article class="news-item">
-                        <h3>Computer Use Feature</h3>
-                        <p class="news-meta">October 2024</p>
-                        <p>Claude 3.5 Sonnet can interact with computers through screen interpretation and mouse/keyboard control.</p>
-                    </article>
+            <!-- Simple Tutorial Section -->
+            <section id="tutorial" class="section">
+                <div class="section-header">
+                    <h2>Getting Started</h2>
+                    <p class="subtitle">Everything you need to start using Claude Code</p>
                 </div>
                 
-                <div class="quick-links">
-                    <a href="#" onclick="showSection('30-second-setup')" class="quick-link">⏱️ Quick Setup</a>
-                    <a href="#" onclick="showSection('claude-code-changelog')" class="quick-link">📋 Full Changelog</a>
-                    <a href="#" onclick="toggleFullNavigation()" class="quick-link">📚 Browse Tutorial</a>
+                <div class="tutorial-grid">
+                    <div class="tutorial-card">
+                        <h3>1. Install</h3>
+                        <div class="code-block">
+                            <code>npm install -g @anthropic-ai/claude-code</code>
+                        </div>
+                        <p>Install Claude Code globally on your system</p>
+                    </div>
+                    
+                    <div class="tutorial-card">
+                        <h3>2. Navigate</h3>
+                        <div class="code-block">
+                            <code>cd your-project</code>
+                        </div>
+                        <p>Go to your project directory</p>
+                    </div>
+                    
+                    <div class="tutorial-card">
+                        <h3>3. Start</h3>
+                        <div class="code-block">
+                            <code>claude</code>
+                        </div>
+                        <p>Launch Claude Code and start coding</p>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>First Commands</h3>
+                    <div class="command-list">
+                        <div class="command-item">
+                            <code>/help</code>
+                            <span>Show available commands</span>
+                        </div>
+                        <div class="command-item">
+                            <code>/memory</code>
+                            <span>Edit your CLAUDE.md file</span>
+                        </div>
+                        <div class="command-item">
+                            <code>/clear</code>
+                            <span>Clear chat history</span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -617,8 +613,8 @@
             <!-- Cheat Sheet Section -->
             <section id="cheat-sheet" class="section">
                 <div class="section-header">
-                    <h2>Claude Code Cheat Sheet 2025</h2>
-                    <p class="subtitle">Complete quick reference guide - now includes latest features</p>
+                    <h2>Cheat Sheet</h2>
+                    <p class="subtitle">Quick reference guide with latest features</p>
                 </div>
 
 
