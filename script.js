@@ -37,8 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeROICalculator();
     initializeLiveUpdates();
     
-    // Show the home section by default
-    showSection('home');
+    // Show the cheat sheet section by default
+    showSection('cheat-sheet');
+    
+    // Set cheat sheet menu link as active by default
+    const cheatSheetLink = document.querySelector('a[href="#cheat-sheet"]');
+    if (cheatSheetLink) {
+        updateActiveMenuLink(cheatSheetLink);
+    }
     
     // Initialize quick access links
     initializeQuickAccess();
@@ -869,13 +875,29 @@ function initializeDarkMode() {
 
 // Enhanced functionality for new sections
 
-// Download functionality
+// Enhanced Download functionality with multiple formats
 function downloadCheatSheetPDF() {
     // Create a comprehensive cheat sheet content
     const cheatSheetData = generateCheatSheetContent();
-    downloadFile(cheatSheetData, 'claude-code-cheat-sheet.md', 'text/markdown');
+    downloadFile(cheatSheetData, 'claude-code-cheat-sheet-2025.md', 'text/markdown');
     
     trackEvent('cheat_sheet_download', { format: 'markdown' });
+}
+
+// New Markdown download function
+function downloadCheatSheetMarkdown() {
+    const cheatSheetData = generateCheatSheetContent();
+    downloadFile(cheatSheetData, 'claude-code-cheat-sheet-2025.md', 'text/markdown');
+    
+    trackEvent('cheat_sheet_download', { format: 'markdown' });
+}
+
+// JSON format download
+function downloadCheatSheetJSON() {
+    const cheatSheetData = generateCheatSheetJSON();
+    downloadFile(JSON.stringify(cheatSheetData, null, 2), 'claude-code-cheat-sheet-2025.json', 'application/json');
+    
+    trackEvent('cheat_sheet_download', { format: 'json' });
 }
 
 function printCheatSheet() {
@@ -910,17 +932,31 @@ function downloadProjectTemplate() {
     trackEvent('project_template_download', {});
 }
 
-// Helper function to generate cheat sheet content
+// Enhanced cheat sheet content generator with 2025 features
 function generateCheatSheetContent() {
-    return `# Claude Code Cheat Sheet
+    return `# Claude Code Cheat Sheet 2025
 
 ## Essential Commands
 - \`claude\` - Start Claude Code in current directory
-- \`/help\` - Show all available commands
+- \`/help\` - Show all available commands  
 - \`/memory\` - Edit your CLAUDE.md file
 - \`/init\` - Create a new CLAUDE.md file
+- \`/clear\` - Clear chat history and start fresh
+- \`claude --dangerously-skip-permissions\` - Skip permission prompts (use carefully)
 
-## VS Code Shortcuts
+## 2025 Operating Modes
+- \`Shift+Tab\` - **Toggle between three modes**: Default → Auto-Edit → Plan
+- **Default Mode** - Instructions with approval (collaborative approach)
+- **Auto-Edit Mode** - Autonomous code changes (faster but less control)  
+- **Plan Mode** - Creates plan first for approval (best for complex tasks)
+
+## Extended Thinking Levels (2025)
+- \`"think"\` - Basic level thinking for simple problems
+- \`"think hard"\` - Moderate thinking budget for complex analysis
+- \`"think harder"\` - High thinking budget for difficult problems
+- \`"ultrathink"\` - Maximum thinking budget for complex architectures
+
+## VS Code Integration
 ### Mac
 - \`Cmd+Esc\` - Quick launch Claude Code
 - \`Cmd+Option+K\` - Reference current file
@@ -929,37 +965,48 @@ function generateCheatSheetContent() {
 - \`Ctrl+Esc\` - Quick launch Claude Code
 - \`Alt+Ctrl+K\` - Reference current file
 
-## Best Practice Prompts
+### Pro Tips
+- Hold Shift while dragging files - Reference files properly (don't open in new tabs)
 
-### Project Review
-- "Give me an overview of this project"
-- "Review this code for improvements"
-- "Analyse this website for performance improvements"
+## Terminal Setup
+- \`/terminal-setup\` - Configure proper new line handling
+- \`Shift+Enter\` - New line in terminal (after setup)
+- \`npm install -g @anthropic-ai/claude-code\` - Install Claude Code globally
 
-### Feature Development
-- "Make this website mobile-friendly"
-- "Add accessibility features"
-- "Optimise for Vercel deployment"
+## MCP Integration (2025)
+- **Model Context Protocol** - Connect to external data sources and APIs
+- \`/install-github-app\` - Enable GitHub PR review automation
+- **Web Search** - Access real-time information during development
+- **Filesystem Operations** - Enhanced file and directory management
 
-### Debugging
-- "This [element] isn't working on [device/browser]"
-- "Explain this error: [error message]"
-- "Review this code for potential bugs"
+## 2025 Best Practice Workflows
+- "Make a plan before coding" - Use Plan mode for complex features
+- "Think hard about the architecture first" - Use extended thinking for system design
+- "Build tests first, then make them real" - TDD approach (Claude loves test-driven development)
+- \`/clear\` - Clear context frequently to avoid token bloat
 
-## Pro Tips
-- Be specific in your requests
-- Mention your target audience and platform
-- Ask for explanations to learn while you code
-- Use British English spelling (colour, centre, optimise)
-- Break large tasks into smaller steps
+## Essential Prompts
+- "Give me an overview of this project" - Understand codebase structure
+- "Review this code for improvements" - Get enhancement suggestions
+- "Explain this error message" - Debug problems with context
+- "Make this mobile-friendly" - Responsive design assistance
 
-## Vercel Deployment
-- \`vercel\` - Deploy your project
-- \`vercel --prod\` - Deploy to production
-- Always test mobile responsiveness before deploying
-- Add proper meta tags for SEO
+## Quick Troubleshooting
+- **Claude not starting?** Check Node.js version (18+ required)
+- **Permission prompts annoying?** Use --dangerously-skip-permissions flag
+- **VS Code shortcuts not working?** Reinstall VS Code extension
+- **Context getting too long?** Use /clear regularly to reset
+- **Files not referencing properly?** Hold Shift when dragging into Claude
 
-Generated with Claude Code Tutorial App
+## 2025 Pro Tips
+- **Collaboration vs Automation**: While Auto-Edit mode is fast, you'll typically get better results by being an active collaborator
+- **Planning First**: Use Plan mode for complex features. Tell Claude not to code until you've confirmed its plan
+- **Context Management**: Use /clear often. Every time you start something new, clear the chat
+- **Test-Driven Development**: Claude loves TDD! Have it build tests and mocks first, then make the mock real
+- **Be Specific**: "Change the header background to navy blue" works better than "change the colours"
+- **British English**: Claude understands "colour" vs "color" and "optimise" vs "optimize"
+
+Generated with Claude Code Cheat Sheet 2025 - v2.5.1+
 `;
 }
 
@@ -1366,6 +1413,433 @@ function updateProgressIndicator(percentage) {
 
 // Initialize tutorial progress tracking
 document.addEventListener('DOMContentLoaded', initializeTutorialProgress);
+
+// Enhanced Cheat Sheet Functionality
+function generateCheatSheetJSON() {
+    return {
+        title: "Claude Code Cheat Sheet 2025",
+        version: "2.5.1",
+        lastUpdated: new Date().toISOString(),
+        sections: {
+            essentialCommands: {
+                title: "Essential Commands",
+                items: [
+                    { command: "claude", description: "Start Claude Code in current directory" },
+                    { command: "/help", description: "Show all available commands" },
+                    { command: "/memory", description: "Edit your CLAUDE.md file" },
+                    { command: "/init", description: "Create a new CLAUDE.md file" },
+                    { command: "/clear", description: "Clear chat history and start fresh" },
+                    { command: "claude --dangerously-skip-permissions", description: "Skip permission prompts (use carefully)" }
+                ]
+            },
+            operatingModes2025: {
+                title: "2025 Operating Modes",
+                items: [
+                    { 
+                        shortcut: "Shift+Tab", 
+                        description: "Toggle between three modes: Default → Auto-Edit → Plan",
+                        modes: {
+                            default: "Instructions with approval (collaborative approach)",
+                            autoEdit: "Autonomous code changes (faster but less control)",
+                            plan: "Creates plan first for approval (best for complex tasks)"
+                        }
+                    }
+                ]
+            },
+            extendedThinking: {
+                title: "Extended Thinking Levels (2025)",
+                items: [
+                    { prompt: "think", description: "Basic level thinking for simple problems" },
+                    { prompt: "think hard", description: "Moderate thinking budget for complex analysis" },
+                    { prompt: "think harder", description: "High thinking budget for difficult problems" },
+                    { prompt: "ultrathink", description: "Maximum thinking budget for complex architectures" }
+                ]
+            },
+            vscodeIntegration: {
+                title: "VS Code Integration",
+                mac: [
+                    { shortcut: "Cmd+Esc", description: "Quick launch Claude Code" },
+                    { shortcut: "Cmd+Option+K", description: "Reference current file" }
+                ],
+                windowsLinux: [
+                    { shortcut: "Ctrl+Esc", description: "Quick launch Claude Code" },
+                    { shortcut: "Alt+Ctrl+K", description: "Reference current file" }
+                ],
+                tips: [
+                    { tip: "Hold Shift while dragging files", description: "Reference files properly (don't open in new tabs)" }
+                ]
+            },
+            mcpIntegration: {
+                title: "MCP Integration (2025)",
+                features: [
+                    { name: "Model Context Protocol", description: "Connect to external data sources and APIs" },
+                    { command: "/install-github-app", description: "Enable GitHub PR review automation" },
+                    { name: "Web Search", description: "Access real-time information during development" },
+                    { name: "Filesystem Operations", description: "Enhanced file and directory management" }
+                ]
+            },
+            bestPracticeWorkflows: {
+                title: "2025 Best Practice Workflows",
+                items: [
+                    { prompt: "Make a plan before coding", description: "Use Plan mode for complex features" },
+                    { prompt: "Think hard about the architecture first", description: "Use extended thinking for system design" },
+                    { prompt: "Build tests first, then make them real", description: "TDD approach (Claude loves test-driven development)" },
+                    { command: "/clear", description: "Clear context frequently to avoid token bloat" }
+                ]
+            },
+            troubleshooting: {
+                title: "Quick Troubleshooting",
+                items: [
+                    { problem: "Claude not starting?", solution: "Check Node.js version (18+ required)" },
+                    { problem: "Permission prompts annoying?", solution: "Use --dangerously-skip-permissions flag" },
+                    { problem: "VS Code shortcuts not working?", solution: "Reinstall VS Code extension" },
+                    { problem: "Context getting too long?", solution: "Use /clear regularly to reset" },
+                    { problem: "Files not referencing properly?", solution: "Hold Shift when dragging into Claude" }
+                ]
+            },
+            proTips2025: {
+                title: "2025 Pro Tips",
+                tips: [
+                    { 
+                        title: "Collaboration vs Automation",
+                        description: "While Auto-Edit mode is fast, you'll typically get better results by being an active collaborator"
+                    },
+                    {
+                        title: "Planning First", 
+                        description: "Use Plan mode for complex features. Tell Claude not to code until you've confirmed its plan"
+                    },
+                    {
+                        title: "Context Management",
+                        description: "Use /clear often. Every time you start something new, clear the chat"
+                    },
+                    {
+                        title: "Test-Driven Development",
+                        description: "Claude loves TDD! Have it build tests and mocks first, then make the mock real"
+                    }
+                ]
+            }
+        },
+        metadata: {
+            generatedWith: "Claude Code Cheat Sheet 2025",
+            ukFocus: true,
+            britishEnglish: true
+        }
+    };
+}
+
+// Initialize Enhanced Cheat Sheet Features
+function initializeEnhancedCheatSheet() {
+    initializeCheatSearch();
+    initializeCheatToggleBar();
+    initializeCheatCollapse();
+    initializeEnhancedCopyButtons();
+}
+
+// Cheat Sheet Search Functionality
+function initializeCheatSearch() {
+    const searchInput = document.getElementById('cheat-search');
+    if (!searchInput) return;
+
+    let searchTimeout;
+    
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            const searchTerm = this.value.toLowerCase().trim();
+            performCheatSearch(searchTerm);
+        }, 150);
+    });
+    
+    // Keyboard shortcuts
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            resetCheatSearch();
+        }
+    });
+    
+    // Add search shortcut (Ctrl/Cmd + K)
+    document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k' && e.target.tagName !== 'INPUT') {
+            e.preventDefault();
+            searchInput.focus();
+            searchInput.select();
+        }
+    });
+}
+
+function performCheatSearch(searchTerm) {
+    const cheatCards = document.querySelectorAll('.cheat-card');
+    
+    if (!searchTerm) {
+        resetCheatSearch();
+        return;
+    }
+    
+    let hasResults = false;
+    
+    cheatCards.forEach(card => {
+        const cardText = card.textContent.toLowerCase();
+        const isMatch = cardText.includes(searchTerm);
+        
+        if (isMatch) {
+            card.classList.remove('hidden');
+            hasResults = true;
+            // Highlight matching text
+            highlightSearchMatches(card, searchTerm);
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+    
+    // Show/hide "no results" message
+    showCheatSearchResults(!hasResults, searchTerm);
+    
+    trackEvent('cheat_search', {
+        term: searchTerm,
+        hasResults: hasResults
+    });
+}
+
+function resetCheatSearch() {
+    const cheatCards = document.querySelectorAll('.cheat-card');
+    cheatCards.forEach(card => {
+        card.classList.remove('hidden');
+        removeSearchHighlights(card);
+    });
+    
+    // Remove "no results" message
+    const noResults = document.querySelector('.cheat-no-results');
+    if (noResults) {
+        noResults.remove();
+    }
+}
+
+function highlightSearchMatches(element, searchTerm) {
+    // Simple highlighting - you could make this more sophisticated
+    const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null,
+        false
+    );
+    
+    const textNodes = [];
+    let node;
+    while (node = walker.nextNode()) {
+        textNodes.push(node);
+    }
+    
+    textNodes.forEach(textNode => {
+        const text = textNode.textContent;
+        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        if (regex.test(text)) {
+            const highlightedText = text.replace(regex, '<mark>$1</mark>');
+            const span = document.createElement('span');
+            span.innerHTML = highlightedText;
+            textNode.parentNode.replaceChild(span, textNode);
+        }
+    });
+}
+
+function removeSearchHighlights(element) {
+    const highlights = element.querySelectorAll('mark');
+    highlights.forEach(highlight => {
+        highlight.outerHTML = highlight.textContent;
+    });
+}
+
+function showCheatSearchResults(noResults, searchTerm) {
+    const existingMessage = document.querySelector('.cheat-no-results');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    if (noResults) {
+        const noResultsDiv = document.createElement('div');
+        noResultsDiv.className = 'cheat-no-results';
+        noResultsDiv.innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: #6b7280;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+                <div style="font-weight: 500; margin-bottom: 0.25rem;">No results found for "${searchTerm}"</div>
+                <div style="font-size: 0.875rem;">Try searching for "claude", "shift+tab", "think", or "mcp"</div>
+            </div>
+        `;
+        
+        const cheatGrid = document.querySelector('.cheat-sections-grid.enhanced');
+        cheatGrid.appendChild(noResultsDiv);
+    }
+}
+
+// Toggle Bar Functionality
+function initializeCheatToggleBar() {
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            toggleButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Filter sections
+            const section = this.getAttribute('data-section');
+            filterCheatSections(section);
+            
+            trackEvent('cheat_filter_toggle', {
+                section: section
+            });
+        });
+    });
+}
+
+function filterCheatSections(section) {
+    const cheatCards = document.querySelectorAll('.cheat-card[data-category]');
+    
+    if (section === 'all') {
+        cheatCards.forEach(card => {
+            card.classList.remove('hidden');
+        });
+        return;
+    }
+    
+    cheatCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (cardCategory === section) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+// Collapse Functionality
+function initializeCheatCollapse() {
+    const collapseButtons = document.querySelectorAll('.collapse-btn');
+    
+    collapseButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const card = this.closest('.cheat-card');
+            card.classList.toggle('collapsed');
+            
+            // Update button text
+            this.textContent = card.classList.contains('collapsed') ? '+' : '−';
+            
+            trackEvent('cheat_section_collapse', {
+                collapsed: card.classList.contains('collapsed'),
+                section: card.querySelector('h3').textContent
+            });
+        });
+    });
+}
+
+// Enhanced Copy Button Functionality
+function initializeEnhancedCopyButtons() {
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('copy-btn')) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const cheatItem = e.target.closest('.cheat-item');
+            if (cheatItem) {
+                const codeElement = cheatItem.querySelector('code');
+                const promptElement = cheatItem.querySelector('.prompt');
+                
+                let textToCopy = '';
+                if (codeElement) {
+                    textToCopy = codeElement.textContent;
+                } else if (promptElement) {
+                    textToCopy = promptElement.textContent;
+                }
+                
+                if (textToCopy) {
+                    copyToClipboardEnhanced(textToCopy, e.target);
+                }
+            }
+        }
+    });
+}
+
+function copyToClipboardEnhanced(text, button) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Visual feedback
+        const originalText = button.textContent;
+        const originalBg = button.style.background;
+        
+        button.textContent = '✓';
+        button.style.background = 'var(--color-success)';
+        button.style.color = 'white';
+        
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.style.background = originalBg;
+            button.style.color = '';
+        }, 1500);
+        
+        // Show toast notification
+        showCopyToast(text);
+        
+        trackEvent('cheat_copy', {
+            text: text.substring(0, 50),
+            type: text.startsWith('/') ? 'command' : text.startsWith('"') ? 'prompt' : 'code'
+        });
+    }).catch(err => {
+        console.error('Copy failed:', err);
+        button.textContent = '❌';
+        setTimeout(() => {
+            button.textContent = '📋';
+        }, 1000);
+    });
+}
+
+function showCopyToast(text) {
+    // Create toast notification
+    const toast = document.createElement('div');
+    toast.className = 'copy-toast';
+    toast.innerHTML = `
+        <div style="background: var(--color-success); color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-size: 0.9rem; max-width: 300px;">
+            ✓ Copied: <code style="background: rgba(255,255,255,0.2); padding: 0.25rem 0.5rem; border-radius: 4px;">${text.length > 30 ? text.substring(0, 30) + '...' : text}</code>
+        </div>
+    `;
+    
+    toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        animation: slideInRight 0.3s ease;
+    `;
+    
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+        toast.style.animation = 'slideOutRight 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(toast);
+        }, 300);
+    }, 2000);
+}
+
+// Add CSS animations for toast
+const toastStyle = document.createElement('style');
+toastStyle.textContent = `
+    @keyframes slideInRight {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideOutRight {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(toastStyle);
+
+// Initialize enhanced cheat sheet on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializeEnhancedCheatSheet();
+});
 
 /* ========================================
    ENTERPRISE-GRADE FUNCTIONALITY

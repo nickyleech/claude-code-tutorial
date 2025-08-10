@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     
     <!-- Primary Meta Tags -->
-    <title>Claude Code Tutorial - Enterprise-Grade AI Development Guide</title>
-    <meta name="title" content="Claude Code Tutorial - Enterprise-Grade AI Development Guide">
-    <meta name="description" content="Master Claude Code with our comprehensive enterprise tutorial. Features live updates, ROI calculators, and professional development workflows. Perfect for UK businesses.">
+    <title>Claude Code Cheat Sheet 2025 - Quick Reference Guide</title>
+    <meta name="title" content="Claude Code Cheat Sheet 2025 - Quick Reference Guide">
+    <meta name="description" content="Complete Claude Code cheat sheet with 2025 features: operating modes, extended thinking, MCP integration, and best practices. Download PDF, Markdown, or JSON formats.">
     <meta name="keywords" content="Claude Code, AI development, enterprise tutorial, UK, development tools, automation, ROI calculator">
     <meta name="author" content="Claude Code Tutorial">
     <meta name="robots" content="index, follow">
@@ -15,15 +15,15 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://claude-code-tutorial.vercel.app/">
-    <meta property="og:title" content="Claude Code Tutorial - Enterprise-Grade AI Development Guide">
-    <meta property="og:description" content="Master Claude Code with our comprehensive enterprise tutorial. Features live updates, ROI calculators, and professional development workflows.">
+    <meta property="og:title" content="Claude Code Cheat Sheet 2025 - Quick Reference Guide">
+    <meta property="og:description" content="Complete Claude Code cheat sheet with 2025 features: operating modes, extended thinking, MCP integration, and best practices. Download multiple formats.")
     <meta property="og:image" content="https://claude-code-tutorial.vercel.app/og-image.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://claude-code-tutorial.vercel.app/">
-    <meta property="twitter:title" content="Claude Code Tutorial - Enterprise-Grade AI Development Guide">
-    <meta property="twitter:description" content="Master Claude Code with our comprehensive enterprise tutorial. Features live updates, ROI calculators, and professional development workflows.">
+    <meta property="twitter:title" content="Claude Code Cheat Sheet 2025 - Quick Reference Guide">
+    <meta property="twitter:description" content="Complete Claude Code cheat sheet with 2025 features: operating modes, extended thinking, MCP integration, and best practices. Download multiple formats.")
     <meta property="twitter:image" content="https://claude-code-tutorial.vercel.app/og-image.png">
     
     <!-- Favicon -->
@@ -91,7 +91,7 @@
         <!-- Enterprise Navigation Header -->
         <nav class="nav-bar">
             <div class="nav-content">
-                <h1 class="nav-title">Claude Code Tutorial</h1>
+                <h1 class="nav-title">Claude Code Cheat Sheet 2025</h1>
                 <div class="nav-status">
                     <!-- Live Updates Banner -->
                     <div class="version-badge" title="Latest Claude Code version">
@@ -740,123 +740,363 @@
             <!-- Cheat Sheet Section -->
             <section id="cheat-sheet" class="section">
                 <div class="section-header">
-                    <h2>📄 Claude Code Cheat Sheet</h2>
-                    <p class="subtitle">Quick reference guide for everyday use</p>
+                    <h2>📄 Claude Code Cheat Sheet 2025</h2>
+                    <p class="subtitle">Complete quick reference guide - now includes latest features</p>
                 </div>
 
-                <div class="content-card highlight">
+                <!-- Quick Search Bar -->
+                <div class="cheat-search-container">
+                    <input type="text" id="cheat-search" placeholder="🔍 Quick search commands, shortcuts, or features..." class="cheat-search-input">
+                    <div class="search-results" id="cheat-search-results"></div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="content-card highlight download-section">
                     <h3>📥 Download Your Cheat Sheet</h3>
-                    <p>Get instant access to essential commands, shortcuts, and prompts - perfect for keeping beside your keyboard!</p>
+                    <p>Get instant access to essential commands, shortcuts, and 2025 features - perfect for keeping beside your keyboard!</p>
                     <div class="download-buttons">
-                        <button class="download-btn primary" onclick="downloadCheatSheetPDF()">
+                        <button class="download-btn primary" onclick="downloadCheatSheetPDF()" data-format="pdf">
                             📄 Download PDF
                         </button>
-                        <button class="download-btn secondary" onclick="printCheatSheet()">
+                        <button class="download-btn secondary" onclick="printCheatSheet()" data-format="print">
                             🖨️ Print Version
+                        </button>
+                        <button class="download-btn tertiary" onclick="downloadCheatSheetMarkdown()" data-format="markdown">
+                            📝 Markdown
+                        </button>
+                        <button class="download-btn quaternary" onclick="downloadCheatSheetJSON()" data-format="json">
+                            🔧 JSON
                         </button>
                     </div>
                 </div>
 
-                <div class="cheat-sections-grid">
-                    <div class="cheat-card">
-                        <h3>🚀 Essential Commands</h3>
+                <!-- Quick Toggle Bar -->
+                <div class="cheat-toggle-bar">
+                    <button class="toggle-btn active" data-section="all">All Sections</button>
+                    <button class="toggle-btn" data-section="essentials">Essentials</button>
+                    <button class="toggle-btn" data-section="2025-features">2025 Features</button>
+                    <button class="toggle-btn" data-section="workflows">Workflows</button>
+                    <button class="toggle-btn" data-section="troubleshooting">Troubleshooting</button>
+                </div>
+
+                <!-- Enhanced Cheat Sheet Grid -->
+                <div class="cheat-sections-grid enhanced">
+                    
+                    <!-- Essential Commands - Enhanced -->
+                    <div class="cheat-card category-essentials" data-category="essentials">
+                        <div class="cheat-card-header">
+                            <h3>🚀 Essential Commands</h3>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
                         <div class="cheat-items">
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <code>claude</code>
                                 <span>Start Claude Code in current directory</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <code>/help</code>
                                 <span>Show all available commands</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <code>/memory</code>
                                 <span>Edit your CLAUDE.md file</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <code>/init</code>
                                 <span>Create a new CLAUDE.md file</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <code>/clear</code>
+                                <span>Clear chat history and start fresh</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <code>claude --dangerously-skip-permissions</code>
+                                <span>Skip permission prompts (use carefully)</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="cheat-card">
-                        <h3>⌨️ VS Code Shortcuts</h3>
+                    <!-- 2025 New Features -->
+                    <div class="cheat-card category-2025-features new-badge" data-category="2025-features">
+                        <div class="cheat-card-header">
+                            <h3>🆕 2025 Operating Modes</h3>
+                            <span class="version-badge">v2.5.1+</span>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
                         <div class="cheat-items">
+                            <div class="cheat-item copyable highlight">
+                                <code>Shift+Tab</code>
+                                <span><strong>Toggle between three modes:</strong> Default → Auto-Edit → Plan</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
                             <div class="cheat-item">
+                                <span class="mode-indicator default">Default Mode</span>
+                                <small>Instructions with approval - collaborative approach</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="mode-indicator auto">Auto-Edit Mode</span>
+                                <small>Autonomous code changes - faster but less control</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="mode-indicator plan">Plan Mode</span>
+                                <small>Creates plan first for approval - best for complex tasks</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Extended Thinking -->
+                    <div class="cheat-card category-2025-features new-badge" data-category="2025-features">
+                        <div class="cheat-card-header">
+                            <h3>🧠 Extended Thinking Levels</h3>
+                            <span class="version-badge">2025</span>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
+                        <div class="cheat-items">
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"think"</span>
+                                <small>Basic level thinking for simple problems</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"think hard"</span>
+                                <small>Moderate thinking budget for complex analysis</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"think harder"</span>
+                                <small>High thinking budget for difficult problems</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"ultrathink"</span>
+                                <small>Maximum thinking budget for complex architectures</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VS Code Integration - Enhanced -->
+                    <div class="cheat-card category-essentials" data-category="essentials">
+                        <div class="cheat-card-header">
+                            <h3>⌨️ VS Code Integration</h3>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
+                        <div class="cheat-items">
+                            <div class="cheat-item copyable">
                                 <code>Cmd+Esc</code> <small>(Mac)</small>
                                 <span>Quick launch Claude Code</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <code>Ctrl+Esc</code> <small>(Windows/Linux)</small>
                                 <span>Quick launch Claude Code</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <code>Cmd+Option+K</code> <small>(Mac)</small>
                                 <span>Reference current file</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <code>Alt+Ctrl+K</code> <small>(Windows/Linux)</small>
                                 <span>Reference current file</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">Hold Shift while dragging files</span>
+                                <small>Reference files properly (don't open in new tabs)</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="cheat-card">
-                        <h3>💬 Starter Prompts</h3>
+                    <!-- Terminal Setup -->
+                    <div class="cheat-card category-essentials" data-category="essentials">
+                        <div class="cheat-card-header">
+                            <h3>🖥️ Terminal Setup</h3>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
+                        <div class="cheat-items">
+                            <div class="cheat-item copyable">
+                                <code>/terminal-setup</code>
+                                <span>Configure proper new line handling</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <code>Shift+Enter</code>
+                                <span>New line in terminal (after setup)</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <code>npm install -g @anthropic-ai/claude-code</code>
+                                <span>Install Claude Code globally</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MCP Integration -->
+                    <div class="cheat-card category-2025-features new-badge" data-category="2025-features">
+                        <div class="cheat-card-header">
+                            <h3>🔌 MCP Integration</h3>
+                            <span class="version-badge">2025</span>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
                         <div class="cheat-items">
                             <div class="cheat-item">
+                                <span class="feature-name">Model Context Protocol</span>
+                                <small>Connect to external data sources and APIs</small>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <code>/install-github-app</code>
+                                <span>Enable GitHub PR review automation</span>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="feature-name">Web Search</span>
+                                <small>Access real-time information during development</small>
+                            </div>
+                            <div class="cheat-item">
+                                <span class="feature-name">Filesystem Operations</span>
+                                <small>Enhanced file and directory management</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Practice Workflows -->
+                    <div class="cheat-card category-workflows" data-category="workflows">
+                        <div class="cheat-card-header">
+                            <h3>🔄 2025 Workflows</h3>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
+                        <div class="cheat-items">
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"Make a plan before coding"</span>
+                                <small>Use Plan mode for complex features</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"Think hard about the architecture first"</span>
+                                <small>Use extended thinking for system design</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"Build tests first, then make them real"</span>
+                                <small>TDD approach - Claude loves test-driven development</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">/clear</span>
+                                <small>Clear context frequently to avoid token bloat</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Essential Prompts -->
+                    <div class="cheat-card category-workflows" data-category="workflows">
+                        <div class="cheat-card-header">
+                            <h3>💬 Essential Prompts</h3>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
+                        <div class="cheat-items">
+                            <div class="cheat-item copyable">
                                 <span class="prompt">"Give me an overview of this project"</span>
                                 <small>Understand codebase structure</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <span class="prompt">"Review this code for improvements"</span>
                                 <small>Get enhancement suggestions</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
-                            <div class="cheat-item">
-                                <span class="prompt">"Create tests for this function"</span>
-                                <small>Generate test cases</small>
-                            </div>
-                            <div class="cheat-item">
+                            <div class="cheat-item copyable">
                                 <span class="prompt">"Explain this error message"</span>
-                                <small>Debug problems</small>
+                                <small>Debug problems with context</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
+                            </div>
+                            <div class="cheat-item copyable">
+                                <span class="prompt">"Make this mobile-friendly"</span>
+                                <small>Responsive design assistance</small>
+                                <button class="copy-btn" title="Copy to clipboard" aria-label="Copy command to clipboard">📋</button>
                             </div>
                         </div>
                     </div>
 
-                    <div class="cheat-card">
-                        <h3>🌐 Web Development</h3>
+                    <!-- Troubleshooting -->
+                    <div class="cheat-card category-troubleshooting" data-category="troubleshooting">
+                        <div class="cheat-card-header">
+                            <h3>🚨 Quick Troubleshooting</h3>
+                            <button class="collapse-btn" aria-label="Collapse section" aria-expanded="true">−</button>
+                        </div>
                         <div class="cheat-items">
                             <div class="cheat-item">
-                                <span class="prompt">"Make this website mobile-friendly"</span>
-                                <small>Responsive design help</small>
+                                <strong>Claude not starting?</strong>
+                                <small>Check Node.js version (18+ required)</small>
                             </div>
                             <div class="cheat-item">
-                                <span class="prompt">"Optimise for Vercel deployment"</span>
-                                <small>Performance improvements</small>
+                                <strong>Permission prompts annoying?</strong>
+                                <small>Use --dangerously-skip-permissions flag</small>
                             </div>
                             <div class="cheat-item">
-                                <span class="prompt">"Add accessibility features"</span>
-                                <small>WCAG compliance</small>
+                                <strong>VS Code shortcuts not working?</strong>
+                                <small>Reinstall VS Code extension</small>
                             </div>
                             <div class="cheat-item">
-                                <span class="prompt">"Create a loading animation"</span>
-                                <small>UI enhancements</small>
+                                <strong>Context getting too long?</strong>
+                                <small>Use /clear regularly to reset</small>
                             </div>
+                            <div class="cheat-item">
+                                <strong>Files not referencing properly?</strong>
+                                <small>Hold Shift when dragging into Claude</small>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Pro Tips - Enhanced -->
+                <div class="content-card pro-tips-enhanced">
+                    <h3>🎯 2025 Pro Tips</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <h4>🎮 Collaboration vs Automation</h4>
+                            <p>While Auto-Edit mode is fast, you'll typically get better results by being an active collaborator and guiding Claude's approach.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>🧠 Planning First</h4>
+                            <p>Use Plan mode for complex features. Explicitly tell Claude not to code until you've confirmed its plan looks good.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>🔄 Context Management</h4>
+                            <p>Use /clear often. Every time you start something new, clear the chat to avoid eating tokens unnecessarily.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>🧪 Test-Driven Development</h4>
+                            <p>Claude loves TDD! Have it build out tests and mocks first, then make the mock real in the next prompt.</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>🎯 Be Specific</h4>
+                            <p>"Change the header background to navy blue" works better than "change the colours"</p>
+                        </div>
+                        <div class="tip-card">
+                            <h4>🇬🇧 British English</h4>
+                            <p>Claude understands "colour" vs "color" and "optimise" vs "optimize" - use your preferred spelling</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="content-card">
-                    <h3>🎯 Pro Tips</h3>
-                    <ul class="pro-tips-list">
-                        <li><strong>Be specific:</strong> "Change the header background to navy blue" works better than "change the colours"</li>
-                        <li><strong>Context matters:</strong> Mention what you're building - "for my portfolio website" or "for a mobile app"</li>
-                        <li><strong>Ask for explanations:</strong> "Can you explain why this approach is better?" helps you learn</li>
-                        <li><strong>Break it down:</strong> For big changes, say "First, let's update the navigation, then we'll work on the footer"</li>
-                        <li><strong>Use British English:</strong> Claude understands "colour" vs "color" and "optimise" vs "optimize"</li>
-                    </ul>
+                <!-- Keyboard Shortcuts Info -->
+                <div class="keyboard-shortcuts-info">
+                    <p><strong>Quick tip:</strong> Use <code>Ctrl/Cmd + F</code> to search this page, or use the search bar above for instant results!</p>
                 </div>
+
             </section>
 
             <!-- CLAUDE.md Files Section -->
